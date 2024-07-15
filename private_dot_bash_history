@@ -1,0 +1,1000 @@
+ls
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+whereis bash
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+bash ./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+xfreerdp /u:docker /p:dockerwinapps /v:127.0.0.1:3389 +workarea
+man xfreerdp 
+vim rdpwin.sh 
+./rdpwin.sh 
+sudo ./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+ping 127.0.0.1
+vim rdpwin.sh 
+./rdpwin.sh 
+whereis bash
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+ps
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+cd
+sudo podman ps
+ls
+cd .programs/
+ls
+mv rdpwin.sh ~/
+ls
+cd
+ls
+cd winapps/
+ls
+vim compose.yaml 
+cd /
+ls
+cd dev
+ls
+cd bus
+ls
+cd usb
+ls
+cd 001
+ls
+cat 001
+cd ..
+ls
+cd 002
+ls
+cat 001
+ls
+cd
+cd /
+ls
+ls -l
+cd
+ls
+cd winapps/
+ls
+sudo podman-compose start
+ls
+sudo podman ps
+sudo podman inspect windows
+sudo podman inspect windows | grep usb
+sudo podman inspect windows | grep dev
+sudo podman-compose stop
+sudo podman-compose up
+sudo podman-compose start
+xfreerdp /u:docker /p:dockerwinapps /v:127.0.0.1:3389 
+sudo podman-compose up
+sudo podman-compose up -d
+cd
+ls
+./rdpwin.sh 
+vim r
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+sudo podman-compose ps
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+cd
+cd winapps/
+ls
+sudo podman inspect windows | grep dev
+xfreerdp /u:docker /p:dockerwinapps /v:127.0.0.1:3389 
+ls
+vim compose.yaml 
+ls
+sudo podman-compose stop
+sudo podman inspect windows | grep dev
+vim compose.yaml 
+lsusb
+vim compose.yaml 
+sudo podman-compose up -d
+xfreerdp /u:docker /p:dockerwinapps /v:127.0.0.1:3389 
+sudo podman-compose up -d
+sudo podman-compose stop
+sudo podman-compose up -d
+./rdpwin.sh 
+cd
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+vim rdpwin.sh 
+./rdpwin.sh 
+systemctl reboot
+rpm-ostree update
+systemctl reboot
+ujust --choose
+reboot
+rpm-ostree status
+reboot
+cd winapps/
+ls
+vim installer.sh 
+ls
+cd bin
+ls
+vim winapps 
+cd ..
+bin/winapps check
+ls
+cd
+ls
+./rdpwin.sh -s -d
+sudo podman ps
+vim rdpwin.sh 
+./rdpwin.sh -s -d
+sudo podman ps
+sudo podman ps -a
+vim rdpwin.sh 
+ls
+./rdpwin.sh -s 
+vim rdpwin.sh 
+./rdpwin.sh -s 
+vim rdpwin.sh 
+./rdpwin.sh -d
+vim rdpwin.sh 
+sudo podman ps
+./rdpwin.sh -s 
+vim rdpwin.sh 
+ls
+./rdpwin.sh -d
+ls
+cd winapps/
+bin/winapps check
+vim winapps 
+cd bin
+vim winapps 
+cd ..
+bin/winapps check
+excel-o365
+./installer.sh 
+ excel
+excel-o365
+vim winapps 
+cd bin
+vim winapps 
+./installer.sh 
+cd ..
+./installer.sh 
+excel-o365
+excel
+./installer.sh 
+excel-o365
+cd bin
+vim winapps 
+cd
+./rdpwin.sh -d
+./rdpwin.sh -s
+sudo podman stop windows
+./rdpwin.sh -s
+loggernet
+btop
+pwd
+ls
+btop
+reboot
+./rdpwin.sh -s
+loggernet
+sudo podman ps
+loggernet
+btop
+fastfetch
+./rdpwin.sh -d
+podman ps
+podman ps -a
+podman start Fedora40 
+./rdpwin.sh -d
+podman start Fedora40 
+./rdpwin.sh -d
+systemctl reboot
+./rdpwin.sh -s
+./rdpwin.sh -d
+./rdpwin.sh -s
+./rdpwin.sh -d
+podman start Fedora40 
+./rdpwin.sh -d
+reboot
+xfreerdp --version
+rpm-ostree install freerdp
+rpm-ostree status
+rpm-ostree update
+rpm-ostree uninstall freerdp
+rpm-ostree uninstall freerdp-libs
+systemctl reboot
+ls
+pwd
+sudo dnf update
+sudo dnf uninstall freerdp
+sudo dnf remove freerdp
+exit
+xfreerdp --version
+freerdp --version
+xfreerdp --verison
+xfreerdp --version
+ls
+cd Downloads/
+ls
+rpm-ostree install freerdp-3.5.1-2.fc41.x86_64.rpm
+rpm-ostree install freerdp
+systemctl reboot
+podman start Fedora40 
+ls
+pwd
+distorbox enter Fedora40
+distrobox enter Fedora40
+ls
+rmp-ostree status
+rpm-ostree statis
+rpm-ostree status
+cd Downloads/
+ls
+rpm-ostree override freerdp-3.5.1-2.fc41.x86_64.rpm
+rpm-ostree override freerdp freerdp-3.5.1-2.fc41.x86_64.rpm
+rpm-ostree override replace freerdp-3.5.1-2.fc41.x86_64.rpm
+systemctl reboot
+ls
+cd
+ls
+sudo dnf install btop
+btop
+distrobox-export --bin /usr/bin/btop
+exit
+sudo distrobox-export --bin /usr/bin/btop
+distrobox-export --bin --root /usr/bin/btop
+exit
+sudo dnf install btop
+cd
+sudo dnf install btop
+dnf install btop
+sudo apt update
+sudo dnf install btop
+dnf install btop
+sudo apt install btop
+eit
+exit
+ls
+sudo dnf install btop
+distorbox-export --bin /usr/bin/btop
+distrobox-export --bin /usr/bin/btop
+sudo dnf install copyq
+distrobox-export --app copyq
+exit
+ls
+xfreerdp --version
+ls
+sl -l
+ls -l
+ls -a
+cd .local/
+ls
+cd bin
+ls
+vim xfreerdp 
+rm xfreerdp 
+ls
+xfreerdp --version
+vim .bash_profile 
+ls
+cd
+vim .bash_profile 
+./rdpwin.sh -s
+./rdpwin.sh -d
+ls
+excel
+excel-o365
+cd .local/
+ls
+cd bin
+ls
+vim excel-o365 
+vim excel.exe 
+whereis excel-0365
+whereis excel-o365
+vim win
+ls
+vim winapps 
+vim rdpwin.sh 
+ls
+vim winapps 
+btop
+distrobox enter Fedora40 
+btop
+sudo btop
+distrobox enter Fedora40 
+distrobox create -i fedora:40 --root 
+distrobox enter fedora-40
+distrobox remove fedora-40 
+distrobox stop fedora-40 
+distrobox rm fedora-40 
+distrobox create -i fedora:latest --root --name Fedora40+
+distrobox create -i fedora:latest --root --name Fedora40root
+distrobox enter --root Fedora40root
+ls
+cd
+ls
+distrobox enter --root Fedora40root
+copyq
+btop
+cd .local/
+ls
+cd bin
+ls
+vim btop
+sudo btop
+btop
+shutdown
+fastfetch
+ls
+./rdpwin.sh -s
+./rdpwin.sh -d
+btop
+ls
+cd winapps/
+ls
+cd openups/
+ls
+cd ..
+ls
+cd apps
+ls
+cd ..
+ls
+mv openups/ ./apps/
+cd app
+cd apps/
+ls
+vim openups/
+cd openups/
+ls
+vim info 
+cd
+cd winapps/
+ls
+rm openups/
+rm -r openups/
+ls
+vim compose.yaml 
+cd
+./rdpwin.sh -s
+devconfig
+./rdpwin.sh -s
+./rdpwin.sh -d
+btop
+systemctl reboot
+ls
+mkdir StirlingPDF
+ls
+cd StirlingPDF/
+ls
+vim compose.yaml
+podman pull frooodle/s-pdf
+podman-compose up
+cd
+ls
+cd StirlingPDF/
+ls
+cd extraConfigs/
+ls
+cd ..
+ls
+cd trainingData/
+ls
+cd ..
+ls
+podman ps
+podman ps -a
+podman start stirlingpdf_stirling-pdf_1 
+podman ps
+podman inspect stirlingpdf_stirling-pdf_1 
+podman inspect stirlingpdf_stirling-pdf_1  | grep IP
+podman inspect stirlingpdf_stirling-pdf_1  | grep ip
+echo $EVN
+echo $ENV
+echo $env
+echo env
+cd
+cd .config/
+ls
+cd
+ls
+cd StirlingPDF/
+ls
+ls -a
+cd extraConfigs/
+ls -a
+cd ..
+ls
+ cd trainingData/i
+cd trainingData/
+ls -a
+cd
+cd StirlingPDF/
+s
+ls
+git clone https://github.com/Stirling-Tools/Stirling-PDF.git
+docker pull frooodle/s-pdf:latest-fat
+podman pull frooodle/s-pdf:latest-fat
+ls
+mv Stirling-PDF/ ~/
+cd ..
+ls
+rm -r StirlingPDF/
+cd Stirling-PDF/
+ls
+cd docs/
+ls
+cd ..
+ls
+cat HowToUseOCR.md 
+ls
+cat Dockerfile-fat 
+ls
+podman ps
+podman ps -a
+podman rm stirlingpdf_stirling-pdf_1 
+ls
+podman images ps
+podman images ps -a
+podman images 
+podman rmi 2375
+podman images
+ls
+vim compose.yaml
+ls -a
+cd .git
+ls
+cd ifo
+ls
+cd info/
+ls
+vim exclude 
+cd ..
+ls
+git pull 
+vim compose.yaml 
+ls
+vim compose.yaml 
+ls
+podman images
+podman-compose up
+ls
+git pull
+podman-compose up
+sudo podman-compose up
+l
+ls
+sudo podman ps
+sudo podman ps -a
+sudo podman rm stirling-pdf_stirling-pdf_1 
+ls
+ls -a
+ls
+podman ps
+podman ps -a
+ls
+podman-compose up -d
+vim compose.yaml 
+podman-compose up -d
+vim compose.yaml 
+podman inspect stirling-pdf_default 
+podman inspect stirlingpdf_default 
+podman pod ps
+podman pod rm pod_stirling-pdf 
+podman pod rm pod_stirlingpdf 
+podman-compose up -d
+podman ps
+podman ps  -a
+podman start stirling-pdf_stirling-pdf_1 
+podman inspect stirlingpdf_default 
+podman ps
+podman ps -a
+podman inspect stirling-pdf_stirling-pdf_1 
+podman contianer rm  stirling-pdf_stirling-pdf_1 
+podman container rm  stirling-pdf_stirling-pdf_1 
+ls
+vim compose.yaml 
+podman-compose up -d
+podman ps
+podman ps -a
+podman rm stirling-pdf_stirling-pdf_1 
+podman pod ps
+podman pod rm pod_stirtling-pdf
+podman pod rm pod_stirling-pdf
+podman ps -a
+podman-compose up -d
+ping 8.8.8.8
+btop
+reboot
+cd
+cd winapps/
+ls
+vim compose.yaml 
+cat compose.yaml 
+cd
+cd /
+ls
+cd etc
+ls
+cd distrobox/
+ls
+vim distrobox.conf 
+ls
+cd ..
+ls
+cd ostree/
+ls
+vim remotes.d/
+cd remotes.d/
+ls
+vim fedora-compose.conf 
+ls
+cat fedora.conf 
+cd ..
+ls
+cd ..
+ls
+cd rpm/
+ls
+cd ..
+ls
+cd ..
+ls
+cd ostree/
+ls
+cd repo/
+ls
+cd
+rpm-ostree status
+sudo dnf update
+sudo dnf install gimp
+distrobox-export --app gimp
+exit
+googler how does a dns work
+googler github
+./rdpwin.sh -s
+./rdpwin.sh -d
+systemctl reboot
+reboot
+sudo dnf install gparted
+distrobox-export --app gparted
+exit
+gparted
+cd /usr/bin
+ls
+cd
+cd .local/
+ls
+cd bin
+ls
+cd
+ls
+gparted
+brew install gparted
+flatpak search gparted
+rpm-ostree instal gparted
+rpm-ostree install gparted
+systemctl reboot
+btop
+lsblk
+lsblk
+sudo gunzip -c ~/Documents/advm2_generic_20240323.img.gz | sudo dd of=/dev/mmcblk0p1 bs=4M
+lsblk
+sudo gunzip -c ~/Documents/advm2_generic_20240323.img.gz | sudo dd of=/dev/mmcblk0p1 bs=4M
+rpm-ostree install balena-etcher
+rpm-ostree install rpi-imager
+systemctl reboot
+curl -sl https://fix.universal-blue.org/ | sudo bash
+curl -sL https://fix.universal-blue.org/ | sudo bash
+systemctl reboot
+podman ps
+podman ps -a
+cd
+cd Stirling-PDF/
+ls
+cat compose.yml 
+cd
+cd /usr/lib/systemd
+ls
+cd system
+ls
+cd
+cd /etc/systemd/system
+ls
+vim Stirling-PDF.container 
+[200~sudo chmod 644 /etc/systemd/system/Stirling-PDF.container
+sudo chmod 644 /etc/systemd/system/Stirling-PDF.container
+sudo systemctl enable Stirling-PDF.container
+mv Stirling-PDF.container ./Stirling-PDF.container.service
+sudo mv Stirling-PDF.container ./Stirling-PDF.container.service
+ls
+sudo systemctl enable Stirling-PDF.container
+vim Stirling-PDF.container.service 
+sudo vim Stirling-PDF.container.service 
+sudo systemctl enable Stirling-PDF.container
+sudo systemctl status Stirling-PDF.container
+systemctl daemon-reload
+sudo systemctl status Stirling-PDF.container
+ls
+sudo rm -r Stirling-PDF.container.service 
+ls
+systemctl daemon-reload
+cd
+cd .config/
+ls
+cd systemd/
+ls
+cd user
+ls
+sudo systemctl enable container-Stirling-PDF.service
+ systemctl enable container-Stirling-PDF.service
+sudo systemctl daemon-reload
+sudo systemctl enable container-Stirling-PDF.service
+systemctl enable container-Stirling-PDF.service
+sudo cp -r container-Stirling-PDF.service /etc/systemd/system/Stirling-PDF.service
+sudo systemctl daemon-reload
+systemctl enable container-Stirling-PDF.service
+sudo cp -r container-Stirling-PDF.service /etc/systemd/system/
+sudo systemctl daemon-reload
+systemctl enable container-Stirling-PDF.service
+systemctl status container-Stirling-PDF.service
+podman start Stirling-PDF 
+systemctl status container-Stirling-PDF.service
+systemctl reboot
+sudo dnf install k3b
+distrobox-export --app k3b --sudo
+exit
+sudo dnf remove btop
+distrobox-export --bin /usr/bin/btop --sudo
+ls
+whereis k3d
+cd /usr/bin
+ls
+k3b
+exit
+ls
+git clone git@github.com:MrTumnis/Winstall.git
+ls
+cd Winstall/
+ls
+vim autounattend.xml 
+ls
+cd
+ls
+k3b
+ls
+k3d
+K3d
+ls
+cd .local/
+ls
+cd bin
+ls
+rm brave.exe 
+ls
+vim distrobox_sudo_askpass 
+ls
+btop
+rpm-ostree status
+whereis btop
+ls
+rm btop
+k3b
+whereis k3b
+reboot
+systemctl status container-Stirling-PDF.service
+./rdpwin.sh -s
+./rdpwin.sh -d
+whereis k3b
+distrobox-export --bin /usr/bin/k3b --sudo
+distrobox-export --bin /usr/bin/k3b --sudo --no-sandbox
+distrobox-export --no-sandbox --bin /usr/bin/k3b --sudo
+distrobox-export --bin /usr/bin/k3b --sudo
+whereis k3b
+cd /usr/bin/
+ls
+vim k3b
+nano k3b
+k3b
+exit
+ls
+whereis org.kde.k3b.desktop
+whereis org.kde.k3b
+locate k3b
+ls
+cd /usr/bin
+ls
+cd ..
+ls
+cd share
+ls
+vim k3b/
+ls
+cd k3b
+ls
+cd cdi
+ls
+cd ..
+ls
+cd extra/
+ls
+cd
+distrobox-export --app k3b --sudo
+exit
+whereis k3b
+k3b
+k3b --no-sandbox
+cd .local/bin/
+ls
+rm k3b
+ls
+vim k3b 
+vim btop 
+btop
+k3b
+vim k3d
+k3b
+vim k3b
+k3b
+ls -l
+vim k3b
+k3b
+ls
+ls -al
+ls
+rm k3b 
+ls
+whereis k3b
+k3b
+ls
+systemctl reboot
+brew install digikam
+systemctl reboot
+sudo dnf remove digikam
+sudo dnf install pix
+exit
+sudo apt install pix
+exit
+distrobox create -i ubuntu:latest --name Ubuntu
+distrobox enter Ubuntu
+flatpak search pix
+flatpak install org.kde.pix
+flatpak run org.kde.pix
+git clone https://github.com/linuxmint/pix.git
+sudo apt install git
+sudo apt update
+git clone https://github.com/linuxmint/pix.git
+cd pix
+meson build
+ninja -C build
+sudo ninja -C build install
+sudo apt install ninja
+ls
+cd pix
+meson build
+ninja -C build
+sudo ninja -C build install
+[200~sudo apt install meson ninja-build
+sudo apt install meson ninja-build
+meson build
+cd pix
+meson build
+ninja -C build
+sudo ninja -C build install
+sudo meson build
+meson setup build
+ls
+cd ..
+ls;
+ls
+cd pix
+meson build
+ninja -C build
+sudo ninja -C build install
+cd ..
+ls
+meson build
+cd
+cd pix
+meson build
+ninja -C build
+sudo ninja -C build install
+cd
+ls
+cd pix
+ls
+cd pix
+meson build
+ninja -C build
+sudo ninja -C build install
+ls
+cd ..
+ls
+cd ..
+cd pix
+meson build
+ninja -C build
+sudo ninja -C build install
+sudo apt install exiv2 clutter clutter-gtk
+exit
+ssh master "/home/pi/ap/run_app.py tunnel list" | grep TSP
+ssh -Jpi@master pi@localhost -p 37118
+ls
+cd Void/
+ls
+cp compose.yaml ~/
+ls
+cd
+ls
+mkdir advm2 
+ls
+mv compose.yaml ~/advm2/
+cd advm2/
+ls
+vim compose.yaml 
+ls
+cd 
+cd Downloads/
+ls
+cd
+cd advm2/
+ls
+vim compose.yaml 
+podman-compose up
+ls
+clear
+ls
+vim compose.yaml 
+podman-compose up
+clear
+ls
+vim compose.yaml 
+ls
+podman-compose up
+clear
+ls
+cd
+ls
+podman start void-linux 
+ssh -Jpi@master pi@localhost -p 37118
+ip a
+sudo zerotier-cli join 56374ac9a47bfd88
+systemctl list-units --all --type=service | grep zerotier
+sudo systemctl start zerotier-one
+systemctl list-units --all --type=service | grep zerotier
+sudo zerotier-cli join 56374ac9a47bfd88
+ip a
+ping 172.28.12.115
+ping 172.28.129.21
+podman stop void-linux 
+podman start void-linux 
+ping 172.28.12.115
+ping 172.28.129.21
+brew search proxy
+podman stop void-linux 
+arp
+ping 172.28.12.115
+ip a
+systemctl list-units --all --type=service | grep zerotier
+sudo systemctl start zerotier-one
+systemctl list-units --all --type=service | grep zerotier
+ip a
+ping 172.28.129.21
+172.28.12.115
+ping 172.28.12.115
+ls
+ps
+ss
+ss -tlnp | grep -v "systemd"
+echo $XDG_CURRENT_DESKTOP
+podman start void-linux 
+cd Void/
+ls
+cd data
+ls
+cd ..
+ls
+vim compose.yaml 
+podman stop void-linux 
+podman start void-linux 
+./rdpwin.sh -s
+ls
+rmp-ostree update
+ujust --choose
+ls
+sudo dnf install clipman
+distrobox-export --app clipman
+distrobox-export --bin usr/bin/clipman
+distrobox-export --bin /usr/bin/clipman
+exit
+./rdpwin.sh -s
+brew install clipman
+distrobox enter Fedora40 
+clipman
+cd .local/bin
+ls
+copyq

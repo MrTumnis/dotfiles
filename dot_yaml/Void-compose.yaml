@@ -1,0 +1,20 @@
+services:
+  qemu:
+    container_name: void-linux
+    image: qemux/qemu-docker
+    environment:
+      BOOT: "https://repo-default.voidlinux.org/live/current/void-live-x86_64-20240314-xfce.iso"
+      DISK_SIZE: "40G"
+      RAM_SIZE: "4G"
+      CPU_CORES: "2"
+    volumes:
+      #      - /var/home/thomas/Void/data:/storage
+      - /var/home/thomas/Void/void-live-x86_64-20240314-xfce.iso:/boot.iso
+    devices:
+      - /dev/kvm
+      - /dev/dri
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8006:8006
+    stop_grace_period: 2m

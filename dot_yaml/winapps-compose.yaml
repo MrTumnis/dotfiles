@@ -1,0 +1,39 @@
+name: winapps
+
+volumes:
+  data:
+
+services:
+  windows:
+    image: dockurr/windows
+    container_name: windows
+    environment:
+      #      VERSION: "win11"
+      RAM_SIZE: "6G"
+      CPU_CORES: "4"
+      DISK_SIZE: "100G"
+      ARGUMENTS: "-device usb-host,vendorid=0x0403,productid=0x6001" #FT232 Serial
+      #      ARGUMENTS: "-device usb-host,vendorid=0x1eb9,productid=0x0024" #SolarRad
+    privileged: true
+    devices:
+      - dev/kvm
+      - dev/dri
+      - dev/bus/usb
+    #    networks:
+      #      ipvlan-l2:
+        #        ipv4_address: "192.168.0.6"
+        #    mac_address: "92:1d:60:23:82:36"    
+        #networks:
+        #  ipvlan-l2:
+        #    external: true
+    ports:
+      - "8009:8006"
+      - "3389:3389/tcp"
+      - "3389:3389/udp"
+    stop_grace_period: 2m
+    restart: on-failure
+    volumes:
+      - /var/home/thomas/Windows/tiny11.iso:/custom.iso
+      - /var/home/thomas/Windows/data:/storage
+      - /var/home/thomas:/shared
+      - ./oem:/oem
