@@ -54,7 +54,6 @@
       ansible.builtin.git:
         repo: 'https://git.suckless.org/surf'
         dest: '/home/{{ remote_regular_user }}/suckless'
-        version: master
 
     - name: install void-package repo
       ansible.builtin.git:
