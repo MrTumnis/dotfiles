@@ -34,73 +34,29 @@
           - poetry
           - fzf
           - ffmpeg-free
-          - helix
-          - surf 
+          - helix 
           - googler
-          - sxiv
           - rpi-imager
+          - nsxiv
           - net-tools
           - fastfetch
           - timeshift
           - magic-wormhole
           - gparted
           - podman-compose
-          - virt-viewer
-        state: present
-
-
-        # NEED TO ADD .DEB CONFIGURATION FOR VOID SUPPORT. POSSIBLY ADD AS A FLATPAK        
-        #    - name: Add Brave Browser Repo
-        #      ansible.builtin.yum_repository:
-        #        name: brave-browser
-        #        description: Brave Browser
-        #        baseurl: https://brave-browser-rpm-release.s3.brave.com/x86_64/
-        #        gpgkey: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-        #        gpgcheck: true
-        #        enabled: true
-
-        #    - name: Import Brave Browser GPG Key
-        #      ansible.builtin.rpm_key:
-        #        key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-        #        state: present
-
-        #    - name: Install Brave Browser
-        #      ansible.builtin.dnf:
-        #        name: brave-browser
-        #        state: present
-
-
-
-    - name: Add user to virsch group
-      ansible.builtin.user:
-        name: "{{ remote_regular_user }}"
-        groups: virsch
-        append: true
-
-
-        #    - name: Install Flatpak packages
-        #      community.general.flatpak:
-        #        name:
-        #          - com.obsproject.Studio
-        #          - org.videolan.VLC
-        #          - org.tenacityaudio.Tenacity
-        #          - md.obsidian.Obsidian
-        #          - org.gimp.GIMP
-        #          - rest.insomnia.Insomnia
-        #        state: present
-
-
-
-    - name: Pull dockur/windows image
-      podman_image:
+  :
         name: docker.io/dockurr/windows 
 
     - name: Pull dockur/windows image
       podman_image:
         name: docker.io/frooodle/s-pdf 
         tag: latest-fat
-     
-
+    
+    - name: install surf browser repo
+      ansible.builtin.git:
+       repo: 'https://git.suckless.org/surf'
+       dest: '/home/{{ remote_regular_user }}/suckless'
+       version: master
 
     - name: install void-package repo
       ansible.builtin.git:
