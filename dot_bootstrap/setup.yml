@@ -44,7 +44,11 @@
           - magic-wormhole
           - gparted
           - podman-compose
-  :
+       state: present 
+
+
+    - name: Pull dockurr/windows image
+      podman_image:   
         name: docker.io/dockurr/windows 
 
     - name: Pull dockur/windows image
