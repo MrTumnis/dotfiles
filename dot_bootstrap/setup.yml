@@ -1,0 +1,133 @@
+---
+- name: Machine setup
+  hosts: localhost
+  become: true
+  connection: local
+  gather_facts: true
+  #  vars:
+
+
+  tasks:
+    - name: Get my user
+      ansible.builtin.set_fact:
+        remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
+    
+
+    - name: Install non free package repo
+      xbps:
+        name: void-repo-nonfree 
+        state: present
+
+
+    - name: Install void packages
+      xbps:
+        name:
+          - ansible
+          - git
+          - btop
+          - vim
+          - gcc
+          - helm
+          - go-task
+          - ripgrep
+          - freerdp3
+          - poetry
+          - fzf
+          - ffmpeg-free
+          - helix
+          - surf 
+          - googler
+          - sxiv
+          - rpi-imager
+          - net-tools
+          - fastfetch
+          - timeshift
+          - magic-wormhole
+          - gparted
+          - podman-compose
+          - virt-viewer
+        state: present
+
+
+        # NEED TO ADD .DEB CONFIGURATION FOR VOID SUPPORT. POSSIBLY ADD AS A FLATPAK        
+        #    - name: Add Brave Browser Repo
+        #      ansible.builtin.yum_repository:
+        #        name: brave-browser
+        #        description: Brave Browser
+        #        baseurl: https://brave-browser-rpm-release.s3.brave.com/x86_64/
+        #        gpgkey: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+        #        gpgcheck: true
+        #        enabled: true
+
+        #    - name: Import Brave Browser GPG Key
+        #      ansible.builtin.rpm_key:
+        #        key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+        #        state: present
+
+        #    - name: Install Brave Browser
+        #      ansible.builtin.dnf:
+        #        name: brave-browser
+        #        state: present
+
+
+
+    - name: Add user to virsch group
+      ansible.builtin.user:
+        name: "{{ remote_regular_user }}"
+        groups: virsch
+        append: true
+
+
+        #    - name: Install Flatpak packages
+        #      community.general.flatpak:
+        #        name:
+        #          - com.obsproject.Studio
+        #          - org.videolan.VLC
+        #          - org.tenacityaudio.Tenacity
+        #          - md.obsidian.Obsidian
+        #          - org.gimp.GIMP
+        #          - rest.insomnia.Insomnia
+        #        state: present
+
+
+
+    - name: Pull dockur/windows image
+      podman_image:
+        name: docker.io/dockurr/windows 
+
+    - name: Pull dockur/windows image
+      podman_image:
+        name: docker.io/frooodle/s-pdf 
+        tag: latest-fat
+     
+
+
+    - name: install void-package repo
+      ansible.builtin.git:
+       repo: 'https://github.com/void-linux/void-packages.git'
+       dest: '/home/{{ remote_regular_user }}/void-packages'
+       version: master
+
+    - name: install winapps repo
+      ansible.builtin.git:
+       repo: 'https://github.com/winapps-org/winapps.git'
+       dest: '/home/{{ remote_regular_user }}/winapps'
+       version: main
+
+    - name: install Stirling-PDF repo
+      ansible.builtin.git:
+       repo: 'https://github.com/Stirling-Tools/Stirling-PDF.git'
+       dest: '/home/{{ remote_regular_user }}/Stirling-PDF'
+       version: main
+
+#MAY NEED TO INSTALL DISTROBOX AS A .DEB, OR USE CURL
+
+
+    
+
+
+
+
+
+
+
