@@ -44,7 +44,7 @@
           - magic-wormhole
           - gparted
           - podman-compose
-       state: present 
+        state: present 
 
 
     - name: Pull dockurr/windows image
@@ -58,27 +58,27 @@
     
     - name: install surf browser repo
       ansible.builtin.git:
-       repo: 'https://git.suckless.org/surf'
-       dest: '/home/{{ remote_regular_user }}/suckless'
-       version: master
+        repo: 'https://git.suckless.org/surf'
+        dest: '/home/{{ remote_regular_user }}/suckless'
+        version: master
 
     - name: install void-package repo
       ansible.builtin.git:
-       repo: 'https://github.com/void-linux/void-packages.git'
-       dest: '/home/{{ remote_regular_user }}/void-packages'
-       version: master
+        repo: 'https://github.com/void-linux/void-packages.git'
+        dest: '/home/{{ remote_regular_user }}/void-packages'
+        version: master
 
     - name: install winapps repo
       ansible.builtin.git:
-       repo: 'https://github.com/winapps-org/winapps.git'
-       dest: '/home/{{ remote_regular_user }}/winapps'
-       version: main
+        repo: 'https://github.com/winapps-org/winapps.git'
+        dest: '/home/{{ remote_regular_user }}/winapps'
+        version: main
 
     - name: install Stirling-PDF repo
       ansible.builtin.git:
-       repo: 'https://github.com/Stirling-Tools/Stirling-PDF.git'
-       dest: '/home/{{ remote_regular_user }}/Stirling-PDF'
-       version: main
+        repo: 'https://github.com/Stirling-Tools/Stirling-PDF.git'
+        dest: '/home/{{ remote_regular_user }}/Stirling-PDF'
+        version: main
 
 #MAY NEED TO INSTALL DISTROBOX AS A .DEB, OR USE CURL
 
