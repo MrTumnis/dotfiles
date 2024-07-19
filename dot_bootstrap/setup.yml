@@ -75,7 +75,11 @@
 
 #MAY NEED TO INSTALL DISTROBOX AS A .DEB, OR USE CURL
 
-
+     -  name: move yaml files to repos
+        ansible.builtin.script: ~/{{ remote_regular_user }}/.scripts/mv-yaml.sh
+        args:
+          creates: '~/{{ remote_regular_user }}/winapps/compose.yaml'
+          executable: /bin/bash
     
 
 
