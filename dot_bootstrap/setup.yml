@@ -13,9 +13,11 @@
         remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
     
 
-    - name: Install non free package repo
+    - name: Install system level packages
       xbps:
-        name: void-repo-nonfree 
+        name: 
+          - void-repo-nonfree
+          - booster 
         state: present
 
 
@@ -38,6 +40,10 @@
           - magic-wormhole
           - gparted
           - podman-compose
+          - tar
+          - curl
+          - xz
+          - binutils
         state: present 
 
 
@@ -73,10 +79,17 @@
         dest: '/home/{{ remote_regular_user }}/Stirling-PDF'
         version: main
 
+    - name: Download xdeb and set to executable
+      ansible.builtin.get_url:
+        url: 'https://github.com/xdeb-org/xdeb/releases/download/v1.5/xdeb'
+        dest: '/usr/local/bin/'
+        mode: '744'
+
+
 #MAY NEED TO INSTALL DISTROBOX AS A .DEB, OR USE CURL
 
-     -  name: move yaml files to repos
-        ansible.builtin.script: ~/{{ remote_regular_user }}/.scripts/mv-yaml.sh
+     -  name: Setup booster, move yamls, create pod-containers, and start Stirling on boot
+        ansible.builtin.script: ~/{{ remote_regular_user }}/.scripts/setup.sh
         args:
           creates: '~/{{ remote_regular_user }}/winapps/compose.yaml'
           executable: /bin/bash
