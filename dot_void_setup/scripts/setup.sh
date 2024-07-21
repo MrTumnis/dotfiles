@@ -5,7 +5,7 @@ cp ~/.yaml/winapps-compose.yaml ~/winapps/compose.yaml
 cp ~/.yaml/Stirling-compose.yml ~/Stirling-PDF/compose.yml
 
 # Copy the start script to the service directory and set permissions
-sudo cp ~/.services/start_stirling-pdf /etc/sv/start_stirling-pdf
+sudo cp ~/.void_setup/services/start_stirling-pdf /etc/sv/start_stirling-pdf
 
 sudo chmod +x /etc/sv/start_stirling-pdf/run
 sudo chmod +x /etc/sv/start_stirling-pdf/finish

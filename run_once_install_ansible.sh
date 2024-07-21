@@ -5,7 +5,6 @@ install_on_fedora() {
 }
 
 install_on_void() {
-    sudo xbps-install -Suv
     sudo xbps-install -S ansible
 }
 
@@ -26,7 +25,7 @@ case "${OS}" in
 esac
 
 
-ansible-playbook ~/.bootstrap/setup.yml --ask-become-pass
+ansible-playbook ~/.void_setup/bootstrap/setup.yml --ask-become-pass
 
 echo "Ansible installation complete."
 

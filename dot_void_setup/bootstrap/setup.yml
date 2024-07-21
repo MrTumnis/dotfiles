@@ -4,8 +4,6 @@
   become: true
   connection: local
   gather_facts: true
-  #  vars:
-
 
   tasks:
     - name: Get my user
@@ -13,7 +11,7 @@
         remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
     
 
-    - name: Install system level packages
+    - name: Install system packages
       xbps:
         name: 
           - void-repo-nonfree
@@ -21,7 +19,7 @@
         state: present
 
 
-    - name: Install void packages
+    - name: Install bin packages
       xbps:
         name:
           - ansible
@@ -95,7 +93,7 @@
 #MAY NEED TO INSTALL DISTROBOX AS A .DEB, OR USE CURL
 
      -  name: Setup booster, move yamls, create pod-containers, and start Stirling on boot
-        ansible.builtin.script: ~/{{ remote_regular_user }}/.scripts/setup.sh
+        ansible.builtin.script: ~/{{ remote_regular_user }}/.void_setup/scripts/setup.sh
         args:
           creates: '~/{{ remote_regular_user }}/winapps/compose.yaml'
           executable: /bin/bash
