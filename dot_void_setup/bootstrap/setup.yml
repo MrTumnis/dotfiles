@@ -82,7 +82,7 @@
       ansible.builtin.git:
         repo: 'https://github.com/dievilz/vpm-posix.git'
         dest: '/home/{{ remote_regular_user }}/vpm-posix'
-        version: main
+        version: master
 
     - name: Download xdeb and set to executable
       ansible.builtin.get_url:
