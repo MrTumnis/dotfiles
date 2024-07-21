@@ -19,7 +19,7 @@ sudo ./xbps-src binary-bootstrap
 cd ~
 
 # Append the vpm path to .bash_profile
-echo 'PATH=$PATH:~/vpm-posix/vpm' | sudo tee -a ~/.bash_profile
+echo 'export PATH=$PATH:home/thomas/vpm-posix/vpm' | sudo tee -a ~/.bash_profile
 
 # Reconfigure the Linux system
 sudo xbps-reconfigure -f linux
