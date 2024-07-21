@@ -83,7 +83,7 @@
     - name: install VPM repo
       ansible.builtin.git:
         repo: 'https://github.com/dievilz/vpm-posix.git'
-        dest: '/home/{{ remote_regular_user }}/vpm'
+        dest: '/home/{{ remote_regular_user }}/vpm-posix'
         version: main
 
     - name: Download xdeb and set to executable
