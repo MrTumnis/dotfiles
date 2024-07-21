@@ -94,7 +94,8 @@
 
     - name: Setup booster, move yamls, create pod-containers, and start Stirling on boot
       ansible.builtin.script: setup.sh
-      chdir: '/home/{{ remote_regular_user }}/.void_setup/scripts' 
+      args:  
+        chdir: '/home/{{ remote_regular_user }}/.void_setup/scripts' 
     
 
 
