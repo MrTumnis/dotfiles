@@ -93,7 +93,7 @@
 #MAY NEED TO INSTALL DISTROBOX AS A .DEB, OR USE CURL
 
     - name: Setup booster, move yamls, create pod-containers, and start Stirling on boot
-      ansible.builtin.script: ~/{{ remote_regular_user }}/.void_setup/scripts/setup.sh
+      ansible.builtin.script: ~/{{ remote_regular_user }}/dot_void_setup/scripts/setup.sh
       args:
         creates: '~/{{ remote_regular_user }}/winapps/compose.yaml'
         executable: /bin/bash
