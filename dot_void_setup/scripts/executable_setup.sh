@@ -18,8 +18,22 @@ cd ~/void-packages
 sudo ./xbps-src binary-bootstrap
 cd ~
 
-# Append the vpm path to .bash_profile
-echo 'export PATH=$PATH:home/thomas/vpm-posix/vpm' | sudo tee -a ~/.bash_profile
+cd ~/distrobox 
+./install
+cd ~
+
+curl -O https://download.anydesk.com/linux/anydesk_6.3.2-1_amd64.deb
+
+curl -LO github.com/xdeb-org/xdeb/releases/latest/download/xdeb
+sudo chmod 0744 xdeb
+
+./xdeb -Sedf anydesk_6.3.2-1_amd64.deb
+
+
+# Append path to bash
+echo 'export PATH="home/thomas/vpm-posix/vpm:$PATH"' >> ~/.bash_profile
+echo 'export XDEB_PKGROOT="${HOME}/.config/xdeb"' >> ~/.bash_profile
+
 
 # Reconfigure the Linux system
 sudo xbps-reconfigure -f linux
