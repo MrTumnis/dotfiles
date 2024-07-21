@@ -56,6 +56,11 @@
         name: docker.io/frooodle/s-pdf 
         tag: latest-fat
     
+    - name: install distorbox repo
+      ansible.builtin.git:
+        repo: 'https://github.com/89luca89/distrobox.git'
+        dest: '/home/{{ remote_regular_user }}/distrobox'
+
     - name: install surf browser repo
       ansible.builtin.git:
         repo: 'https://git.suckless.org/surf'
@@ -85,18 +90,18 @@
         dest: '/home/{{ remote_regular_user }}/vpm-posix'
         version: master
 
-    - name: Download xdeb and set to executable
-      ansible.builtin.get_url:
-        url: 'https://github.com/xdeb-org/xdeb/releases/download/v1.5/xdeb'
-        dest: '/usr/local/bin/'
-        mode: '744'
+        #    - name: Download xdeb and set to executable
+        #      ansible.builtin.get_url:
+        #        url: 'https://github.com/xdeb-org/xdeb/releases/download/v1.5/xdeb'
+        #        dest: '/usr/local/bin/'
+        #      mode: '744'
 
 #MAY NEED TO INSTALL DISTROBOX AS A .DEB, OR USE CURL
 
     - name: Setup booster, move yamls, create pod-containers, and start Stirling on boot
       ansible.builtin.script: /home/{{ remote_regular_user }}/.void_setup/scripts/setup.sh
-      args:
-        creates: /home/winapps/compose.yaml  
+      #   args:
+        #   creates: /home/winapps/compose.yaml  
     
 
 
