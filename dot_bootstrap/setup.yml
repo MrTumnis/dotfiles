@@ -25,6 +25,7 @@
       xbps:
         name:
           - ansible
+          - atuin
           - git
           - btop
           - vim
@@ -51,7 +52,7 @@
       podman_image:   
         name: docker.io/dockurr/windows 
 
-    - name: Pull dockur/windows image
+    - name: Pull Stirling-PDF image
       podman_image:
         name: docker.io/frooodle/s-pdf 
         tag: latest-fat
@@ -79,12 +80,17 @@
         dest: '/home/{{ remote_regular_user }}/Stirling-PDF'
         version: main
 
+    - name: install VPM repo
+      ansible.builtin.git:
+        repo: 'https://github.com/dievilz/vpm-posix.git'
+        dest: '/home/{{ remote_regular_user }}/vpm'
+        version: main
+
     - name: Download xdeb and set to executable
       ansible.builtin.get_url:
         url: 'https://github.com/xdeb-org/xdeb/releases/download/v1.5/xdeb'
         dest: '/usr/local/bin/'
         mode: '744'
-
 
 #MAY NEED TO INSTALL DISTROBOX AS A .DEB, OR USE CURL
 
