@@ -93,9 +93,9 @@
 #MAY NEED TO INSTALL DISTROBOX AS A .DEB, OR USE CURL
 
     - name: Setup booster, move yamls, create pod-containers, and start Stirling on boot
-      ansible.builtin.script: setup.sh
-      args:  
-        chdir: '/home/{{ remote_regular_user }}/.void_setup/scripts' 
+      ansible.builtin.script: /home/{{ remote_regular_user }}/.void_setup/scripts/setup.sh
+      #   args:  
+      # chdir: '/home/{{ remote_regular_user }}/.void_setup/scripts' 
     
 
 
