@@ -34,6 +34,7 @@
           - rpi-imager
           - nsxiv
           - net-tools
+          - neofetch
           - fastfetch
           - timeshift
           - magic-wormhole
@@ -94,8 +95,8 @@
 
     - name: Setup booster, move yamls, create pod-containers, and start Stirling on boot
       ansible.builtin.script: /home/{{ remote_regular_user }}/.void_setup/scripts/setup.sh
-      #   args:  
-      # chdir: '/home/{{ remote_regular_user }}/.void_setup/scripts' 
+        args:
+          creates: /home/winapps/compose.yaml  
     
 
 
