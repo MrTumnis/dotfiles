@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Copy YAML configuration files
+# Move YAML configuration files
 cp ~/.yaml/winapps-compose.yaml ~/winapps/compose.yaml
 cp ~/.yaml/Stirling-compose.yml ~/Stirling-PDF/compose.yml
 
-# Copy the start script to the service directory and set permissions
+# Move the start script to the service directory and set permissions
 sudo cp ~/.void_setup/services/start_stirling-pdf /etc/sv/start_stirling-pdf
 
 sudo chmod +x /etc/sv/start_stirling-pdf/run
@@ -22,13 +22,14 @@ cd ~/distrobox
 ./install
 cd ~
 
-curl -O https://download.anydesk.com/linux/anydesk_6.3.2-1_amd64.deb
+#curl -O https://download.anydesk.com/linux/anydesk_6.3.2-1_amd64.deb
 
 curl -LO github.com/xdeb-org/xdeb/releases/latest/download/xdeb
 sudo chmod 0744 xdeb
 
+cd Downloads
 ./xdeb -Sedf anydesk_6.3.2-1_amd64.deb
-
+cd ~
 
 # Append path to bash
 echo 'export PATH="home/thomas/vpm-posix/vpm:$PATH"' >> ~/.bash_profile
