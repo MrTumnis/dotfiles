@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Remove defualt yaml
+cd ~/winapps
+rm compose.yaml
+cd ~
+
 # Move YAML configuration files
 cp ~/.yaml/winapps-compose.yaml ~/winapps/compose.yaml
 cp ~/.yaml/Stirling-compose.yml ~/Stirling-PDF/compose.yml
@@ -16,7 +21,10 @@ sudo ln -s /etc/sv/start_stirling-pdf /var/service/
 # Bootstrap the void-packages binary
 cd ~/void-packages
 sudo ./xbps-src binary-bootstrap
+sudo ./xbps-src pkg brave-bin
+sudo xi brave-bin
 cd ~
+
 
 cd ~/distrobox 
 ./install
@@ -33,8 +41,9 @@ cd Downloads
 cd ~
 
 # Append path to bash
-echo 'export PATH="home/thomas/vpm-posix/vpm:$PATH"' >> ~/.bash_profile
-echo 'export XDEB_PKGROOT="${HOME}/.config/xdeb"' >> ~/.bash_profile
+#echo 'export PATH="home/thomas/vpm-posix/vpm:$PATH"' >> ~/.bash_profile
+#echo 'export XDEB_PKGROOT="${HOME}/.config/xdeb"' >> ~/.bash_profile
+
 
 
 # Reconfigure the Linux system
