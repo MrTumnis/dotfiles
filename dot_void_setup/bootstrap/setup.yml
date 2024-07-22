@@ -44,6 +44,7 @@
           - curl
           - xz
           - binutils
+          - xtools
         state: present 
 
 
@@ -90,13 +91,24 @@
         dest: '/home/{{ remote_regular_user }}/vpm-posix'
         version: master
 
-        #    - name: Download xdeb and set to executable
-        #      ansible.builtin.get_url:
-        #        url: 'https://github.com/xdeb-org/xdeb/releases/download/v1.5/xdeb'
-        #        dest: '/usr/local/bin/'
-        #      mode: '744'
+    - name: fetch Brave-bin
+      ansible.builtin.git:
+        repo: 'https://github.com/soanvig/brave-bin'
+        dest: '/home/void-packages/srcpkgs'
+        version: master
 
-#MAY NEED TO INSTALL DISTROBOX AS A .DEB, OR USE CURL
+
+    - name: Download anydesk
+      ansible.builtin.get_url:
+        url: 'https://anydesk.com/en/downloads/thank-you?dv=deb_64'
+        dest: '/home/{{ remote_regular_user }}/Downloads'
+    
+
+    - name: Download pCloud
+      ansible.builtin.get_url:
+        url: 'https://www.pcloud.com/how-to-install-pcloud-drive-linux.html?download=electron-64'
+        dest: '/home/{{ remote_regular_user }}/Downloads'
+
 
     - name: Setup booster, move yamls, create pod-containers, and start Stirling on boot
       ansible.builtin.script: /home/{{ remote_regular_user }}/.void_setup/scripts/setup.sh
