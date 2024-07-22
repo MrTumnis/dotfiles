@@ -26,6 +26,7 @@ cd ~
 
 curl -LO github.com/xdeb-org/xdeb/releases/latest/download/xdeb
 sudo chmod 0744 xdeb
+mv xdeb /usr/local/bin/ 
 
 cd Downloads
 ./xdeb -Sedf anydesk_6.3.2-1_amd64.deb
