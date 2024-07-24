@@ -99,7 +99,7 @@
       ansible.builtin.git:
         repo: 'https://github.com/Stirling-Tools/Stirling-PDF.git'
         dest: '/home/{{ remote_regular_user }}/Stirling-PDF'
-        version: maini
+        version: main
 
     - name: fetch Nordic Theme
       ansible.builtin.git:
