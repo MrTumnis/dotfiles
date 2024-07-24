@@ -15,8 +15,9 @@ sudo cp ~/.void_setup/services/start_stirling-pdf /etc/sv/start_stirling-pdf
 sudo chmod +x /etc/sv/start_stirling-pdf/run
 sudo chmod +x /etc/sv/start_stirling-pdf/finish
 
-# Create a symbolic link to services
+# Start services
 sudo ln -s /etc/sv/start_stirling-pdf /var/service/
+sudo ln -s /etc/sv/chronyd /var/service
 
 # Bootstrap the void-packages binary
 cd ~/void-packages
@@ -34,7 +35,7 @@ cd ~
 
 curl -LO github.com/xdeb-org/xdeb/releases/latest/download/xdeb
 sudo chmod 0744 xdeb
-mv xdeb /usr/local/bin/ 
+sudo mv xdeb /usr/local/bin/ 
 
 cd Downloads
 ./xdeb -Sedf anydesk_6.3.2-1_amd64.deb
