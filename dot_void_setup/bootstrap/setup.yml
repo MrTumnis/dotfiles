@@ -56,12 +56,13 @@
           - chrony
         state: present
 
+
     - name: Remove apps
       xbps:
         name:
           - pulseaudio
           #          - thunar
-      state: absent
+        state: absent
     
 
 
