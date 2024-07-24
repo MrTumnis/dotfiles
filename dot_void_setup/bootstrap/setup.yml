@@ -35,6 +35,8 @@
           - nsxiv
           - net-tools
           - neofetch
+          - noto-fonts-emoji
+          - nerd-fonts
           - fastfetch
           - timeshift
           - magic-wormhole
@@ -45,7 +47,19 @@
           - xz
           - binutils
           - xtools
-        state: present 
+          - 7zip
+          - pipwire
+          - wireplumber
+          - chrony
+        state: present
+
+    - name: Remove apps
+      xbps:
+        name:
+          - pulseaudio
+          #          - thunar
+      state: absent
+    
 
 
     - name: Pull dockurr/windows image
@@ -83,7 +97,14 @@
       ansible.builtin.git:
         repo: 'https://github.com/Stirling-Tools/Stirling-PDF.git'
         dest: '/home/{{ remote_regular_user }}/Stirling-PDF'
-        version: main
+        version: maini
+
+    - name: fetch Nordic Theme
+      ansible.builtin.git:
+        repo: 'https://github.com/EliverLara/Nordic'
+        dest: '/home/{{ regular_remote_user }}/.themes'
+        version: master
+    
 
     - name: install VPM repo
       ansible.builtin.git:
