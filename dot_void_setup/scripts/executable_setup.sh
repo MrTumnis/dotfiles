@@ -37,14 +37,14 @@ curl -LO github.com/xdeb-org/xdeb/releases/latest/download/xdeb
 sudo chmod 0744 xdeb
 sudo mv xdeb /usr/local/bin/ 
 
-cd Downloads
-./xdeb -Sedf anydesk.deb
-cd ~
 
 # Append path to bash
 #echo 'export PATH="home/thomas/vpm-posix/vpm:$PATH"' >> ~/.bash_profile
 echo 'export XDEB_PKGROOT="${HOME}/.config/xdeb"' >> ~/.bash_profile
 
+cd Downloads
+sudo xdeb -Sedf anydesk_6.3.2-1_amd64.deb
+cd ~
 
 
 # Reconfigure the Linux system
