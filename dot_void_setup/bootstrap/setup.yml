@@ -127,12 +127,6 @@
         dest: '/home/{{ remote_regular_user }}/Downloads/anydesk.deb'
     
 
-    - name: Download pCloud
-      ansible.builtin.get_url:
-        url: 'https://www.pcloud.com/how-to-install-pcloud-drive-linux.html?download=electron-64'
-        dest: '/home/{{ remote_regular_user }}/Downloads/pCloud'
-
-
     - name: Setup booster, move yamls, create pod-containers, and start Stirling on boot
       ansible.builtin.script: /home/{{ remote_regular_user }}/.void_setup/scripts/setup.sh
       #   args:
