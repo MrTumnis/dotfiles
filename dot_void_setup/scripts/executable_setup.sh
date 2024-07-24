@@ -23,8 +23,8 @@ cd ~/void-packages
 git clone https://github.com/soanvig/brave-bin ./srcpkgs/brave-bin
 
 # Bootstrap the void-packages binary
-sudo ./xbps-src binary-bootstrap
-sudo ./xbps-src pkg brave-bin
+ ./xbps-src binary-bootstrap
+ ./xbps-src pkg brave-bin
 sudo xi brave-bin
 cd ~
 
