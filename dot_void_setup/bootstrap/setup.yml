@@ -25,7 +25,6 @@
     - name: Install bin packages
       xbps:
         name:
-          - ansible
           - atuin
           - git
           - btop
@@ -38,7 +37,6 @@
           - nsxiv
           - net-tools
           - neofetch
-          - noto-fonts-emoji
           - nerd-fonts
           - fastfetch
           - timeshift
@@ -51,7 +49,7 @@
           - binutils
           - xtools
           - 7zip
-          - pipwire
+          - pipewire
           - wireplumber
           - chrony
         state: present
