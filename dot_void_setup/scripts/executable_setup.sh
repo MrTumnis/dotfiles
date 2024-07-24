@@ -19,8 +19,10 @@ sudo chmod +x /etc/sv/start_stirling-pdf/finish
 sudo ln -s /etc/sv/start_stirling-pdf /var/service/
 sudo ln -s /etc/sv/chronyd /var/service
 
-# Bootstrap the void-packages binary
 cd ~/void-packages
+git clone https://github.com/soanvig/brave-bin ./srcpkgs/brave-bin
+
+# Bootstrap the void-packages binary
 sudo ./xbps-src binary-bootstrap
 sudo ./xbps-src pkg brave-bin
 sudo xi brave-bin
@@ -31,7 +33,10 @@ cd ~/distrobox
 ./install
 cd ~
 
-#curl -O https://download.anydesk.com/linux/anydesk_6.3.2-1_amd64.deb
+cd Downloads
+curl -O https://download.anydesk.com/linux/anydesk_6.3.2-1_amd64.deb
+cd ~
+
 
 curl -LO github.com/xdeb-org/xdeb/releases/latest/download/xdeb
 sudo chmod 0744 xdeb
