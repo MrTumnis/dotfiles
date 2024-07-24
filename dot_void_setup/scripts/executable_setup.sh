@@ -38,7 +38,7 @@ sudo chmod 0744 xdeb
 sudo mv xdeb /usr/local/bin/ 
 
 cd Downloads
-./xdeb -Sedf anydesk_6.3.2-1_amd64.deb
+./xdeb -Sedf anydesk.deb
 cd ~
 
 # Append path to bash
