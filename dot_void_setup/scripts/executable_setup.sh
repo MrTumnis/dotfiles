@@ -50,6 +50,5 @@ cd ~
 # Reconfigure the Linux system
 sudo xbps-reconfigure -f linux
 
-# Reboot the system
-sudo reboot
+echo "Reboot system for booster to take effect"
 
