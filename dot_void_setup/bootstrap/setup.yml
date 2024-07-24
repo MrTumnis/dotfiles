@@ -104,7 +104,7 @@
     - name: fetch Nordic Theme
       ansible.builtin.git:
         repo: 'https://github.com/EliverLara/Nordic'
-        dest: '/home/{{ regular_remote_user }}/.themes'
+        dest: '/home/{{ remote_regular_user }}/.themes'
         version: master
     
 
