@@ -25,7 +25,7 @@ case "${OS}" in
 esac
 
 
-ansible-playbook ~/.void_setup/bootstrap/setup.yml --ask-become-pass
+sudo ansible-playbook ~/.void_setup/bootstrap/setup.yml --ask-become-pass
 
 echo "Ansible installation complete."
 
