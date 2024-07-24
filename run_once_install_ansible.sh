@@ -17,15 +17,14 @@ case "${OS}" in
             install_on_void
         else
             echo "Unsupported Linux distribution"
-            exit 1
+            exit 0
 	fi
 	exit 1
 
 	;;
 esac
 
-
-sudo ansible-playbook ~/.void_setup/bootstrap/setup.yml --ask-become-pass
+ansible-playbook ~/.void_setup/bootstrap/setup.yml --ask-become-pass
 
 echo "Ansible installation complete."
 

@@ -10,8 +10,8 @@
       ansible.builtin.set_fact:
         remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
 
-    - name: Update System
-      shell: sudo xbps-install -Suv    
+        #    - name: Update System
+        #      shell: sudo xbps-install -Suv    
     
 
     - name: Install system packages
