@@ -43,7 +43,7 @@ cd ~
 
 # Append path to bash
 #echo 'export PATH="home/thomas/vpm-posix/vpm:$PATH"' >> ~/.bash_profile
-#echo 'export XDEB_PKGROOT="${HOME}/.config/xdeb"' >> ~/.bash_profile
+echo 'export XDEB_PKGROOT="${HOME}/.config/xdeb"' >> ~/.bash_profile
 
 
 
