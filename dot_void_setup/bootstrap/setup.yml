@@ -81,7 +81,7 @@
     - name: install surf browser repo
       ansible.builtin.git:
         repo: 'https://git.suckless.org/surf'
-        dest: '/home/{{ remote_regular_user }}/suckless'
+        dest: '/home/{{ remote_regular_user }}/suckless/surf'
 
     - name: install void-package repo
       ansible.builtin.git:
@@ -117,20 +117,20 @@
     - name: fetch Brave-bin
       ansible.builtin.git:
         repo: 'https://github.com/soanvig/brave-bin'
-        dest: '/home/void-packages/srcpkgs'
+        dest: '/home/void-packages/srcpkgs/brave-bin'
         version: master
 
 
     - name: Download anydesk
       ansible.builtin.get_url:
         url: 'https://anydesk.com/en/downloads/thank-you?dv=deb_64'
-        dest: '/home/{{ remote_regular_user }}/Downloads'
+        dest: '/home/{{ remote_regular_user }}/Downloads/anydesk.deb'
     
 
     - name: Download pCloud
       ansible.builtin.get_url:
         url: 'https://www.pcloud.com/how-to-install-pcloud-drive-linux.html?download=electron-64'
-        dest: '/home/{{ remote_regular_user }}/Downloads'
+        dest: '/home/{{ remote_regular_user }}/Downloads/pCloud'
 
 
     - name: Setup booster, move yamls, create pod-containers, and start Stirling on boot
