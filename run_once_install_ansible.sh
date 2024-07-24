@@ -5,7 +5,7 @@ install_on_fedora() {
 }
 
 install_on_void() {
-    sudo xbps-install -S ansible
+   sudo xbps-install -Suv && sudo xbps-install -S ansible
 }
 
 OS="$(uname -s)"
