@@ -54,6 +54,8 @@
           - chrony
           - pkg-config
           - gcc
+          - yazi
+          - lsd
         state: present
 
 
