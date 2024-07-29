@@ -6,8 +6,10 @@ rm compose.yaml
 cd ~
 
 # Move YAML configuration files
-cp ~/.yaml/winapps-compose.yaml ~/winapps/compose.yaml
-cp ~/.yaml/Stirling-compose.yml ~/Stirling-PDF/compose.yml
+cd .yaml 
+cp winapps-compose.yaml ~/winapps/compose.yaml
+cp Stirling-compose.yml ~/Stirling-PDF/compose.yml
+cd ~ 
 
 # Move the start script to the service directory and set permissions
 sudo cp ~/.void_setup/services/start_stirling-pdf /etc/sv/start_stirling-pdf
@@ -28,6 +30,8 @@ git clone https://github.com/soanvig/brave-bin ./srcpkgs/brave-bin
 sudo xi brave-bin
 cd ~
 
+cd Stirling-PDF 
+sudo podman-compose up
 
 cd ~/distrobox 
 ./install
@@ -55,5 +59,4 @@ cd ~
 # Reconfigure the Linux system
 sudo xbps-reconfigure -f linux
 
-echo "Reboot system for booster to take effect"
 

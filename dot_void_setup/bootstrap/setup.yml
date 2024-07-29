@@ -10,8 +10,8 @@
       ansible.builtin.set_fact:
         remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
 
-        #    - name: Update System
-        #      shell: sudo xbps-install -Suv    
+    - name: Update System
+      shell: sudo xbps-install -Suv    
     
 
     - name: Install system packages
@@ -77,15 +77,15 @@
         name: docker.io/frooodle/s-pdf 
         tag: latest-fat
     
-    - name: install distorbox repo
+    - name: install distrobox repo
       ansible.builtin.git:
         repo: 'https://github.com/89luca89/distrobox.git'
         dest: '/home/{{ remote_regular_user }}/distrobox'
 
-    - name: install surf browser repo
-      ansible.builtin.git:
-        repo: 'https://git.suckless.org/surf'
-        dest: '/home/{{ remote_regular_user }}/suckless/surf'
+        #    - name: install surf browser repo
+        #      ansible.builtin.git:
+        #        repo: 'https://git.suckless.org/surf'
+        #        dest: '/home/{{ remote_regular_user }}/suckless/surf'
 
     - name: install void-package repo
       ansible.builtin.git:
