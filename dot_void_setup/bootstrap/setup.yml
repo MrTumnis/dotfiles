@@ -26,22 +26,22 @@
       xbps:
         name:
           - atuin
+          - alacritty
           - git
           - btop
           - vim
           - freerdp3
           - fzf
-          - helix 
           - googler
           - rpi-imager
-          - nsxiv
-          - net-tools
-          - neofetch
-          - nerd-fonts
+          - nsxiv    #suckless picture viewer
+          - net-tool
+          - nerd-fonts-ttf
           - fastfetch
           - timeshift
           - magic-wormhole
           - gparted
+          - podman
           - podman-compose
           - tar
           - curl
@@ -59,12 +59,11 @@
         state: present
 
 
-    - name: Remove apps
-      xbps:
-        name:
-          - pulseaudio
-          #          - thunar
-        state: absent
+#  - name: Remove apps
+#     xbps:
+#        name:
+#          - pulseaudio
+#        state: absent
     
 
 
