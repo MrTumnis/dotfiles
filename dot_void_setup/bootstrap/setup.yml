@@ -27,24 +27,23 @@
         name:
           - atuin
           - alacritty
-          - git
+#          - git
           - btop
-          - vim
+#          - vim
           - freerdp3
           - fzf
           - googler
           - rpi-imager
           - nsxiv    
           - net-tool
-          - nerd-fonts-ttf
-          - fastfetch
+#         - nerd-fonts-ttf
+#          - fastfetch
           - timeshift
           - magic-wormhole
           - gparted
           - podman
           - podman-compose
           - tar
-          - curl
           - xz
           - binutils
           - xtools
@@ -52,8 +51,6 @@
           - pipewire
           - wireplumber
           - chrony
-          - pkg-config
-          - gcc
           - yazi
           - lsd
         state: present
