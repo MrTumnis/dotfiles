@@ -1,0 +1,6 @@
+# pack-refs with: peeled fully-peeled sorted 
+26f74028dabb18bf7d65f0fb57f73272dabd5902 refs/remotes/origin/HostGrady/simplify-dmscripts
+d611202b03f78bba66cbef76ae925673997bb7f7 refs/remotes/origin/feature/typeof-check-variables
+143c351a8a5b2e1901d368ab16f63b6c07e4605c refs/remotes/origin/feature/wayland
+aa9bc7e588877ef58a1d0ee4f3dd34cc7f182472 refs/remotes/origin/fix/dm-pipewire-out-switcher-current-output
+1a5dde85618ace9031366a583427c882fa22cd0d refs/remotes/origin/master

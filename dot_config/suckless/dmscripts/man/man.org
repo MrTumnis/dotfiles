@@ -1,0 +1,114 @@
+#+TITLE: dmscripts
+#+AUTHOR: Derek Taylor (https://gitlab.com/dwt1/dmscripts)
+
+* NAME
+dmscripts - a collection of various dmenu scripts
+
+* DESCRIPTION
+dmscripts are a collection of dmenu scripts written in bash.  Each script is written and contributed by DT or viewers.
+
+* USAGE
+** bash dm-hub
+Runs the dm-hub program which allows for easy access to the scripts.
+** bash path/to/script
+Runs the script specified without using dm-hub.
+** ./path/to/script
+Same as bash path/to/script.
+
+* SCRIPTS
+** dm-hub
+The hub script, allows easy access to other scripts.
+** dm-bookman
+A bookmark searching tool, search through all qutebrowser quickmarks and bookmarks.
+** dm-colpick
+Find the hex value of a color you are searching for.
+** dm-confedit
+A configuration manager, find and edit any config file you need.
+** dm-dictionary
+ Uses the translate package as a dictionary.
+** dm-documents
+Search for PDFs to open.
+** dm-eq-profiles
+Allows you to switch between predefined equalizer profiles easily.
+** dm-ip
+Get IP of interface or external IP.
+** dm-kill
+Simple process killer, find and kill misbehaving processes.
+** dm-lights 
+A tool to manage your backlights.
+** dm-logout
+Simple logout menu, choose to lock, shutdown, reboot or logout of your computer.
+** dm-maim
+A GUI to maim allowing quick screenshot taking.
+** dm-man
+A manual page searcher, search a man page or randomly view one.
+** dm-music
+Music player that uses mpd and mpc.
+** dm-note
+Store multiple one-line texts or codes and copy one of them when needed.
+** dm-pipewire-out-switcher
+Switch default output for pipewire
+** dm-radio
+Listen to online radio stations.
+** dm-record
+Records audio, video and webcam.
+** dm-reddit
+A reddit viewer using dmenu, still a work in progress.
+** dm-setbg
+Using dmenu, setup a wallpaper.
+** dm-sounds
+Choose an ambient background sound to play.
+** dm-spellcheck
+Uses the didyoumean package as a spellchecker.
+** dm-template
+Tool used to generate scripts to be intigrated into dmscripts.
+** dm-usbmount
+USB mounting done suckless, no need for bloated daemons.
+** dm-websearch
+Web searching utility using dmenu.
+** dm-weather
+Simple graphical weather app
+** dm-wifi
+Connect to wifi using dmenu.
+** dm-wiki
+Search an offline copy of the Arch Wiki (requires arch-wiki-docs)
+** dm-youtube
+Youtube subscriptions without an account or the API tying you down.
+** _dm-helper.sh
+Helper scripts adding functionality to other scripts
+
+* CONFIG FILES
+** /etc/dmscripts/config
+This is considered the official global config file and we do not recommend you editing it. It will be overwritten if we change the configuration so you'll need to back it up if you modify it
+** ~/.config/dmscripts/config
+The first local config file is found here, this is free to modify and it is the recommended way to change the config file as it does not get overwritten. It is worth noting however that the config is still regularly modified so you will have to keep up to date on our gitlab page and read the diffs.
+** Using the repo configuration
+The repo can be used as is and provides a local config file. You can change it but it's change at your own risk. If you want to update the repo, for example, there may be merge conflicts. And when commiting, we expect a default config unless you are intentionally making changes to fix a bug or make an update and not to simply change something in a way you prefer.
+** Using global variables
+While we don't recommend it, you can choose to set some variables in other places such as the bashrc or the /etc/profile file. 
+** Modifying the source
+Finally, you can modify the source code to add more files to modify or to customize dmscripts to your heart's content, please report any bugs along the way however. Confirm it on an unmodified version first and read the issues.
+
+* CONFIGURATION
+** DMENU variable
+DMENU is the default variable used in dmscripts, we expect all scripts to use DMENU in substitution of the dmenu command as we want our scripts to be accessible without modifying the source code. Currently DMENU is defined in a case statement which is used to define DMENU differently depending on the script.
+** Other variables
+A lot of the other variables are simply program names or directories and are not worth going into further details.
+** Lists
+Some our config is done in a list like format. There are two syntaxes, -A and -a. 
+
+-A uses the format of:
+#+begin_example
+variable[name-displayed-in-dmenu]=what-it-actually-means
+#+end_example
+
+-a uses:
+#+begin_example
+variable=(
+"thing1"
+"thing2"
+...
+)
+#+end_example
+
+
