@@ -1,39 +1,35 @@
-name: winapps
+# For documentation, FAQ, additional configuration options and technical help, visit: https://github.com/dockur/windows
 
+name: "winapps" # Docker Compose Project Name.
 volumes:
+  # Create Volume 'data'.
+  # Located @ '/var/lib/containers/storage/volumes/winapps_data/_data' or '~/.local/share/containers/storage/volumes/winapps_data/_data' (Podman).
   data:
-
 services:
   windows:
-    image: dockurr/windows
-    container_name: windows
+    image: dockurr/windows # https://hub.docker.com/r/dockurr/windows
+    container_name: windows # Created Docker VM Name.
     environment:
-      #      VERSION: "win11"
-      RAM_SIZE: "6G"
-      CPU_CORES: "4"
-      DISK_SIZE: "100G"
+      VERSION: "tiny11"
+      RAM_SIZE: "6G" # RAM allocated to the Windows VM.
+      CPU_CORES: "4" # CPU cores allocated to the Windows VM.
+      DISK_SIZE: "64G" # Size of the primary hard disk.
       ARGUMENTS: "-device usb-host,vendorid=0x0403,productid=0x6001" #FT232 Serial
-      #      ARGUMENTS: "-device usb-host,vendorid=0x1eb9,productid=0x0024" #SolarRad
-    privileged: true
-    devices:
-      - dev/kvm
-      - dev/dri
-      - dev/bus/usb
-    #    networks:
-      #      ipvlan-l2:
-        #        ipv4_address: "192.168.0.6"
-        #    mac_address: "92:1d:60:23:82:36"    
-        #networks:
-        #  ipvlan-l2:
-        #    external: true
+      HOME: "${HOME}" # Set path to Linux user home folder.
+    privileged: true # Grant the Windows VM extended privileges.
     ports:
-      - "8009:8006"
-      - "3389:3389/tcp"
-      - "3389:3389/udp"
-    stop_grace_period: 2m
-    restart: on-failure
+      - 8009:8006 # Map '8006' on Linux host to '8006' on Windows VM --> For VNC Web Interface @ http://127.0.0.1:8006.
+      - 3389:3389/tcp # Map '3389' on Linux host to '3389' on Windows VM --> For Remote Desktop Protocol (RDP).
+      - 3389:3389/udp # Map '3389' on Linux host to '3389' on Windows VM --> For Remote Desktop Protocol (RDP).
+    stop_grace_period: 120s # Wait 120 seconds before sending SIGTERM when attempting to shut down the Windows VM.
+    restart: on-failure # Restart the Windows VM if the exit code indicates an error.
     volumes:
-      - /var/home/thomas/Windows/tiny11.iso:/custom.iso
-      - /var/home/thomas/Windows/data:/storage
-      - /var/home/thomas:/shared
-      - ./oem:/oem
+      - /home/thomas/winapps/data/:/storage # Mount volume 'data' to use as Windows 'C:' drive.
+      - ${HOME}:/shared # Mount Linux user home directory @ '\\host.lan\Data'.
+      - ./oem:/oem # Enables automatic post-install execution of 'oem/install.bat', applying Windows registry modifications contained within 'oem/RDPApps.reg'.
+      - /home/thomas/winapps/iso/tiny11.iso:/custom.iso # Uncomment to use a custom Windows ISO. If specified, 'VERSION' (e.g. 'tiny11') will be ignored.
+    devices:
+      - /dev/kvm # Enable KVM.
+      - /dev/bus/usb
+      #      - /dev/dri
+      #- /dev/sdX:/disk1 # Uncomment to mount a disk directly within the Windows VM (Note: 'disk1' will be mounted as the main drive).
