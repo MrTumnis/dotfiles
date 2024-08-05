@@ -1,0 +1,32 @@
+# .bashrc
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='lsd'
+
+
+#xbps alias
+alias xinstall='sudo xbps-install -S'
+alias xremove='sudo xbps-remove'
+alias xreconfigure='sudo xbps-reconfigure'
+alias xcreate='sudo xbps-create'
+alias xq='xbps-query -Rs'
+
+#navigation
+alias ..='cd ..'
+alias ....='cd ../..'
+
+
+
+
+PS1='[\u@\h \W]\$ '
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"i
+
+
+### PATH
+if [ -d "$HOME/.scripts" ] ;
+  then PATH="$HOME/.scripts:$PATH"
+fi
