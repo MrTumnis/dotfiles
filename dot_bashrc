@@ -7,7 +7,8 @@ alias ls='lsd'
 
 
 #xbps alias
-alias xinstall='sudo xbps-install -S'
+alias xinstall='sudo xbps-install -y'
+alias xupdate='sudo xbps-install -Su'
 alias xremove='sudo xbps-remove'
 alias xreconfigure='sudo xbps-reconfigure'
 alias xcreate='sudo xbps-create'
@@ -16,8 +17,20 @@ alias xq='xbps-query -Rs'
 #navigation
 alias ..='cd ..'
 alias ....='cd ../..'
+alias ll='lsd -l'
+alias la='lsd -a'
+alias lsla='lsd -la'
 
 
+
+#quick access 
+alias ff='fastfetch'
+#alias vim='nvim'
+
+
+#power off
+alias po="loginctl poweroff"
+alias ro="loginctl reboot"
 
 
 PS1='[\u@\h \W]\$ '
