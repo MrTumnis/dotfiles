@@ -1,0 +1,51 @@
+[manager]
+show_hidden = true
+sort_by="natural"
+sort_reverse=false
+linemode="mtime"
+
+[opener]
+edit = [
+	{ run = 'vim "$@"', block = true },
+]
+play = [
+	{ run = 'mpv "$@"', orphan = true, for = "unix" },
+]
+view = [
+	{ run = 'nsxiv "$@"', block = true },
+]
+view2 = [
+	{ run = 'gimp "$@"', block = true, orphan = true, for = "linux" },
+]
+open = [
+	{ run = 'libreoffice "$@"', orphan = true, block = true, for = "linux" },
+]
+openpdf = [
+	{ run = 'qpdfview "$@"', orphan = true, for = "linux" },
+]
+
+[open]
+prepend_rules = [
+	{ name = "*.json", use = "edit" },
+	{ name = "*.conf", use = "edit" },
+	{ name = "*.yaml", use = "edit" },
+
+	#handle pictures
+	{ name = "*.png", use = "view" },
+	{ name = "*.jpeg", use = "view" },
+	{ name = "*.jpg", use = "view" },
+
+	#handle office extensions
+	{ name = "*.xlsx", use = "open" },
+	{ name = "*.csv", use = "open" },
+	{ name = "*.docx", use = "open" },
+	{ name = "*.pdf", use = "openpdf" },
+	{ name = "*.odt", use = "open" },
+
+	# Multiple openers for a single rule
+	{ name = "*.html", use = [ "open", "edit" ] },
+]
+append_rules = [
+	{ name = "*", use = "my-fallback" },
+]
+

@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Displays the number of upgradeable packages for Void Linux.
+# This script uses `xbps-install -Su` to update package information and list upgradeable packages.
+# When clicked, it will run an upgrade via `xbps-install -Su`.
+
+# Add the following text as a file in /usr/share/libalpm/hooks/statusbar.hook:
+#
+# [Trigger]
+# Operation = Upgrade
+# Type = Package
+# Target = *
+#
+# [Action]
+# Description = Updating statusbar...
+# When = PostTransaction
+# Exec = /usr/bin/pkill -RTMIN+8 dwmblocks # Or i3blocks if using i3.
+
+case $BLOCK_BUTTON in
+    1) setsid -f "$TERMINAL" -e xbps-install -Su ;;
+    2) notify-send "$(/usr/bin/xbps-install -Su --dry-run)" ;;
+    3) notify-send " Upgrade module" "📦 : number of upgradable packages
+- Left click to upgrade packages
+- Middle click to show upgradable packages" ;;
+    6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+# List upgradeable packages and format the output
+xbps-install -Su --dry-run | grep -Fv "Already up-to-date" | grep -Fcv "[ignored]" | sed "s/^/ 📦 /;s/^ 📦 0$//g"

@@ -36,7 +36,7 @@
           - rpi-imager
           - nsxiv    
           - net-tools
-         - nerd-fonts-ttf
+          - nerd-fonts-ttf
           - fastfetch
           - timeshift
           - magic-wormhole

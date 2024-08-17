@@ -5,7 +5,7 @@ static const Block blocks[] = {
 /*	{"", "cat /tmp/recordingicon 2>/dev/null",	0,	9},*/
 /*      {"",	"sb-tasks",	10,	26},*/
 	/* {"",	"sb-music",	0,	11}, */
-	{" ",	"xbpsupdate",	0,	8},
+	{" ",	"~/.scripts/xbpsupdate",	0,	8},
         /*{"",	"sb-news",		0,	6},*/
 	/* {"",	"sb-price xmr-btc \"Monero to Bitcoin\" 🔒 25",	9000,	25}, */
 	/* {"",	"sb-price xmr Monero 🔒 24",			9000,	24}, */
@@ -16,15 +16,15 @@ static const Block blocks[] = {
 	/* {"",	"sb-cpu",       10,     18}, */
 	/* {"",	"sb-moonphase",	18000,  17}, */
 	/*{"",	"sb-doppler",	0,      13},*/
-	{"",	"sb-forecast",	18000,   5},
+	{"",	"~/.scripts/sb-forecast",	18000,   5},
 	/*{"",	"sb-mailbox",	180,    12},*/
 	/*{"",	"sb-nettraf",	1,      16},*/
-	{"",	"sb-volume",	0,	10},
-	{"",	"sb-battery",	5,	3},
-	{"",	"sb-internet",	5,	4},
+	{"",	"~/.scripts/sb-volume",	0,	10},
+	{"",	"~/.scripts/sb-battery",	5,	3},
+	{"",	"~/.scripts/sb-internet",	5,	4},
 	/* {"",	"sb-iplocate", 0,	27}, */
 	/*{"",	"sb-help-icon",	0,	15},*/
-	{"",	"sb-clock",	60,	1},
+	{"",	"~/.scripts/sb-clock",	60,	1},
 };
 
 //Sets delimiter between status commands. NULL character ('\0') means no delimiter.

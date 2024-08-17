@@ -1,0 +1,4 @@
+# pack-refs with: peeled fully-peeled sorted 
+9c2283dec94d27b4812262b73c308e48201da41f refs/remotes/origin/dwm-flexipatch-1.0
+36cbcf53a232818e5d523dd0337bb635556e91ef refs/remotes/origin/master
+b7f1f3adc38fb703eee030398c00c5e2c76adf07 refs/remotes/origin/vertigo

@@ -12,8 +12,8 @@ static const int showtab			= showtab_auto;        /* Default tab bar show mode *
 static const int toptab				= False;               /* False means bottom tab bar */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
 static const int user_bh            = 25;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "Hermit:size=12", "JoyPixels:pixelsize=14", "siji:pixelsize=14", "fontAwesome:size=14" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "Hermit:size=14", "JoyPixels:pixelsize=16", "siji:pixelsize=14", "fontAwesome:size=16", "Source Code Pro:sixe=14" };
+static const char dmenufont[]       = "monospace:size=14";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -45,18 +45,19 @@ const char *spcmd5[] = {"kitty", "-T", "spkeys", "--hold", "-e", "./.local/scrip
 const char *spcmd6[] = {"st", "-n", "menu", "-g", "75x34", "-e", "./.local/scripts/launch.sh", NULL };
 
 static Sp scratchpads[] = {
-	/* name          cmd  */
+        /* name          cmd  */
 	{"spterm",      spcmd1},
 	{"spranger",    spcmd2},
 	{"mailspring",  spcmd3},
-    {"sptestmenu.sh", spcmd4},
-    {"sphotkeys.sh", spcmd5},
-    {"menu",        spcmd6},
+        {"sptestmenu.sh", spcmd4},
+        {"sphotkeys.sh", spcmd5},
+        {"menu",        spcmd6},
 };
 
 /* tagging */
 static const char *tags[] = { "\uf269", "\uf19d", "\uf121", "\uf07c", "\uf03d", "\uf15c", "\uf120", "\uf0e0", "\uf296" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+//static const char *tags[] = { "Errai", "Juno", "Polaris", "Draco", "Cepheus", "Perseus", "Lacerta", "Cygnus", "Tadmor" };
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -65,13 +66,13 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",	  NULL,			NULL,		0,				0,			 -1 },
 	{ "Firefox",  NULL,			NULL,		0,			    0,			 -1 },
-    { "st",       NULL,         NULL,       0,              1,           -1 },
+        { "kitty",       NULL,         NULL,       0,              1,           -1 },
 	{ NULL,		  "spterm",		NULL,		SPTAG(0),		1,			 -1 },
 	{ NULL,		  "spfm",		NULL,		SPTAG(1),		1,			 -1 },
 	{ NULL,		  "mailspring",	NULL,		SPTAG(2),		1,			 -1 },
-    { NULL,       "spmenu",     NULL,       SPTAG(3),       1,           -1 },
-    { NULL,       "spkeys",     NULL,       SPTAG(4),       1,           -1 },
-    { NULL,       "menu",       NULL,       SPTAG(5),       1,           -1 },
+        { NULL,       "spmenu",     NULL,       SPTAG(3),       1,           -1 },
+        { NULL,       "spkeys",     NULL,       SPTAG(4),       1,           -1 },
+        { NULL,       "menu",       NULL,       SPTAG(5),       1,           -1 },
 };
 
 /* layout(s) */
@@ -90,7 +91,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -102,15 +103,20 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_gray3, "-sb", col_grn, "-sf", col_black, NULL };
+//static const char *dmenucmd[] = { "dmenu_run","-c", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_gray3, "-sb", col_grn, "-sf", col_black, NULL };
+static const char *dmenucmd[] = { "dmenu_run", NULL };
+static const char *rdpcmd[] = { "rdpwin", "-d", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
+static const char *filecmd[]  = { "kitty", "yazi", NULL };
 static const char *layoutmenu_cmd = "layoutmenu.sh";
 
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-/*	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },*/
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_m,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_w,      spawn,          {.v = rdpcmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_y,      spawn,          {.v = filecmd } },
 	{ MODKEY|ControlMask,           XK_w,      togglebar,      {0} },
 	{ MODKEY,                       XK_w,      tabmode,        {-1} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -121,13 +127,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ControlMask,           XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
+	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
-    { MODKEY|ControlMask,		    XK_comma,  cyclelayout,    {.i = -1 } },
+        { MODKEY|ControlMask,		XK_comma,  cyclelayout,    {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
@@ -143,9 +149,9 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
     { MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} },
     { MODKEY,                       XK_n,      togglealttag,   {0} },
-    { MODKEY,            			XK_Return, togglescratch,  {.ui = 0 } },
-	{ MODKEY,            			XK_r,	   togglescratch,  {.ui = 1 } },
-	{ MODKEY,            			XK_e,	   togglescratch,  {.ui = 2 } },
+    { MODKEY|ShiftMask,           		XK_Return, togglescratch,  {.ui = 0 } },
+    { MODKEY,            			XK_r,	   togglescratch,  {.ui = 1 } },
+    { MODKEY,            			XK_e,	   togglescratch,  {.ui = 2 } },
     { MODKEY,                       XK_c,      togglescratch,  {.ui = 3 } },
     { MODKEY|ControlMask,           XK_h,      togglescratch,  {.ui = 4 } },
     { MODKEY|ShiftMask,             XK_d,      togglescratch,  {.ui = 5 } },
@@ -158,7 +164,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
 /* button definitions */

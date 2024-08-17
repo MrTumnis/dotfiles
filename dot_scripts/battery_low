@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Set the battery level threshold (in percentage)
+THRESHOLD=20
+
+# Get the current battery level
+BATTERY_LEVEL=$(acpi -b | grep -oP '[0-9]+(?=%)')
+
+# Check if the battery level is below the threshold
+if [ "$BATTERY_LEVEL" -le "$THRESHOLD" ]; then
+    # Show a notification
+    notify-send "Battery Low" "Battery level is at ${BATTERY_LEVEL}%. Please charge your device."
+fi

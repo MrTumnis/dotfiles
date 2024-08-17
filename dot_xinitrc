@@ -1,0 +1,4 @@
+xwallpaper --center ~/Pictures/Samari.jpg &
+dex --environment dwm --autostart --search-paths ~/.config/autostart &
+dwmblocks &
+exec /usr/local/bin/dwm

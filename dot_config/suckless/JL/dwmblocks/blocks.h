@@ -5,19 +5,19 @@ static const Block blocks[] = {
 
     {"  ", "vol",                           1,     10},
 	
-	/*{"  ", "cat /sys/class/power_supply/BAT0/capacity",						5,		0},*/
+    {"  ", "cat /sys/class/power_supply/BAT0/capacity",						5,		0},
 
-    {" ", "battery",                          300,      0},
+    {" ", "sb-battery",                          300,      0},
 
-    {" ", "weather3",                          60,       0},
+    {" ", "sb-forcast",                          60,       0},
 
-    {"  ", "clock",                          30,      0},
+    {" ", "clock",                          30,      0},
 
-    {"  ", "pacupdate",					            3600,		9},
+    {" ", "xbpsupdate",					            3600,		9},
     
-    {" ", "web2",                             30,      0},
+    {"", "sb-network",                             30,      0},
 
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
-static char delim = ' | ';
+static char delim = " ";

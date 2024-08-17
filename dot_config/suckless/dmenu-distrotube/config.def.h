@@ -41,7 +41,7 @@ static int instant = 0;           /* -n  option; if 1, selects matching item wit
 #endif // INSTANT_PATCH
 
 #if CENTER_PATCH
-static int center = 0;            /* -c  option; if 0, dmenu won't be centered on the screen */
+static int center = 1;            /* -c  option; if 0, dmenu won't be centered on the screen */
 static int min_width = 680;       /* minimum width when centered */
 #endif // CENTER_PATCH
 
@@ -51,7 +51,7 @@ static int restrict_return = 0;   /* -1 option; if 1, disables shift-return and 
 
 /* -fn option overrides fonts[0]; default X11 font or font set */
 #if PANGO_PATCH
-static char font[] = "monospace 10";
+static char font[] = "Source Code Pro 14";
 #else
 #if XRESOURCES_PATCH
 static char *fonts[] =
@@ -59,8 +59,8 @@ static char *fonts[] =
 static const char *fonts[] = 
 #endif // XRESOURCES_PATCH
 {
-	"Ubuntu Mono:pixelsize=12:antialias=true:autohint=true",
-	"JoyPixels:pixelsize=8:antialias=true:autohint=true"
+	"hermit:pixelsize=14:antialias=true:autohint=true",
+	"JoyPixels:pixelsize=14:antialias=true:autohint=true"
 };
 #endif // PANGO_PATCH
 
@@ -93,7 +93,7 @@ static const unsigned int alphas[][3]      = {
 
 
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
-static unsigned int lines      = 0;
+static unsigned int lines      = 10;
 
 /*
  * SELECT YOUR COLOR SCHEME
@@ -107,8 +107,9 @@ static unsigned int lines      = 0;
  * 7. solarized-dark.h
  * 8. solarized-light.h
  * 9. tomorrow-night.h
+ * 10. tesseract.h
  */
-#include "colors/doom-one.h"
+#include "colors/tesseract.h"
 
 #if GRID_PATCH
 /* -g option; if nonzero, dmenu uses a grid comprised of columns and lines */
