@@ -166,7 +166,7 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #if BAR_PANGO_PATCH
 static const char font[]                 = "hack 13";
 #else
-static const char *fonts[]               = { "Hermit:size=13", "JoyPixels:pixelsize=15", "siji:pixelsize=14", "fontAwesome:size=15", "Source Code Pro:sixe=14" };
+static const char *fonts[]               = { "Hermit:size=13", "JoyPixels:pixelsize=15", "siji:pixelsize=14", "fontAwesome:size=15", "ProFont IIx Nerd Font:size=12" };
 #endif // BAR_PANGO_PATCH
 static const char dmenufont[]            = "hack:size=13";
 
@@ -267,9 +267,9 @@ static const unsigned int alphas[][3] = {
 	/*                       fg      bg        border     */
 	[SchemeNorm]         = { OPAQUE, baralpha, borderalpha },
 	[SchemeSel]          = { OPAQUE, baralpha, borderalpha },
-	[SchemeTitleNorm]    = { OPAQUE, baralpha, borderalpha },
+	[SchemeTitleNorm]    = { baralpha, baralpha, borderalpha },
 	[SchemeTitleSel]     = { OPAQUE, baralpha, borderalpha },
-	[SchemeTagsNorm]     = { OPAQUE, baralpha, borderalpha },
+	[SchemeTagsNorm]     = { baralpha, baralpha, borderalpha },
 	[SchemeTagsSel]      = { OPAQUE, baralpha, borderalpha },
 	[SchemeHidNorm]      = { OPAQUE, baralpha, borderalpha },
 	[SchemeHidSel]       = { OPAQUE, baralpha, borderalpha },
@@ -461,7 +461,7 @@ static char *tagicons[][NUMTAGS] =
 #endif // NAMETAG_PATCH
 {
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
-	[DEFAULT_TAGS] = { "\uf269", "\uf19d", "\uf121", "\uf07c", "\uf03d", "\uf15c", "\uf120", "\uf0e0", "\uf296" },
+	[DEFAULT_TAGS] = { "\uf269", "\uee99", "\uf121", "\uf07c", "\uf03d", "\uf15c", "\uf120", "\ue0cf", "\uf296" },
         [ALTERNATIVE_TAGS]  = { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
 //	[DEFAULT_TAGS] = { "Errai", "Juno", "Polaris", "Draco", "Cepheus", "Perseus", "Lacerta", "Cygnus", "Tadmor" },
 };
