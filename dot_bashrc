@@ -1,45 +1,120 @@
-# .bashrc
+#.bashrc
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# dont put duplicate lines or lines starting with a space in history
+HISTCONTROL=ignoreboth
+
 alias ls='lsd'
 
-
 #xbps alias
-alias xinstall='sudo xbps-install -y'
-alias xupdate='sudo xbps-install -Su'
-alias xremove='sudo xbps-remove'
+alias xinstall='sudo xbps-install -Sfvy'
+alias xupdate='sudo xbps-install -Suv'
+alias xremove='sudo xbps-remove -Rov'
 alias xreconfigure='sudo xbps-reconfigure'
 alias xcreate='sudo xbps-create'
 alias xq='xbps-query -Rs'
+alias xpkglist="xbps-query -l | awk '{ print $2 }' | xargs -n1 xbps-uhelper getpkgname"
 
 #navigation
 alias ..='cd ..'
 alias ....='cd ../..'
 alias ll='lsd -l'
 alias la='lsd -a'
-alias lsla='lsd -la'
-
+alias lsa='lsd -la'
+alias cp='cp -v'
+alias mv='mv -iv'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip -color=auto'
+alias cl='clear'
+alias yazi='yy'
 
 
 #quick access 
 alias ff='fastfetch'
-#alias vim='nvim'
+alias ns='nsxiv -trf'
+alias nv='nsxiv -tf'
+alias vim='nvim'
 
 
 #power off
 alias po="loginctl poweroff"
 alias ro="loginctl reboot"
 
+export BROWSER="Brave-browser"
+export TERMINAL="kitty"
+export LOCATION="Loveland,Co"
+export EDITOR="nvim"
+export FILE_MANAGER="yazi"
 
-PS1='[\u@\h \W]\$ '
+#if [ "${TERM}" == xterm-256color ]; then
+#  \cat ~/.local/sysfetch/logo2
+#  printf "\e[1;37m|--------------------| \e[1;36mSys Info\e[1;37m |---------------------|\n"
+#  printf "                      ^^^^^^^^^^\n"
+#  \cat ~/.local/sysfetch/sysinfo.txt
+#  printf "\n\n"
+#  printf "|-----------------------------------------------------|\n\n"
+#elif [ "${TERM}" == xterm-kitty ]; then
+#  kitty +kitten icat --align left "${HOME}"/Pictures/Tesseract-Natural-Tote-FrontNB.png
+#fi
+
+function parse_git_dirty {
+  STATUS="$(git status 2> /dev/null)"
+  if [[ $? -ne 0 ]]; then printf ""; return; else printf " ["; fi
+  if echo "${STATUS}" | grep -c "renamed:"         &> /dev/null; then printf " >"; else printf ""; fi
+  if echo "${STATUS}" | grep -c "branch is ahead:" &> /dev/null; then printf " !"; else printf ""; fi
+  if echo "${STATUS}" | grep -c "new file::"       &> /dev/null; then printf " +"; else printf ""; fi
+  if echo "${STATUS}" | grep -c "Untracked files:" &> /dev/null; then printf " ?"; else printf ""; fi
+  if echo "${STATUS}" | grep -c "modified:"        &> /dev/null; then printf " *"; else printf ""; fi
+  if echo "${STATUS}" | grep -c "deleted:"         &> /dev/null; then printf " -"; else printf ""; fi
+  printf " ]"
+}
+
+parse_git_branch() {
+  git rev-parse --abbrev-ref HEAD 2> /dev/null
+}
+
+prompt_comment() {
+    DIR="$HOME/.local/share/promptcomments/"
+    MESSAGE="$(find "$DIR"/*.txt | shuf -n1)"
+    cat "$MESSAGE"
+}
+
+#PS1="\e[00;36m\]┌─[ \e[00;37m\]\T \d \e[00;36m\]]──\e[00;31m\]>\e[00;37m\] \u\e[00;31m\]@\e[00;37m\]\h\n\e[00;36m\]|\n\e[00;36m\]└────\e[00;31m\]> \e[00;37m\]\w \e[00;31m\]\$ \e[01;37m\]"
+#PS1="\[\e[01;37m\]{ \[\e[01;34m\]\w \[\e[01;37m\]} \[\e[01;35m\]\[\$ \]\[\e[01;37m\]"
+#PS1="\[\e[1;36m\]\$(parse_git_branch)\[\033[31m\]\$(parse_git_dirty)\[\033[00m\]\n\w\[\e[1;31m\] \[\e[1;34m\]\[\e[1;37m\] "
+#PS1="\[\e[1;31m\]\$(parse_git_branch)\[\033[34m\]\$(parse_git_dirty)\n\[\033[1;92m\] 󰯉 \[\e[1;37m\] \w \[\e[1;36m\]\[\e[0;37m\] "
+PS1="\[\e[1;36m\]\$(parse_git_branch)\[\033[31m\]\$(parse_git_dirty)\n\[\033[0;33m\]  \[\e[1;37m\] \w \[\e[1;36m\] \[\e[1;37m\] "
+
+#PS2="\[\e[01;37m\]{ \[\e[01;34m\]\w \[\e[01;37m\]} \[\e[01;35m\]\[\$ \]\[\e[01;37m\]"
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-eval "$(atuin init bash)"i
-
-
+eval "$(atuin init bash)"
+#eval "$(starship init bash)"
 ### PATH
 if [ -d "$HOME/.scripts" ] ;
   then PATH="$HOME/.scripts:$PATH"
 fi
+if [ -d "$HOME/.programs" ] ;
+  then PATH="$HOME/.programs:$PATH"
+fi	  
+. "$HOME/.cargo/env"
+
+# pnpm
+export PNPM_HOME="/home/thomas/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

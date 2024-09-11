@@ -1,8 +1,11 @@
 [manager]
-show_hidden = true
+show_hidden = false
 sort_by="natural"
 sort_reverse=false
 linemode="mtime"
+
+max_width=10
+max_height=10
 
 [opener]
 edit = [
@@ -32,20 +35,37 @@ prepend_rules = [
 
 	#handle pictures
 	{ name = "*.png", use = "view" },
-	{ name = "*.jpeg", use = "view" },
-	{ name = "*.jpg", use = "view" },
+	{ name = "*.jpeg", use = "view2" },
+	{ name = "*.jpg", use = "view2" },
 
 	#handle office extensions
 	{ name = "*.xlsx", use = "open" },
 	{ name = "*.csv", use = "open" },
 	{ name = "*.docx", use = "open" },
-	{ name = "*.pdf", use = "openpdf" },
+	{ name = "*.pdf", use = "open" },
 	{ name = "*.odt", use = "open" },
 
 	# Multiple openers for a single rule
 	{ name = "*.html", use = [ "open", "edit" ] },
+	{ name = "*.png", use = [ "view", "view2" ] },
 ]
 append_rules = [
 	{ name = "*", use = "my-fallback" },
 ]
 
+[plugin]
+prepend_previewers = [
+    { mime = "text/csv", run = "miller"},
+    { mime = "{image,audio,video}/*", run = "mediainfo"},
+    { mime = "application/x-subrip", run = "mediainfo"},
+]
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"

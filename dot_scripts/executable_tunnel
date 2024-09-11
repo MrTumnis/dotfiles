@@ -1,0 +1,39 @@
+#!/bin/bash
+
+master_list() {
+    ssh master "/home/pi/ap/run_app.py tunnel list" 
+}
+
+connect() {
+    echo -p "Port Number: $1"
+    if ! $1 ==  0; then	
+    	ssh -Jpi@master pi@localhost -$1 
+    else 
+       echo "Not a proper port number"
+    fi
+}
+
+
+OPTIND=1
+
+while getopts ":lc" opt; do
+    case ${opt} in
+         l )
+             echo "Option -l detected: Listing tunnel connections"
+             master_list
+             ;;
+         c )
+             echo "Option -c detected: Connecting to $@"
+             shift $((OPTIND -1))
+             connect "$@"
+             ;;
+         \? )
+             echo "Usage: $0 [-l list all available tunnel connections] [-c enter port number and connect to logger]"
+             exit 1
+           ;;
+    esac
+done
+
+if [ $OPTIND -eq 1 ]; then
+     echo "No options were passed. Usage: $0
+fi

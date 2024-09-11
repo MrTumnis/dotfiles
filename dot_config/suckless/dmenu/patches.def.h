@@ -30,12 +30,12 @@
  * the program will crash on encountering such characters. Note that you will also need a font
  * that provides color emojis for this to work.
  */
-#define COLOR_EMOJI_PATCH 0
+#define COLOR_EMOJI_PATCH 1
 
 /* Minor patch to enable the use of Ctrl+v (XA_PRIMARY) and Ctrl+Shift+v (CLIPBOARD) to paste.
  * By default dmenu only supports Ctrl+y and Ctrl+Shift+y to paste.
  */
-#define CTRL_V_TO_PASTE_PATCH 0
+#define CTRL_V_TO_PASTE_PATCH 1
 
 /* This patch adds a flag (-dy) which makes dmenu run the command given to it whenever input
  * is changed with the current input as the last argument and update the option list according
@@ -51,7 +51,7 @@
  * line height patch and as such is intended to be combined with these.
  * https://tools.suckless.org/dmenu/patches/emoji-highlight/
  */
-#define EMOJI_HIGHLIGHT_PATCH 0
+#define EMOJI_HIGHLIGHT_PATCH 1
 
 /* This patch make it so that fuzzy matches gets highlighted and is therefore meant
  * to be used together with the fuzzymatch patch.
@@ -189,7 +189,7 @@
 /* Adds text which displays the number of matched and total items in the top right corner of dmenu.
  * https://tools.suckless.org/dmenu/patches/numbers/
  */
-#define NUMBERS_PATCH 1
+#define NUMBERS_PATCH 0
 
 /* This patch adds simple markup for dmenu using pango markup.
  * This depends on the pango library v1.44 or greater.
@@ -325,7 +325,7 @@
  *
  * https://tools.suckless.org/dmenu/patches/xresources/
  */
-#define XRESOURCES_PATCH 0
+#define XRESOURCES_PATCH 1
 
 /* This patch adds options for specifying dmenu window position and width.
  * The center patch takes precedence over the XYW patch if enabled.

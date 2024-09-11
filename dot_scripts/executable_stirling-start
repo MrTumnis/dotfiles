@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+	if ! sudo podman ps | grep -q "Stirling-PDF"; then
+    	echo "Stirling-PDF is not running. Running 'podman start'"
+    	sudo podman start Stirling-PDF
+	else
+	echo "Stirling-PDF is running. Running 'podman stop Stirling-PDF'"
+    	sudo podman stop Stirling-PDF
+	fi 
+

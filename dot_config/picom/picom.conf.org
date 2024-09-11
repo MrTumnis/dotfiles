@@ -1,0 +1,17 @@
+# Default opacity of active windows.
+active-opacity = 1.0;
+
+# Default opacity of inactive windows.
+#inactive-opacity = 1.0;
+
+# Opacity of window titlebars and borders.
+#frame-opacity = 1.0;
+
+# Enable transparency
+opacity-rule = [
+  "90:class_g = 'kitty' && focused",
+  "90:class_g = 'kitty' && !focused",
+  "95:class_g = 'Brave-Browser' && focused",
+  "90:class_g = 'Brave-Browser' && !focused",
+  "90:class_g = 'dwm' && focused",
+];

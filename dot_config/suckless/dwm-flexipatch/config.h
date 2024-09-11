@@ -1,4 +1,4 @@
-/* See LICENSE file for copyright and license details. */
+/* See LICENSE file for copyright and license detai:/ls. */
 
 /* Helper macros for spawning commands */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -9,13 +9,13 @@
 static const unsigned int borderpx       = 0;   /* border pixel of windows */
 static const int corner_radius           = 13;
 #else
-static const unsigned int borderpx       = 3;   /* border pixel of windows */
+static const unsigned int borderpx       = 0;   /* border pixel of windows */
 #endif // ROUNDED_CORNERS_PATCH
 #if BAR_BORDER_PATCH
 /* This allows the bar border size to be explicitly set separately from borderpx.
  * If left as 0 then it will default to the borderpx value of the monitor and will
  * automatically update with setborderpx. */
-static const unsigned int barborderpx    = 3;  /* border pixel of bar */
+static const unsigned int barborderpx    = 0;  /* border pixel of bar */
 #endif // BAR_BORDER_PATCH
 static const unsigned int snap           = 25;  /* snap pixel */
 #if SWALLOW_PATCH
@@ -28,11 +28,11 @@ static const int scalepreview            = 4;        /* Tag preview scaling */
 static int nomodbuttons                  = 1;   /* allow client mouse button bindings that have no modifier */
 #endif // NO_MOD_BUTTONS_PATCH
 #if VANITYGAPS_PATCH
-static const unsigned int gappih         = 10;  /* horiz inner gap between windows */
-static const unsigned int gappiv         = 10;  /* vert inner gap between windows */
-static const unsigned int gappoh         = 10;  /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov         = 10;  /* vert outer gap between windows and screen edge */
-static const int smartgaps_fact          = 1;   /* gap factor when there is only one client; 0 = no gaps, 3 = 3x outer gaps */
+static const unsigned int gappih         = 6;  /* horiz inner gap between windows */
+static const unsigned int gappiv         = 6;  /* vert inner gap between windows */
+static const unsigned int gappoh         = 6;  /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov         = 6;  /* vert outer gap between windows and screen edge */
+static const int smartgaps_fact          = 2;   /* gap factor when there is only one client; 0 = no gaps, 3 = 3x outer gaps */
 #endif // VANITYGAPS_PATCH
 #if AUTOSTART_PATCH
 static const char autostartblocksh[]     = "autostart_blocking.sh";
@@ -41,9 +41,9 @@ static const char dwmdir[]               = "dwm";
 static const char localshare[]           = ".local/share";
 #endif // AUTOSTART_PATCH
 #if BAR_ANYBAR_PATCH
-static const int usealtbar               = 1;        /* 1 means use non-dwm status bar */
-static const char *altbarclass           = "Polybar"; /* Alternate bar class name */
-static const char *altbarcmd             = "$HOME/bar.sh"; /* Alternate bar launch command */
+static const int usealtbar               = 0;        /* 1 means use non-dwm status bar */
+static const char *altbarclass           = "Eww"; /* Alternate bar class name */
+static const char *altbarcmd             = "$HOME/.config/eww/eww-sai/bar/launch_bar"; /* Alternate bar launch command */
 #endif // BAR_ANYBAR_PATCH
 #if BAR_HOLDBAR_PATCH
 static const int showbar                 = 0;   /* 0 means no bar */
@@ -63,11 +63,11 @@ static const int toptab                  = False;               /* False means b
 static const int bar_height              = 0;   /* 0 means derive from font, >= 1 explicit height */
 #endif // BAR_HEIGHT_PATCH
 #if BAR_PADDING_PATCH
-static const int vertpad                 = 10;  /* vertical padding of bar */
-static const int sidepad                 = 10;  /* horizontal padding of bar */
+static const int vertpad                 = 2;  /* vertical padding of bar */
+static const int sidepad                 = 0;  /* horizontal padding of bar */
 #endif // BAR_PADDING_PATCH
 #if BAR_WINICON_PATCH
-#define ICONSIZE 23    /* icon size */
+#define ICONSIZE 30    /* icon size */        /////////
 #define ICONSPACING 5  /* space between icon and title */
 #endif // BAR_WINICON_PATCH
 #if FOCUSONCLICK_PATCH
@@ -95,14 +95,14 @@ static const int statusmon               = 'A';
 #endif // BAR_STATUSALLMONS_PATCH | BAR_STATICSTATUS_PATCH
 #if BAR_STATUSPADDING_PATCH
 static const int horizpadbar             = 2;   /* horizontal padding for statusbar */
-static const int vertpadbar              = 0;   /* vertical padding for statusbar */
+static const int vertpadbar              = 3;   /* vertical padding for statusbar */
 #endif // BAR_STATUSPADDING_PATCH
 #if BAR_STATUSBUTTON_PATCH
 static const char buttonbar[]            = "<O>";
 #endif // BAR_STATUSBUTTON_PATCH
 #if BAR_SYSTRAY_PATCH
 static const unsigned int systrayspacing = 2;   /* systray spacing */
-static const int showsystray             = 1;   /* 0 means no systray */
+static const int showsystray             = 0;   /* 0 means no systray */
 #endif // BAR_SYSTRAY_PATCH
 #if BAR_TAGLABELS_PATCH
 static const char ptagf[] = "[%s %s]";          /* format of a tag label */
@@ -143,7 +143,7 @@ static const unsigned int maxhtab          = 200;  /* tab menu height */
 #endif // ALT_TAB_PATCH
 
 /* Indicators: see patch/bar_indicators.h for options */
-static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
+static int tagindicatortype              = INDICATOR_NONE;     
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 #if FAKEFULLSCREEN_CLIENT_PATCH && !FAKEFULLSCREEN_PATCH
@@ -164,20 +164,25 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #endif // MONOCLE_LAYOUT
 #endif // BAR_TABGROUPS_PATCH
 #if BAR_PANGO_PATCH
-static const char font[]                 = "hack 13";
+//static const char font[]                 = "hack 13";
 #else
-static const char *fonts[]               = { "Hermit:size=13", "JoyPixels:pixelsize=15", "siji:pixelsize=14", "fontAwesome:size=15", "ProFont IIx Nerd Font:size=12" };
+static const char *fonts[]               = { "Hermit:size=14", "siji:pixelsize=14", "JoyPixels:size=15", "fontawesome:size=15" };
 #endif // BAR_PANGO_PATCH
-static const char dmenufont[]            = "hack:size=13";
+static const char dmenufont[]            =  "Hermit:size=13";   
 
 static char c000000[]                    = "#000000"; // placeholder value
 
 static char normfgcolor[]                = "#bbbbbb"; //https://www.color-hex.com/color
 static char normbgcolor[]                = "#000000";
-static char normbordercolor[]            = "#000000";
+static char normbordercolor[]            = "#000000"; 
 static char normfloatcolor[]             = "#000000";
 
-static char selfgcolor[]                 = "#000000"; 
+static char dmenufgcolor[]               = "#005577"; 
+static char dmenubgcolor[]               = "#000000"; 
+static char seldmenufgcolor[]            = "#4c889f";   
+static char seldmenubgcolor[]            = "#222222";
+
+static char selfgcolor[]                 = "#4c889f";   
 static char selbgcolor[]                 = "#000000";
 static char selbordercolor[]             = "#000000";
 static char selfloatcolor[]              = "#ffffff";
@@ -267,9 +272,9 @@ static const unsigned int alphas[][3] = {
 	/*                       fg      bg        border     */
 	[SchemeNorm]         = { OPAQUE, baralpha, borderalpha },
 	[SchemeSel]          = { OPAQUE, baralpha, borderalpha },
-	[SchemeTitleNorm]    = { baralpha, baralpha, borderalpha },
+	[SchemeTitleNorm]    = { OPAQUE, baralpha, borderalpha },
 	[SchemeTitleSel]     = { OPAQUE, baralpha, borderalpha },
-	[SchemeTagsNorm]     = { baralpha, baralpha, borderalpha },
+	[SchemeTagsNorm]     = { OPAQUE, baralpha, borderalpha },
 	[SchemeTagsSel]      = { OPAQUE, baralpha, borderalpha },
 	[SchemeHidNorm]      = { OPAQUE, baralpha, borderalpha },
 	[SchemeHidSel]       = { OPAQUE, baralpha, borderalpha },
@@ -321,7 +326,7 @@ static const char title_bg_light[]  = "#fdfdfd";
 static const int color_ptrs[][ColCount] = {
 	/*                       fg      bg      border  float */
 	[SchemeNorm]         = { -1,     -1,     5,      12 },
-	[SchemeSel]          = { -1,     -1,     11,     13 },
+	[SchemeSel]          = { -1,     -1,     11,     13 },z
 	[SchemeTitleNorm]    = { 6,      -1,     -1,     -1 },
 	[SchemeTitleSel]     = { 6,      -1,     -1,     -1 },
 	[SchemeTagsNorm]     = { 2,      0,      0,      -1 },
@@ -406,13 +411,16 @@ static const char *layoutmenu_cmd = "layoutmenu.sh";
 #if BAR_LAUNCHER_PATCH
 static const Launcher launchers[] = {
 	/* icon to display      command        */
-	{ "brave-browser-stable",               CMD("brave-browser-stable", "duckduckgo.com") },
+	{ " ",               CMD("Gimp") },
 };
 #endif // BAR_LAUNCHER_PATCH
 
-#if COOL_AUTOSTART_PATCH
+#if COOL_AUTOSTART_PATCH    ///////////////////////////////////////////////////////////////////////////////
 static const char *const autostart[] = {
-	"st", NULL,
+//	"kitty", NULL,
+	"picom", NULL,
+	"pipewire", NULL,
+	"Eww", NULL,
 	NULL /* terminate */
 };
 #endif // COOL_AUTOSTART_PATCH
@@ -420,7 +428,7 @@ static const char *const autostart[] = {
 #if RENAMED_SCRATCHPADS_PATCH
 static const char *scratchpadcmd[] = {"s", "st", "-n", "spterm", NULL};
 #elif SCRATCHPADS_PATCH
-const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
+const char *spcmd1[] = {"kitty", "-n", "spterm", "-g", "120x34", NULL };
 static Sp scratchpads[] = {
    /* name          cmd  */
    {"spterm",      spcmd1},
@@ -440,7 +448,7 @@ static Sp scratchpads[] = {
  *
  *  2) static char *tagicons[][1] = {
  *         [DEFAULT_TAGS] = { "•" },
- *     }
+ *     
  *
  * The first example would result in the tags on the first monitor to be 1 through 9, while the
  * tags for the second monitor would be named A through I. A third monitor would start again at
@@ -460,9 +468,11 @@ static char tagicons[][NUMTAGS][MAX_TAGLEN] =
 static char *tagicons[][NUMTAGS] =
 #endif // NAMETAG_PATCH
 {
-	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
-	[DEFAULT_TAGS] = { "\uf269", "\uee99", "\uf121", "\uf07c", "\uf03d", "\uf15c", "\uf120", "\ue0cf", "\uf296" },
-        [ALTERNATIVE_TAGS]  = { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
+	[ALT_TAGS_DECORATION] = { "\ue6a3", "\ue6a3", "\ue6a3", "\ue6a3" },
+//	[DEFAULT_TAGS] = { "\uf269", "\uee99", "\ue6a3", "\uf07c", "\uf03d", "\uf15c", "\uf120", "\ue0cf", "\uf296" },
+	[DEFAULT_TAGS] = { " ", "󰷏 ", " ", "󱍢 " },
+//	[DEFAULT_TAGS] = { "\ue6a3", "\ue6a3", "\ue6a3", " " },
+        [ALTERNATIVE_TAGS]  = { "1", "2", "3", "4" },
 //	[DEFAULT_TAGS] = { "Errai", "Juno", "Polaris", "Draco", "Cepheus", "Perseus", "Lacerta", "Cygnus", "Tadmor" },
 };
 
@@ -486,14 +496,14 @@ static const int tagrows = 2;
  *
  * A traditional struct table looks like this:
  *    // class      instance  title  wintype  tags mask  isfloating  monitor
- *    { "Gimp",     NULL,     NULL,  NULL,    1 << 4,    0,          -1 },
- *    { "Firefox",  NULL,     NULL,  NULL,    1 << 7,    0,          -1 },
+ *    { "Gimp",     NULL,     NULL,  NULL,    1 << 4,    0,          -1 },    
+ *    { "Brave-browser",  NULL,     NULL,  NULL,    1 << 7,    0,          -1 },   
  *
  * The RULE macro has the default values set for each field allowing you to only
  * specify the values that are relevant for your rule, e.g.
  *
- *    RULE(.class = "Gimp", .tags = 1 << 4)
- *    RULE(.class = "Firefox", .tags = 1 << 7)
+ *    RULE(.class = "Gimp", .tags = 1 << 4)     
+ *    RULE(.class = "Brave-browser", .tags = 1 << 4) 
  *
  * Refer to the Rule struct definition for the list of available fields depending on
  * the patches you enable.
@@ -509,8 +519,16 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "Gimp", .tags = 1 << 4)
-	RULE(.class = "Firefox", .tags = 1 << 7)
+	RULE(.class = "Gimp", .tags = 1 << 2)               //////////////////
+	RULE(.class = "zen-alpha", .tags = 1 << 3)           //////////////////
+	RULE(.class = "Brave-browser", .tags = 1 << 3)           //////////////////
+	RULE(.class = "xfreerdp", .tags = 1 << 2)           //////////////////
+       { "kitty",     NULL,     "Yazi: ~/",  NULL,    1 << 2,    0,          0 },    
+ //       { "Eww",     NULL,   NULL,  NULL,    1<<1,    1,          0 },    
+       { "libreoffice-draw",     NULL,   NULL, NULL,    1<<1,    1,          0 },    
+       { "libreoffice-writer",     NULL,   NULL, NULL,    1<<1,    1,          0 },    
+       { "libreoffice-calc",     NULL,   NULL, NULL,    1<<1,    1,          0 },    
+       { "libreoffice-impress",     NULL,   NULL, NULL,    1<<1,    1,          0 },    
 	#if RENAMED_SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 	#elif SCRATCHPADS_PATCH
@@ -581,8 +599,8 @@ static const BarRule barrules[] = {
 	#if BAR_LTSYMBOL_PATCH
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol,           draw_ltsymbol,          click_ltsymbol,          NULL,                    "layout" },
 	#endif // BAR_LTSYMBOL_PATCH
-	#if BAR_STATUSCOLORS_PATCH && BAR_STATUSCMD_PATCH
-	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_statuscolors,       draw_statuscolors,      click_statuscmd,      NULL,                    "statuscolors" },
+	#if BAR_STATUSCOLORS_PATCH && BAR_STATUSCMD_PATCH        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_statuscolors,       draw_statuscolors,      click_statuscmd,         NULL,                    "statuscolors" },
 	#elif BAR_STATUSCOLORS_PATCH 
 	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_statuscolors,       draw_statuscolors,      click_statuscolors,      NULL,                    "statuscolors" },
 	#elif BAR_STATUS2D_PATCH && BAR_STATUSCMD_PATCH
@@ -611,7 +629,7 @@ static const BarRule barrules[] = {
 	{ -1,        0,     BAR_ALIGN_NONE,   width_wintitle,           draw_wintitle,          click_wintitle,          NULL,                    "wintitle" },
 	#endif // BAR_TABGROUPS_PATCH | BAR_AWESOMEBAR_PATCH | BAR_FANCYBAR_PATCH | BAR_WINTITLE_PATCH
 	#if BAR_EXTRASTATUS_PATCH
-	#if BAR_STATUSCOLORS_PATCH && BAR_STATUSCMD_PATCH
+	#if BAR_STATUSCOLORS_PATCH && BAR_STATUSCMD_PATCH  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	{ statusmon, 1,     BAR_ALIGN_CENTER, width_statuscolors_es,    draw_statuscolors_es,   click_statuscmd_es,      NULL,                    "statuscolors_es" },
 	#elif BAR_STATUSCOLORS_PATCH
 	{ statusmon, 1,     BAR_ALIGN_CENTER, width_statuscolors_es,    draw_statuscolors_es,   click_statuscolors,      NULL,                    "statuscolors_es" },
@@ -758,7 +776,7 @@ static const Layout layouts[] = {
 	{ "(@)",      spiral },
 	#endif
 	#if FIBONACCI_DWINDLE_LAYOUT
-	{ "[\\]",     dwindle },
+	{ "[\\]",     dwindle },        
 	#endif
 	#if GRIDMODE_LAYOUT
 	{ "HHH",      grid },
@@ -872,10 +890,10 @@ static const char *dmenucmd[] = {
 	"-m", dmenumon,
 	#endif // NODMENU_PATCH
 	"-fn", dmenufont,
-	"-nb", normbgcolor,
-	"-nf", normfgcolor,
-	"-sb", selbgcolor,
-	"-sf", selfgcolor,
+	"-nb", dmenubgcolor,                 /*DMENU Color Control*/
+	"-nf", dmenufgcolor,
+	"-sb", seldmenubgcolor,
+	"-sf", seldmenufgcolor,
 	#if BAR_DMENUMATCHTOP_PATCH
 	topbar ? NULL : "-b",
 	#endif // BAR_DMENUMATCHTOP_PATCH
@@ -885,8 +903,10 @@ static const char *termcmd[]  = { "kitty", NULL };
 static const char *rdpcmd[]  = { "rdpwin", "-d", NULL };
 //static const char *dmenucmd[]  = { "dmenu_run", NULL };
 static const char *filecmd[]  = { "kitty", "yazi", NULL };
-static const char *bravecmd[]  = { "brave-browser-stable", NULL };
-
+//static const char *tabtermcmd[]  = { "tabbed", "-r", "2", "kitty", "-w", "''", NULL };
+static const char *screenshotcmd[]  = { "kitty", "magick", NULL };
+static const char *bravecmd[]  = { "brave-browser-stable", NULL };  
+//static const char *zencmd[]  = { "zen", NULL };  
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
 /* This defines the name of the executable that handles the bar (used for signalling purposes) */
@@ -894,34 +914,64 @@ static const char *bravecmd[]  = { "brave-browser-stable", NULL };
 #else
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
 static const StatusCmd statuscmds[] = {
-	{ 0, XF86XK_AudioMute,                         spawn,                  SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioRaiseVolume,                  spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%- && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioLowerVolume,                  spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%+ && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioPrev,                         spawn,                  {.v = (const char*[]){ "mpc", "prev", NULL } } },
-	{ 0, XF86XK_AudioNext,                         spawn,                  {.v = (const char*[]){ "mpc",  "next", NULL } } },
-	{ 0, XF86XK_AudioPause,                        spawn,                  {.v = (const char*[]){ "mpc", "pause", NULL } } },
-	{ 0, XF86XK_AudioPlay,                         spawn,                  {.v = (const char*[]){ "mpc", "play", NULL } } },
-	{ 0, XF86XK_AudioStop,                         spawn,                  {.v = (const char*[]){ "mpc", "stop", NULL } } },
-	{ 0, XF86XK_AudioRewind,                       spawn,                  {.v = (const char*[]){ "mpc", "seek", "-10", NULL } } },
-	{ 0, XF86XK_AudioForward,                      spawn,                  {.v = (const char*[]){ "mpc", "seek", "+10", NULL } } },
-	{ 0, XF86XK_AudioMedia,                        spawn,                  {.v = (const char*[]){ TERMINAL, "-e", "ncmpcpp", NULL } } },
-	{ 0, XF86XK_AudioMicMute,                      spawn,                  SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") },
-	/* { 0, XF86XK_PowerOff,                       spawn,                  {.v = (const char*[]){ "sysact", NULL } } }, */
-	{ 0, XF86XK_Calculator,                        spawn,                  {.v = (const char*[]){ TERMINAL, "-e", "bc", "-l", NULL } } },
-	{ 0, XF86XK_Sleep,                             spawn,                  {.v = (const char*[]){ "sudo", "-A", "zzz", NULL } } },
-	{ 0, XF86XK_WWW,                               spawn,                  {.v = (const char*[]){ BROWSER, NULL } } },
-	{ 0, XF86XK_DOS,                               spawn,                  {.v = termcmd } },
-	{ 0, XF86XK_ScreenSaver,                       spawn,                  SHCMD("slock & xset dpms force off; mpc pause; pauseallmpv") },
-	{ 0, XF86XK_TaskPane,                          spawn,                  {.v = (const char*[]){ TERMINAL, "-e", "htop", NULL } } },
-	{ 0, XF86XK_Mail,                              spawn,                  SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks") },
-	{ 0, XF86XK_MyComputer,                        spawn,                  {.v = (const char*[]){ TERMINAL, "-e",  "lfub",  "/", NULL } } },
-	/* { 0, XF86XK_Battery,                        spawn,                  SHCMD("") }, */
-	{ 0, XF86XK_Launch1,                           spawn,                  {.v = (const char*[]){ "xset", "dpms", "force", "off", NULL } } },
-	{ 0, XF86XK_TouchpadToggle,                    spawn,                  SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") },
-	{ 0, XF86XK_TouchpadOff,                       spawn,                  {.v = (const char*[]){ "synclient", "TouchpadOff=1", NULL } } },
-	{ 0, XF86XK_TouchpadOn,                        spawn,                  {.v = (const char*[]){ "synclient", "TouchpadOff=0", NULL } } },
-	{ 0, XF86XK_MonBrightnessUp,                   spawn,                  {.v = (const char*[]){ "xbacklight", "-inc", "15", NULL } } },
-	{ 0, XF86XK_MonBrightnessDown,                 spawn,                  {.v = (const char*[]){ "xbacklight", "-dec", "15", NULL } } },
+//	{ MODKEY,                       XK_slash,      spawn,                  SHCMD("dmenu-emoji") },
+//	{ MODKEY|ShiftMask,             XK_slash,      spawn,                  SHCMD("dmenu-emoji -c") },
+//	{ MODKEY,                       XK_c,          spawn,                  SHCMD("rofi-calc") },
+//	{ MODKEY,                       XK_Escape,     spawn,                  SHCMD("sysact")},
+//	{ MODKEY,                       XK_p,          spawn,                  SHCMD("sysprofile --cpu") },
+//	{ MODKEY|ShiftMask,             XK_p,          spawn,                  SHCMD("sysprofile --gpu") },
+//	{ MODKEY,                       XK_w,          spawn,                  SHCMD("$BROWSER") },
+//	{ MODKEY|ShiftMask,             XK_w,          spawn,                  SHCMD("terminal -e nmtui") },
+	{ MODKEY,                       XK_e,          spawn,                  SHCMD("terminal -e $FILE_MANAGER") },
+	{ MODKEY|ShiftMask,             XK_e,          spawn,                  SHCMD("terminal -e $SYSTEM_MONITOR") },
+
+	// Music
+//	{ MODKEY|ControlMask|ShiftMask, XK_j,          spawn,                  SHCMD("musicctl seek -10") },
+//	{ MODKEY|ControlMask,           XK_j,          spawn,                  SHCMD("musicctl prev") },
+//	{ MODKEY|ControlMask,           XK_k,          spawn,                  SHCMD("musicctl toggle") },
+//	{ MODKEY|ControlMask|ShiftMask, XK_k,          spawn,                  SHCMD("musicctl stop") },
+//	{ MODKEY|ControlMask,           XK_l,          spawn,                  SHCMD("musicctl next") },
+//	{ MODKEY|ControlMask|ShiftMask, XK_l,          spawn,                  SHCMD("musicctl seek +10") },
+
+	// Screenshots
+//	{ 0,                            XK_Print,      spawn,                  SHCMD("snip full clip") },
+//	{ ShiftMask,                    XK_Print,      spawn,                  SHCMD("snip prompt") },
+//	{ MODKEY,                       XK_Print,      spawn,                  SHCMD("snip full") },
+//	{ MODKEY,                       XK_s,          spawn,                  SHCMD("snip sel") },
+//	{ MODKEY|ShiftMask,             XK_s,          spawn,                  SHCMD("snip sel clip") },
+//	{ MODKEY|ControlMask,           XK_s,          spawn,                  SHCMD("flameshot gui") },
+//	{ MODKEY|ShiftMask,             XK_r,          spawn,                  SHCMD("screenrecord") },
+
+	{ MODKEY,                       XK_F4,         spawn,                  SHCMD("kitty -e pamixer; pkill -RTMIN+19 $STATUSBAR") },
+//	{ MODKEY,                       XK_F11,        spawn,                  SHCMD("mpv --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
+
+//	{ MODKEY|ControlMask,           XK_Up,         spawn,                  SHCMD("light -A 5") },
+//	{ MODKEY|ControlMask,           XK_Down,       spawn,                  SHCMD("light -U 5") },
+//	{ MODKEY|ControlMask,           XK_Right,      spawn,                  SHCMD("asusctl -n") },
+//	{ MODKEY|ControlMask,           XK_Left,       spawn,                  SHCMD("asusctl -p") },
+
+//	{ MODKEY,                       XK_m,          spawn,                  SHCMD("mountmate") },
+//	{ MODKEY|ShiftMask,             XK_m,          spawn,                  SHCMD("mountmate -u") },
+
+	#define WPCTL(cmd, arg) SHCMD("wpctl " cmd " @DEFAULT_AUDIO_SINK@ " arg "; pkill -RTMIN+19 $STATUSBAR")  
+	{ 0,                            XF86XK_AudioMute,         spawn,       WPCTL("set-mute", "toggle") },
+	{ 0,                            XF86XK_AudioRaiseVolume,  spawn,       WPCTL("set-volume --limit=1.0", "3%+") },
+	{ 0,                            XF86XK_AudioLowerVolume,  spawn,       WPCTL("set-volume --limit=1.0", "3%-") },
+//	{ 0,                            XF86XK_AudioPrev,         spawn,       SHCMD("musicctl prev") },
+//	{ 0,                            XF86XK_AudioNext,         spawn,       SHCMD("musicctl next") },
+//	{ 0,                            XF86XK_AudioPause,        spawn,       SHCMD("musicctl pause") },
+//	{ 0,                            XF86XK_AudioPlay,         spawn,       SHCMD("musicctl play") },
+//	{ 0,                            XF86XK_AudioStop,         spawn,       SHCMD("musicctl stop") },
+//	{ 0,                            XF86XK_AudioRewind,       spawn,       SHCMD("musicctl seek -10") },
+//	{ 0,                            XF86XK_AudioForward,      spawn,       SHCMD("musicctl seek +10")},
+//	{ 0,                            XF86XK_AudioMicMute,      spawn,       SHCMD("toggle-mic") },
+//	{ 0,                            XF86XK_Tools,             spawn,       SHCMD("kitty -e ncmpcpp") },
+//	{ 0,                            XF86XK_Explorer,          spawn,       SHCMD("kitty -e $FILE_MANAGER") },
+//	{ 0,                            XF86XK_Calculator,        spawn,       SHCMD("rofi-calc") },
+//	{ 0,                            XF86XK_ScreenSaver,       spawn,       SHCMD("slock & xset dpms force off; musicctl pause") },
+//	{ 0,                            XF86XK_MonBrightnessUp,   spawn,       SHCMD("light -A 5") },
+//	{ 0,                            XF86XK_MonBrightnessDown, spawn,       SHCMD("light -U 5") },
+//	{ 0,                            XF86XK_TouchpadToggle,    spawn,       SHCMD("toggle-touchpad") },
 //	{ "notify-send Volume$BUTTON", 1 },
 //	{ "notify-send CPU$BUTTON", 2 },
 //	{ "notify-send Battery$BUTTON", 3 },
@@ -948,22 +998,27 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_y,          spawn,                  {.v = filecmd } },
 	{ MODKEY,                       XK_w,          spawn,                  {.v = rdpcmd } },
 	{ MODKEY,                       XK_Return,     spawn,                  {.v = termcmd } },
-	{ MODKEY,                       XK_b,          spawn,                  {.v = bravecmd } },
-	{ MODKEY,			XK_minus,         spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY|ShiftMask,		XK_minus,         spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%-; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY,			XK_equal,         spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY|ShiftMask,		XK_equal,         spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%+; kill -44 $(pidof dwmblocks)") },
+//	{ Mod1Mask,                     XK_Return      spawn,                  {.v = tabtermcmd } },
+//	{ MODKEY,                       XK_b,          spawn,                  {.v = bravecmd } },
+        { MODKEY,                       XK_b,          spawn,                  {.v = bravecmd } },
+	{ MODKEY,                       XK_s,          spawn,                  {.v = screenshotcmd } },
+	{ MODKEY,			XK_minus,      spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -53 $(pidof dwmblocks)") },
+	{ MODKEY|ShiftMask,		XK_minus,      spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%-; kill -53 $(pidof dwmblocks)") },
+	{ MODKEY,			XK_equal,      spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; kill -53 $(pidof dwmblocks)") },
+	{ MODKEY|ShiftMask,		XK_equal,      spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%+; kill -53 $(pidof dwmblocks)") },
+//	{ MODKEY,	        	XK_F5,         spawn,                  SHCMD("brightnessctl --device=tpacpi::kbd_backlight set 1") },
+//	{ MODKEY,		        XK_F6,         spawn,                  SHCMD("brightnessctl --device=tpacpi::kbd_backlight set 0") },
 	#if RIODRAW_PATCH
 	{ MODKEY|ControlMask,           XK_p,          riospawnsync,           {.v = dmenucmd } },
 	{ MODKEY|ControlMask,           XK_Return,     riospawn,               {.v = termcmd } },
 	{ MODKEY,                       XK_s,          rioresize,              {0} },
 	#endif // RIODRAW_PATCH
-	{ Mod1Mask,                       XK_b,          togglebar,              {0} },
+	{ Mod1Mask,                     XK_b,          togglebar,              {0} },
 	#if TOGGLETOPBAR_PATCH
-	{ Mod1Mask|ShiftMask,             XK_b,          toggletopbar,           {0} },
+	{ Mod1Mask|ShiftMask,           XK_b,          toggletopbar,           {0} },
 	#endif // TOGGLETOPBAR_PATCH
 	#if TAB_PATCH
-	{ Mod1Mask|ControlMask,           XK_b,          tabmode,                {-1} },
+	{ Mod1Mask|ControlMask,         XK_b,          tabmode,                {-1} },
 	#endif // TAB_PATCH
 	#if FOCUSMASTER_PATCH || FOCUSMASTER_RETURN_PATCH
 	{ MODKEY|ControlMask,           XK_space,      focusmaster,            {0} },
@@ -1127,9 +1182,9 @@ static const Key keys[] = {
 	#if XRDB_PATCH && !BAR_VTCOLORS_PATCH
 	{ MODKEY|ShiftMask,             XK_F5,         xrdb,                   {.v = NULL } },
 	#endif // XRDB_PATCH
-	{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,          setlayout,              {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,          setlayout,              {.v = &layouts[2]} },
+	{ MODKEY|ControlMask,                       XK_t,          setlayout,              {.v = &layouts[0]} },
+	{ MODKEY|ControlMask,                       XK_f,          setlayout,              {.v = &layouts[1]} },
+	{ MODKEY|ControlMask,                       XK_m,          setlayout,              {.v = &layouts[2]} },
 	#if COLUMNS_LAYOUT
 	{ MODKEY,                       XK_c,          setlayout,              {.v = &layouts[3]} },
 	#endif // COLUMNS_LAYOUT
@@ -1335,8 +1390,8 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_numbersign, setborderpx,            {.i = 0 } },
 	#endif // SETBORDERPX_PATCH
 	#if CYCLELAYOUTS_PATCH
-	{ MODKEY|ControlMask,           XK_comma,      cyclelayout,            {.i = -1 } },
-	{ MODKEY|ControlMask,           XK_period,     cyclelayout,            {.i = +1 } },
+	{ MODKEY|ControlMask,           XK_Prior,      cyclelayout,            {.i = -1 } },
+	{ MODKEY|ControlMask,           XK_Next,       cyclelayout,            {.i = +1 } },
 	#endif // CYCLELAYOUTS_PATCH
 	#if MPDCONTROL_PATCH
 	{ MODKEY,                       XK_F1,         mpdchange,              {.i = -1} },
@@ -1352,6 +1407,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                                  6)
 	TAGKEYS(                        XK_8,                                  7)
 	TAGKEYS(                        XK_9,                                  8)
+
 };
 
 #if KEYMODES_PATCH
@@ -1403,7 +1459,7 @@ static const Button buttons[] = {
 	#endif // BAR_WINTITLEACTIONS_PATCH
 	{ ClkWinTitle,          0,                   Button2,        zoom,           {0} },
 	#if BAR_STATUSCMD_PATCH && BAR_DWMBLOCKS_PATCH
-	{ ClkStatusText,        0,                   Button1,        sigstatusbar,   {.i = 1 } },
+	{ ClkStatusText,        0,                   Button1,        sigstatusbar,   {.i = 1 } },        
 	{ ClkStatusText,        0,                   Button2,        sigstatusbar,   {.i = 2 } },
 	{ ClkStatusText,        0,                   Button3,        sigstatusbar,   {.i = 3 } },
 	#elif BAR_STATUSCMD_PATCH
@@ -1437,10 +1493,10 @@ static const Button buttons[] = {
 	{ ClkClientWin,         MODKEY,              Button7,        resizemousescroll, {.v = &scrollargs[3]} },
 	#endif // TAPRESIZE_PATCH
 	#if DRAGCFACT_PATCH && CFACTS_PATCH
-	{ ClkClientWin,         MODKEY|ShiftMask,    Button3,        dragcfact,      {0} },
+	{ ClkClientWin,         MODKEY|ControlMask,  Button3,        dragcfact,      {0} },
 	#endif // DRAGCFACT_PATCH
 	#if DRAGMFACT_PATCH
-	{ ClkClientWin,         MODKEY|ShiftMask,    Button1,        dragmfact,      {0} },
+	{ ClkClientWin,         MODKEY|ControlMask,  Button1,        dragmfact,      {0} },
 	#endif // DRAGMFACT_PATCH
 	{ ClkTagBar,            0,                   Button1,        view,           {0} },
 	{ ClkTagBar,            0,                   Button3,        toggleview,     {0} },

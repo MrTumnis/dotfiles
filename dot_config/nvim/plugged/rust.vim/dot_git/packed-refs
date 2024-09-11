@@ -1,0 +1,3 @@
+# pack-refs with: peeled fully-peeled sorted 
+889b9a7515db477f4cb6808bef1769e53493c578 refs/remotes/origin/master
+e24f81c09e9da65f3c7e7afb7fb23063d8bafd10 refs/remotes/origin/rewritten-indent

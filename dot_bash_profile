@@ -6,3 +6,4 @@
 [[ $(ps -e | grep startx) = '' ]] && startx 
 
 . "$HOME/.atuin/bin/env"
+. "$HOME/.cargo/env"

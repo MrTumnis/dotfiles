@@ -1,0 +1,6 @@
+YuckUsage	yuck.txt	/*YuckUsage*
+align_keywords	yuck.txt	/*align_keywords*
+align_multiline_strings	yuck.txt	/*align_multiline_strings*
+align_subforms	yuck.txt	/*align_subforms*
+lisp_indentation	yuck.txt	/*lisp_indentation*
+yuck.vim	yuck.txt	/*yuck.vim*
