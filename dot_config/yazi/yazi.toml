@@ -26,6 +26,9 @@ open = [
 openpdf = [
 	{ run = 'qpdfview "$@"', orphan = true, for = "linux" },
 ]
+openvirt= [
+	{ run = 'virt-viewer "$@"', orphan = true, for = "linux" },
+]
 
 [open]
 prepend_rules = [
@@ -45,6 +48,7 @@ prepend_rules = [
 	{ name = "*.pdf", use = "open" },
 	{ name = "*.odt", use = "open" },
 
+	{ name = "*.vv", use = "openvirt" },
 	# Multiple openers for a single rule
 	{ name = "*.html", use = [ "open", "edit" ] },
 	{ name = "*.png", use = [ "view", "view2" ] },
