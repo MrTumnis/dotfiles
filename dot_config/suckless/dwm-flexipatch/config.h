@@ -525,10 +525,13 @@ static const Rule rules[] = {
 	RULE(.class = "xfreerdp", .tags = 1 << 2)           //////////////////
        { "kitty",     NULL,     "Yazi: ~/",  NULL,    1 << 2,    0,          0 },    
  //       { "Eww",     NULL,   NULL,  NULL,    1<<1,    1,          0 },    
-       { "libreoffice-draw",     NULL,   NULL, NULL,    1<<1,    1,          0 },    
-       { "libreoffice-writer",     NULL,   NULL, NULL,    1<<1,    1,          0 },    
-       { "libreoffice-calc",     NULL,   NULL, NULL,    1<<1,    1,          0 },    
-       { "libreoffice-impress",     NULL,   NULL, NULL,    1<<1,    1,          0 },    
+       { "libreoffice-draw",     NULL,   NULL, NULL,    0,    1,          0 },    
+       { "libreoffice-writer",     NULL,   NULL, NULL,    0,    1,          0 },    
+       { "libreoffice-calc",     NULL,   NULL, NULL,    0,    1,          0 },    
+       { "libreoffice-impress",     NULL,   NULL, NULL,    0,    1,          0 },    
+       { "Termius",     NULL,   NULL, NULL,    0,    1,          0 },    
+       { "Anydesk",     NULL,   NULL, NULL,    0,    1,          0 },    
+       { "obsidian",     NULL,   NULL, NULL,    0,    1,          0 },    
 	#if RENAMED_SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 	#elif SCRATCHPADS_PATCH
@@ -656,7 +659,7 @@ static const BarRule barrules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 #if FLEXTILE_DELUXE_LAYOUT
 static const int nstack      = 0;    /* number of clients in primary stack area */
@@ -901,11 +904,21 @@ static const char *dmenucmd[] = {
 };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *rdpcmd[]  = { "rdpwin", "-d", NULL };
+static const char *termiuscmd[]  = { "termius-app", NULL };
 //static const char *dmenucmd[]  = { "dmenu_run", NULL };
 static const char *filecmd[]  = { "kitty", "yazi", NULL };
 //static const char *tabtermcmd[]  = { "tabbed", "-r", "2", "kitty", "-w", "''", NULL };
-static const char *screenshotcmd[]  = { "kitty", "magick", NULL };
+static const char *screenshotcmd[]  = { "kitty", "magick", "import", NULL };
 static const char *bravecmd[]  = { "brave-browser-stable", NULL };  
+static const char *anydeskcmd[]  = { "anydesk", NULL };  
+static const char *notescmd[]  = { "obsidian", NULL };  
+static const char *brightness[2][4] = {
+  { "light", "-A", "10", NULL}, 
+  { "light", "-U", "10", NULL} };
+static const char *brightkey[2][4] = {
+  { "brightnessctl", "set", "+50", NULL}, 
+  { "brightnessctl", "set", "50-", NULL} }; 
+
 //static const char *zencmd[]  = { "zen", NULL };  
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -942,7 +955,7 @@ static const StatusCmd statuscmds[] = {
 //	{ MODKEY|ControlMask,           XK_s,          spawn,                  SHCMD("flameshot gui") },
 //	{ MODKEY|ShiftMask,             XK_r,          spawn,                  SHCMD("screenrecord") },
 
-	{ MODKEY,                       XK_F4,         spawn,                  SHCMD("kitty -e pamixer; pkill -RTMIN+19 $STATUSBAR") },
+//	{ MODKEY,                       XK_F4,         spawn,                  SHCMD("kitty -e pamixer; pkill -RTMIN+19 $STATUSBAR") },
 //	{ MODKEY,                       XK_F11,        spawn,                  SHCMD("mpv --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
 
 //	{ MODKEY|ControlMask,           XK_Up,         spawn,                  SHCMD("light -A 5") },
@@ -952,11 +965,9 @@ static const StatusCmd statuscmds[] = {
 
 //	{ MODKEY,                       XK_m,          spawn,                  SHCMD("mountmate") },
 //	{ MODKEY|ShiftMask,             XK_m,          spawn,                  SHCMD("mountmate -u") },
-
-	#define WPCTL(cmd, arg) SHCMD("wpctl " cmd " @DEFAULT_AUDIO_SINK@ " arg "; pkill -RTMIN+19 $STATUSBAR")  
-	{ 0,                            XF86XK_AudioMute,         spawn,       WPCTL("set-mute", "toggle") },
-	{ 0,                            XF86XK_AudioRaiseVolume,  spawn,       WPCTL("set-volume --limit=1.0", "3%+") },
-	{ 0,                            XF86XK_AudioLowerVolume,  spawn,       WPCTL("set-volume --limit=1.0", "3%-") },
+//	#define WPCTL(cmd, arg) SHCMD("wpctl " cmd " @DEFAULT_AUDIO_SINK@ " arg "; pkill -RTMIN+19 $STATUSBAR")  
+//	{ 0,                            XF86XK_MonBrightnessUp,   spawn,         ("light -A 10") },
+//{ 0,                            XF86XK_MonBrightnessDown, spawn,         ("light -U 10") },
 //	{ 0,                            XF86XK_AudioPrev,         spawn,       SHCMD("musicctl prev") },
 //	{ 0,                            XF86XK_AudioNext,         spawn,       SHCMD("musicctl next") },
 //	{ 0,                            XF86XK_AudioPause,        spawn,       SHCMD("musicctl pause") },
@@ -998,14 +1009,26 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_y,          spawn,                  {.v = filecmd } },
 	{ MODKEY,                       XK_w,          spawn,                  {.v = rdpcmd } },
 	{ MODKEY,                       XK_Return,     spawn,                  {.v = termcmd } },
+	{ MODKEY|Mod1Mask,              XK_Return,     spawn,                  {.v = termiuscmd } },
+	{ MODKEY|Mod1Mask,              XK_a,          spawn,                  {.v = anydeskcmd } },
+	{ MODKEY|Mod1Mask,              XK_n,          spawn,                  {.v = notescmd } },
 //	{ Mod1Mask,                     XK_Return      spawn,                  {.v = tabtermcmd } },
-//	{ MODKEY,                       XK_b,          spawn,                  {.v = bravecmd } },
-        { MODKEY,                       XK_b,          spawn,                  {.v = bravecmd } },
+	{ MODKEY,                       XK_b,          spawn,                  {.v = bravecmd } },
+ // { MODKEY,                       XK_b,          spawn,                  {.v = zencmd } },
 	{ MODKEY,                       XK_s,          spawn,                  {.v = screenshotcmd } },
-	{ MODKEY,			XK_minus,      spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -53 $(pidof dwmblocks)") },
-	{ MODKEY|ShiftMask,		XK_minus,      spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%-; kill -53 $(pidof dwmblocks)") },
-	{ MODKEY,			XK_equal,      spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; kill -53 $(pidof dwmblocks)") },
-	{ MODKEY|ShiftMask,		XK_equal,      spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%+; kill -53 $(pidof dwmblocks)") },
+#define WPCTL(cmd, arg) SHCMD("wpctl " cmd " @DEFAULT_AUDIO_SINK@ " arg "; kill -53 $(pidof dwmblocks)")  // changed from -RTMIN+19
+	{ 0,                            XF86XK_AudioMute,         spawn,       WPCTL("set-mute", "toggle") },
+	{ 0,                            XF86XK_AudioRaiseVolume,  spawn,       WPCTL("set-volume --limit=1.0", "3%+") },
+	{ 0,                            XF86XK_AudioLowerVolume,  spawn,       WPCTL("set-volume --limit=1.0", "3%-") },
+	{ 0,                            XF86XK_MonBrightnessUp,   spawn,         {.v=brightness[0]} },
+  { 0,                            XF86XK_MonBrightnessDown, spawn,         {.v=brightness[1]} },
+	{ 0,                            XF86XK_KbdBrightnessUp,   spawn,         {.v=brightkey[0]} },
+  { 0,                            XF86XK_KbdBrightnessDown, spawn,         {.v=brightkey[1]} },
+//	{ MODKEY,		                  	XK_minus,      spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -53 $(pidof dwmblocks)") },
+//	{ MODKEY,		                  	XK_minus,      spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -53 $(pidof dwmblocks)") },
+//	{ MODKEY|ShiftMask,	          	XK_minus,      spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%-; kill -53 $(pidof dwmblocks)") },
+//	{ MODKEY,		                   	XK_equal,      spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; kill -53 $(pidof dwmblocks)") },
+//	{ MODKEY|ShiftMask,	          	XK_equal,      spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%+; kill -53 $(pidof dwmblocks)") },
 //	{ MODKEY,	        	XK_F5,         spawn,                  SHCMD("brightnessctl --device=tpacpi::kbd_backlight set 1") },
 //	{ MODKEY,		        XK_F6,         spawn,                  SHCMD("brightnessctl --device=tpacpi::kbd_backlight set 0") },
 	#if RIODRAW_PATCH

@@ -1,18 +1,18 @@
 #!/bin/bash
 
-USERNAME=docker
+USERNAME=Docker
 PASS=dockerwinapps
 ADDR=127.0.0.1
  
 cd ~/winapps
 
 switch() {
-	if ! sudo podman ps | grep -q "windows"; then
+	if ! podman ps | grep -q "windows"; then
     	echo "Container 'windows' is not running. Running 'podman-compose start'"
-    	sudo podman-compose start
+      podman-compose start
 	else
 	echo "Container 'windows' is running. Running 'podman-compose stop'"
-    	sudo podman-compose stop
+    	podman-compose stop
 	fi 
 }
 
