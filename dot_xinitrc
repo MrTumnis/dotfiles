@@ -1,4 +1,5 @@
-xwallpaper --zoom ~/Pictures/Portals2Wallpaper.png &
+xwallpaper --zoom ~/.local/share/wallpaper/tesseract-scape.jpg &
+xrandr --output HDMI-1 --auto --left-of eDP-1 --mode 1920x1200 -r 144 &
 dwmblocks &
 picom --config ~/.config/picom/picom.conf &
 dex --environment dwm --autostart --search-paths ~/.config/autostart &

@@ -20,11 +20,20 @@ display() {
     # If no arguments are passed, provide default values
     if [ $# -eq 0 ]; then
         echo "No additional RDP arguments provided. Using default values."
-        xfreerdp3 /u:$USERNAME /p:$PASS /v:$ADDR /dynamic-resolution +clipboard -wallpaper +unmap-buttons
+        windows
     else
         xfreerdp3 /u:$USERNAME /p:$PASS /v:$ADDR /dynamic-resolution +clipboard -wallpaper +unmap-buttons "$@"
     fi
-}
+  }
+#display() {
+    # If no arguments are passed, provide default values
+#    if [ $# -eq 0 ]; then
+#        echo "No additional RDP arguments provided. Using default values."
+#        xfreerdp3 /u:$USERNAME /p:$PASS /v:$ADDR /dynamic-resolution +clipboard -wallpaper +unmap-buttons
+#    else
+#        xfreerdp3 /u:$USERNAME /p:$PASS /v:$ADDR /dynamic-resolution +clipboard -wallpaper +unmap-buttons "$@"
+#    fi
+#}
 
 OPTIND=1
 

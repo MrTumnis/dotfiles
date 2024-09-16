@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#
+# Script name: app_picker
+# Description: list an application from ~.local/share/applications
+
+# Set with the flags "-e", "-u","-o pipefail" cause the script to fail
+# if certain things happen, which is a good thing.  Otherwise, we can
+# get hidden bugs that are hard to discover.
+set -euo pipefail
+
+source ./_dm-helper.sh || source _dm-helper.sh
+
+source_dmscripts_configs
+
+# this script won't nag by default, uncomment for nagging
+#if configs_are_different; then
+#    echo "$(date): configs are different" >>"$DM_CONFIG_DIFF_LOGFILE"
+#fi
+
+main() {
+  for app in "~/.local/share/application"
+
+}
+main
