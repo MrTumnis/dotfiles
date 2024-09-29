@@ -1,4 +1,4 @@
-#.bashrc
+#bashrc
 
                                                                                                                                                           
                                                                                                                                                           
@@ -57,18 +57,21 @@ alias ff='fastfetch'
 alias ns='nsxiv -trf'
 alias nv='nsxiv -tf'
 alias vim='nvim'
-
+alias cha='chezmoi add'
+alias chd='chezmoi cd'
 
 #power off
 alias po="loginctl poweroff"
 alias ro="loginctl reboot"
+
+
+alias ssh='kitty +kitten ssh'
 
 #export BROWSER="Brave-browser"
 #export TERMINAL="kitty"
 export LOCATION="Loveland, Colorado"
 #export EDITOR="nvim"
 #export FILE_MANAGER="yazi"
-
 #if [ "${TERM}" == xterm-256color ]; then
 #\cat ~/.local/sysfetch/logo2
 #  printf "\e[1;37m|--------------------| \e[1;36mSys Info\e[1;37m |---------------------|\n"
@@ -135,8 +138,18 @@ fi
 if [ -d "$HOME/.config/rofi/scripts" ] ;
   then PATH="$HOME/.config/rofi/scripts:$PATH"
 fi	  
+if [ -d "$HOME/myenv/bin" ] ;
+  then PATH="$HOME/myenv/bin:$PATH"
+fi	  
+#if [ "$TERM" == "xterm" ]; then
+#    # No it isn't, it's gnome-terminal
+#    export TERM=xterm-256color
+#fi
+if test -n "$KITTY_INSTALLATION_DIR"; then
+    export KITTY_SHELL_INTEGRATION="enabled"
+    source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"
+fi
 . "$HOME/.cargo/env"
-
 # pnpm
 export PNPM_HOME="/home/thomas/.local/share/pnpm"
 case ":$PATH:" in

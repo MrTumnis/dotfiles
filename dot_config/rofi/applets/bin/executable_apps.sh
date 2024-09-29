@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#/usr/bin/env bash
 
 ## Author  : Aditya Shakya (adi1090x)
 ## Github  : @adi1090x
@@ -11,7 +11,7 @@ theme="$type/$style"
 
 # Theme Elements
 prompt='Applications'
-mesg="Installed Packages : `pacman -Q | wc -l` (pacman)"
+mesg="Installed Packages : '\ xbps-query -l | awk '{ print $2 }' | xargs -n1 xbps-uhelper getpkgname | wc -l'\ (xbps)"
 
 if [[ ( "$theme" == *'type-1'* ) || ( "$theme" == *'type-3'* ) || ( "$theme" == *'type-5'* ) ]]; then
 	list_col='1'
@@ -22,10 +22,10 @@ elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
 fi
 
 # CMDs (add your apps here)
-term_cmd='alacritty'
+term_cmd='kitty'
 file_cmd='thunar'
 text_cmd='geany'
-web_cmd='firefox'
+web_cmd='brave-browser-stable'
 music_cmd='alacritty -e ncmpcpp'
 setting_cmd='xfce4-settings-manager'
 

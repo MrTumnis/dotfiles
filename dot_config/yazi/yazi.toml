@@ -43,6 +43,7 @@ prepend_rules = [
 
 	#handle office extensions
 	{ name = "*.xlsx", use = "open" },
+	{ name = "*.xls", use = "open" },
 	{ name = "*.csv", use = "open" },
 	{ name = "*.docx", use = "open" },
 	{ name = "*.pdf", use = "open" },
