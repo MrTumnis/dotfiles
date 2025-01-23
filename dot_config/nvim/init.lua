@@ -87,8 +87,8 @@ P.S. You can delete this when you're done too. It's your config now! :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = '  '
+vim.g.maplocalleader = '  '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -163,6 +163,7 @@ vim.opt.scrolloff = 10
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '-', '<cmd>RunCode<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
@@ -240,8 +241,7 @@ require('lazy').setup({
   'Vimjas/vim-python-pep8-indent',
   'neomake/neomake',
   --  'numirias/semshi',
-  'neovim/nvim-lspconfig',
-  'williamboman/mason-lspconfig.nvim',
+  --  'williamboman/mason-lspconfig.nvim',
   'kyazdani42/nvim-web-devicons',
   'kyazdani42/nvim-tree.lua',
   --  use "lunarvim/onedarker.nvim",
@@ -263,7 +263,10 @@ require('lazy').setup({
   'antoinemadec/FixCursorHold.nvim', -- This is needed to fix lsp doc highlight
   'lukas-reineke/indent-blankline.nvim',
   'folke/which-key.nvim',
+  'superDross/run-with-me.vim',
   'nvim-lualine/lualine.nvim',
+  -- 'lotabout/skim', "{ 'dir': '~/.skim', 'do': './install' }"
+  -- 'davidhalter/jedi-vim',
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -271,6 +274,11 @@ require('lazy').setup({
   --
   -- Use `opts = {}` to force a plugin to be loaded.
   --
+
+  'lotabout/skim',
+  opt = {
+    "dir: '~/.skim', 'do': './install'",
+  },
 
   'williamboman/mason.nvim',
   opts = {

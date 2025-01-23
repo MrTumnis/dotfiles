@@ -35,7 +35,7 @@ alias xremove='sudo xbps-remove -Rov'
 alias xreconfigure='sudo xbps-reconfigure'
 alias xcreate='sudo xbps-create'
 alias xq='xbps-query -Rs'
-alias xpkglist="xbps-query -l | awk '{ print $2 }' | xargs -n1 xbps-uhelper getpkgname"
+alias xpkglist='xbps-query -l | awk "{ print $2 }" | xargs -n1 xbps-uhelper getpkgname'
 
 #navigation
 alias ..='cd ..'
@@ -49,13 +49,13 @@ alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 alias cl='clear'
-alias yazi='yy'
+#alias yazi='yy'
 
 
 #quick access 
 alias ff='fastfetch'
-alias ns='nsxiv -trf'
-alias nv='nsxiv -tf'
+alias nt='nsxiv -trf'
+alias ns='nsxiv -f'
 alias vim='nvim'
 alias cha='chezmoi add'
 alias chd='chezmoi cd'
@@ -122,6 +122,8 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
+export PANDAS_ENGINE=pyarrow
+
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 eval "$(atuin init bash)"
 #eval "$(starship init bash)"
@@ -140,6 +142,9 @@ if [ -d "$HOME/.config/rofi/scripts" ] ;
 fi	  
 if [ -d "$HOME/myenv/bin" ] ;
   then PATH="$HOME/myenv/bin:$PATH"
+fi	  
+if [ -d "$HOME/.local/bin" ] ;
+  then PATH="$HOME/.local/bin:$PATH"
 fi	  
 #if [ "$TERM" == "xterm" ]; then
 #    # No it isn't, it's gnome-terminal

@@ -6,8 +6,8 @@
 cwd = { fg = "#878580" }
 
 # Hovered
-hovered         = { fg = "#CECDC3", bg = "#1C1B1A" }
-preview_hovered = { underline = true }
+hovered         = { fg = "#CECDC3", bg = "#1C1B1A" } #1C1B1A
+preview_hovered = { underline = false}
 
 # Find
 find_keyword  = { fg = "#AD8301", italic = true }
@@ -21,7 +21,7 @@ marker_cut      = { fg = "#AF3029", bg = "#AF3029" }
 # Tab
 tab_active   = { fg = "#878580", bg = "#205EA6" }
 tab_inactive = { fg = "#205EA6", bg = "#343331" }
-tab_width    = 1
+tab_width    = 2
 
 # Border
 border_symbol = "│"

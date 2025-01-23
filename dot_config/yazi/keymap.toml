@@ -29,7 +29,7 @@ on   = "f"
 run  = "plugin jump-to-char"
 desc = "Jump to char"
 
-[[manager.prepend_keymap]]
-on   = "F"
-run  = "plugin smart-filter"
-desc = "Smart filter"
+#[[manager.prepend_keymap]]
+#on   = "F"
+#run  = "plugin smart-filter"
+#desc = "Smart filter"
