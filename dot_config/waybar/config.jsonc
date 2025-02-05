@@ -1,8 +1,10 @@
+//Borrowed from https://github.com/Asethcore/pacman-waybar.git
+
 {
   "layer": "top",
   "position": "top",
-  "height": 35,
-  "spacing": 5,
+  "height": 30,
+  "spacing": 3,
   "margin-top" :3,
   "margin-right" :3,
   "margin-left" :3,
@@ -13,7 +15,6 @@
     "custom/paddc",
     "custom/prefix",
     "hyprland/window",
-    "custom/paddc",
     "tray",
   ],
 
@@ -22,8 +23,7 @@
   "modules-right": [
  //   "pulseaudio",
     "custom/backlight",
-    "hyprland/language",
-    "custom/paddc",
+    // "hyprland/language",
     "custom/paddc",
     "bluetooth",
     // "custom/paddc",
@@ -41,7 +41,7 @@
 
   "custom/rofi": {
 		"format": "<span color='#fbf1c7' > </span>",
-		"on-click": "rofi -show drun",
+		"on-click": "launcher.sh",
     "on-click-right": "wlogout",
     "escape" : true,
     "tooltip" : false
@@ -59,8 +59,8 @@
       "2": "<span color='#4c889f' >󰷏 </span>",
       "3": "<span color='#4c889f' > </span>",
       "4": "<span color='#4c889f' >󱍢 </span>",
-      "5": "<span color='#4c889f' >󰊠</span>",
-      "default": "<span color='#cc241d'> </span>",
+      "5": "<span color='#000000' >󰊠 </span>",
+      // "default": "<span color='#005577'> </span>",
     },
     "persistent-workspaces": {
         "*": 5
@@ -82,17 +82,17 @@
     "spacing": 8
   },
 
-  // "pulseaudio": {
-  //   // "scroll-step": 1, // %, can be a float
-  //   "format": "<span color='#fbf1c7' >  </span>{volume}%",
-  //   "format-muted": "<span color='#fbf1c7' >  </span>{volume}%",
-  //   "format-bluetooth": "<span color='#fbf1c7' > 󰂰 </span>{volume}%",
-  //   "format-bluetooth-muted": "<span color='#fbf1c7' > 󰂲 </span>{volume}%",
-  //   "format-source": "{volume}% ",
-  //   "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-  //   "tooltip": false,
-  //   "max-volume": 130
-  // },
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "<span color='#fbf1c7' >  </span>{volume}%",
+    "format-muted": "<span color='#fbf1c7' >  </span>{volume}%",
+    "format-bluetooth": "<span color='#fbf1c7' > 󰂰 </span>{volume}%",
+    "format-bluetooth-muted": "<span color='#fbf1c7' > 󰂲 </span>{volume}%",
+    "format-source": "{volume}% ",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "tooltip": false,
+    "max-volume": 130
+  },
 
   "battery#bat2": {
     "bat": "BAT2"
@@ -108,7 +108,7 @@
     "format-icons": [" "," "," "," "," "],
     "format": "<span color='#8ec07c' > {icon}</span>{capacity}%",
     "format-critical": "<span color='#cc241d' > {icon}</span>{capacity}%",
-    "format-warning": "<span color='#d8a657' > {icon}</span>{capacity}%",
+    "format-warning": "<span color='#8fce00' > {icon}</span>{capacity}%",
     "format-full": "<span color='#8ec07c' > {icon}</span>{capacity}%",
     "format-charging": "<span color='#8ec07c' >  </span>{capacity}%",
     "format-charging-warning": "<span color='#d8a657' >  </span>{capacity}%",
@@ -118,7 +118,7 @@
   },
 
   "clock#date": {
-    "format": "<span color='#005577' >󰃭 </span>{:%a %d %b}",
+    "format": "<span color='#3d85c6' >󰃭 </span>{:%a %d %b}",
     "tooltip-format": "<tt>{calendar}</tt>",
 
     "calendar": {
@@ -128,7 +128,7 @@
 
       "format": {
         "months": 
-          "<span color='#3c3835'><b>{}</b></span>",
+          "<span color='#3d85c6'><b>{}</b></span>",
         "weekdays": 
           "<span color='#fe8019' font='7'>{}</span>",
         "today": 
@@ -192,10 +192,10 @@
   },
 
   "bluetooth": {
-    "format": "<span color='#458588'>󰂰 </span>",
-    "format-disabled": "<span color='#458588'>󰂲 </span>",
-    "format-connected": "<span color='#458588'>󰂱 </span>",
-    "format-connected-battery": "<span color='#458588'>󰂱 </span>",
+    "format": "<span color='#45818e'>󰂰 </span>",
+    "format-disabled": "<span color='#45818e'>󰂲 </span>",
+    "format-connected": "<span color='#45818e'>󰂱 </span>",
+    "format-connected-battery": "<span color='#45818e'>󰂱 </span>",
 
     "tooltip-format": 
       "{num_connections} connected",

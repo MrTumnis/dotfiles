@@ -17,14 +17,14 @@
 window#waybar {
   background: rgba(60, 56, 53, 0.1);
   color: #fff4d2;
-  padding-right: 9px;
+  padding-right: 8px;
   padding-left: 5px;
   margin: 0;
   border-radius: 19px;
 }
 
 tooltip {
-  background: rgba(255, 244, 210, 0.8);
+  /* background: rgba(255, 244, 210, 0.8); */
   color: #3c3835;
   border: 2px solid #3c3835;
   border-radius: 5px;
@@ -46,6 +46,9 @@ tooltip {
 #workspaces button.active,
 #workspaces button.active:hover,
 #workspaces button.urgent,
+#workspaces button.workspace-5{
+    background: transparent;
+}
 #window,
 #tray,
 #disk,
@@ -64,7 +67,7 @@ tooltip {
   font-size: 14px;
   font-weight: 400;
   color: #202020;
-  background: #202020;
+  /* background: #202020; */
   border-radius: 2px;
 }
 
@@ -86,13 +89,13 @@ tooltip {
   margin: 5px 0px;
 }
 
-#custom-rofi {
-  /* border: 2px solid #458588; */
-  /* border-radius: 5px; */
-  background: #3c3835;
-  padding: 0 6px;
-  margin: 5px 0px;
-}
+/* #custom-rofi { */
+/*   /1* border: 2px solid #458588; *1/ */
+/*   /1* border-radius: 5px; *1/ */
+/*   background: #3c3835; */
+/*   padding: 0 6px; */
+/*   margin: 5px 0px; */
+/* } */
 
 /* ================================ */
 /*       workspaces module          */
@@ -103,7 +106,7 @@ tooltip {
 
 #workspaces button {
   color: #fff4d2;
-  background: #3c3835;
+  /* background: rgba(255, 244, 210, 0.0); */
   /* border: 2px solid #fff4d2; */
   min-width: 25px;
   padding: 0 4px;
@@ -112,32 +115,32 @@ tooltip {
 
 #workspaces button:hover {
   background: #3c3835;
-  border: 2px solid #b16286;
+ /* border: 2px solid #b16286;*/
   border-radius: 12px;
 }
 
 #workspaces button.visible {
-  border: 2px solid #689d6a;
+/*  border: 2px solid #689d6a;*/
   border-radius: 12px;
   background: #3c3835;
 }
 
 #workspaces button.visible:hover {
-  border: 2px solid #689d6a;
+ /* border: 2px solid #689d6a;*/
   border-radius: 12px;
-  background: #3c3835;
+  /* background: #3c3835; */
 }
 
 #workspaces button.active {
-  border: 2px solid #689d6a;
+ /* border: 2px solid #689d6a;*/
   border-radius: 12px;
-  background: #3c3835;
+  /* background: #3c3835; */
 }
 
 #workspaces button.active:hover {
-  border: 2px solid #689d6a;
+ /* border: 2px solid #689d6a;*/
   border-radius: 12px;
-  background: #3c3835;
+  /* background: #3c3835; */
 }
 
 #workspaces button.urgent {
@@ -151,8 +154,8 @@ tooltip {
 /* ================================ */
 
 #window {
-  color: #a89884;
-  background: #3c3835;
+  color: #fff7d4;
+  /* background: #3c3835; */
   /* border: 2px solid #d3869b; */
 }
 
@@ -200,7 +203,7 @@ tooltip {
 /* ================================ */
 #custom-backlight {
   color: #f6c657;
-  background: #3c3835;
+  /* background: #3c3835; */
 }
 
 /* ================================ */
@@ -208,7 +211,7 @@ tooltip {
 /* ================================ */
 #custom-memory {
   color: #458588;
-  border: 2px solid #458588;
+  /* border: 2px solid #458588; */
 }
 
 /* ================================ */
@@ -216,12 +219,12 @@ tooltip {
 /* ================================ */
 #pulseaudio {
   color: #fbf1c7;
-  background: #3c3835;
+  /* background: #3c3835; */
 }
 
 #pulseaudio.muted {
   color: #ea6962;
-  background: #3c3835;
+  /* background: #3c3835; */
 }
 
 /* ================================ */
@@ -229,35 +232,35 @@ tooltip {
 /* ================================ */
 #battery {
   color: #fbf1c7;
-  background: #3c3835;
+  /* background: #3c3835; */
 }
 
 #battery.critical {
   color: #cc241d;
-  background: #3c3835;
+  /* background: #3c3835; */
 }
 
 #battery.warning {
   color: #e78a4e;
-  background: #3c3835;
+  /* background: #3c3835; */
 }
 /* ================================ */
 /*            clock                 */
 /* ================================ */
 #clock.time {
   color: #fbf1c7;
-  background: #3c3835;
+  /* background: #3c3835; */
 }
 
 #clock.date {
   color: #fbf1c7;
-  background: #3c3835;
+  /* background: #3c3835; */
 }
 
 #custom-notification {
   color: #fbf1c7;
   font-size: 14px;
-  background: #3c3835;
+  /* background: #3c3835; */
   padding: 2px 2px;
 }
 
@@ -265,7 +268,7 @@ tooltip {
   color: #282828;
   border: 2px solid #3c3835;
   border-radius: 21px;
-  background: #fbf1c7;
+  /* background: #fbf1c7; */
   padding-left: 9px;
   padding-right: 9px;
 }
