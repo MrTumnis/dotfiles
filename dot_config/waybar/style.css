@@ -15,7 +15,7 @@
 
 /* the whole window */
 window#waybar {
-  background: #3c3835;
+  background: rgba(60, 56, 53, 0.1);
   color: #fff4d2;
   padding-right: 9px;
   padding-left: 5px;
