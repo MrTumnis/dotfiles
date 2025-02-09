@@ -29,7 +29,7 @@ HISTCONTROL=ignoreboth
 alias ls='lsd'
 
 #xbps alias
-alias xinstall='sudo xbps-install -Sfvy'
+alias xinstall='sudo xbps-install -Svy'
 alias xupdate='sudo xbps-install -Suv'
 alias xremove='sudo xbps-remove -Rov'
 alias xreconfigure='sudo xbps-reconfigure'
@@ -54,6 +54,7 @@ alias cl='clear'
 
 #quick access 
 alias ff='fastfetch'
+alias ki='kitten icat'
 alias nt='nsxiv -trf'
 alias ns='nsxiv -f'
 alias vim='nvim'
@@ -69,7 +70,7 @@ alias ssh='kitty +kitten ssh'
 
 #export BROWSER="Brave-browser"
 #export TERMINAL="kitty"
-export LOCATION="Loveland, Colorado"
+#export LOCATION="Loveland, Colorado"
 #export EDITOR="nvim"
 #export FILE_MANAGER="yazi"
 #if [ "${TERM}" == xterm-256color ]; then
@@ -106,10 +107,10 @@ prompt_comment() {
 }
 
 #PS1="\e[00;36m\]┌─[ \e[00;37m\]\T \d \e[00;36m\]]──\e[00;31m\]>\e[00;37m\] \u\e[00;31m\]@\e[00;37m\]\h\n\e[00;36m\]|\n\e[00;36m\]└────\e[00;31m\]> \e[00;37m\]\w \e[00;31m\]\$ \e[01;37m\]"
-#PS1="\[\e[01;37m\]{ \[\e[01;34m\]\w \[\e[01;37m\]} \[\e[01;35m\]\[\$ \]\[\e[01;37m\]"
+# PS1="\[\033[\e{ \[\e[01;34m\]\w \[\e[01;37m\]}\[\e[01;33m\]\[󱍢 \]\[\e[01;37m\]"
 #PS1="\[\e[1;36m\]\$(parse_git_branch)\[\033[31m\]\$(parse_git_dirty)\[\033[00m\]\n\w\[\e[1;31m\] \[\e[1;34m\]\[\e[1;37m\] "
-#PS1="\[\e[1;31m\]\$(parse_git_branch)\[\033[34m\]\$(parse_git_dirty)\n\[\033[1;92m\] 󰯉 \[\e[1;37m\] \w \[\e[1;36m\]\[\e[0;37m\] "
-PS1="\[\e[1;36m\]\$(parse_git_branch)\[\033[31m\]\$(parse_git_dirty)\n\[\033[0;33m\]  \[\e[1;37m\] \w \[\e[1;36m\] \[\e[1;37m\] "
+PS1="\[\e[1;31m\]\$(parse_git_branch)\[\033[34m\]\$(parse_git_dirty)\n\[\033[1;33m\]  󱍢  \[\e[1;37m\] \w \[\e[1;36m\]\[\e[0;37m\] "
+# PS1="\[\e[1;36m\]\$(parse_git_branch)\[\033[31m\]\$(parse_git_dirty)\n\[\033[0;33m\]  \[\e[1;37m\] \w \[\e[1;36m\] \[\e[1;37m\] "
 
 #PS2="\[\e[01;37m\]{ \[\e[01;34m\]\w \[\e[01;37m\]} \[\e[01;35m\]\[\$ \]\[\e[01;37m\]"
 
@@ -123,6 +124,8 @@ function yy() {
 }
 
 export PANDAS_ENGINE=pyarrow
+
+
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 eval "$(atuin init bash)"
@@ -162,3 +165,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+. "$HOME/.atuin/bin/env"

@@ -3,7 +3,14 @@
 # Get the aliases and functions
 [ -f $HOME/.bashrc ] && . $HOME/.bashrc
 
-[[ $(ps -e | grep startx) = '' ]] && startx 
+export BROWSER="brave-browser"
+export TERMINAL="kitty"
+export LOCATION="Loveland"
+export EDITOR="nvim"
+export FILE_MANAGER="yazi"
+
+
+#[[ $(ps -e | grep startx) = '' ]] && startx 
 
 . "$HOME/.atuin/bin/env"
 . "$HOME/.cargo/env"
