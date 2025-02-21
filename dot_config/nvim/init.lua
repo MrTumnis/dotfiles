@@ -266,6 +266,7 @@ require('lazy').setup({
   'superDross/run-with-me.vim',
   'deoplete-plugins/deoplete-jedi',
   'ziglang/zig.vim',
+  'chrisbra/Colorizer',
   'metalelf0/base16-black-metal-scheme',
   -- 'lotabout/skim', "{ 'dir': '~/.skim', 'do': './install' }"
   -- 'davidhalter/jedi-vim',
@@ -913,7 +914,7 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    -- 'metalelf0/base16-black-metal-scheme',
+    --'metalelf0/base16-black-metal-scheme',
     'folke/tokyonight.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()

@@ -99,7 +99,7 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search";
+    placeholder:                 "Polaris";
     placeholder-color:           inherit;
 }
 

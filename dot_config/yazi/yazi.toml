@@ -15,7 +15,7 @@ play = [
 	{ run = 'mpv "$@"', orphan = true, for = "unix" },
 ]
 view = [
-	{ run = 'nsxiv "$@"', block = true },
+	{ run = 'kitten icat "$@"', block = true },
 ]
 view2 = [
 	{ run = 'gimp "$@"', block = true, orphan = true, for = "linux" },
@@ -35,6 +35,7 @@ prepend_rules = [
 	{ name = "*.json", use = "edit" },
 	{ name = "*.conf", use = "edit" },
 	{ name = "*.yaml", use = "edit" },
+	{ name = "README.md", use = "edit" },
 
 	#handle pictures
 	{ name = "*.png", use = "view" },
