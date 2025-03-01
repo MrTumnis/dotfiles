@@ -46,10 +46,11 @@ prepend_rules = [
 	{ name = "*.xlsx", use = "open" },
 	{ name = "*.xls", use = "open" },
 	{ name = "*.csv", use = "open" },
+	{ name = "*.pptx", use = "open" },
 	{ name = "*.docx", use = "open" },
 	{ name = "*.pdf", use = "open" },
 	{ name = "*.odt", use = "open" },
-	{ name = "*.dat", use = "vim" },
+	{ name = "*.dat", use = "edit" },
 
 	{ name = "*.vv", use = "openvirt" },
 	# Multiple openers for a single rule
