@@ -1,7 +1,97 @@
 [[plugin.deps]]
 use = "Reledia/glow"
-rev = "c2ed51e"
-hash = "136ce00885041aeee5cf582ccf7a46dc"
+rev = "c76bf4f"
+hash = "a6b78bf9af5390e3a85a6951fbb7b93"
+
+[[plugin.deps]]
+use = "GianniBYoung/rsync"
+rev = "3f431aa"
+hash = "1854a5a30d23e84bc8df24700f27957b"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "a1b678d"
+hash = "2f1053f89d1a301a648ab181d0948e38"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:diff"
+rev = "a1b678d"
+hash = "7a08e303167d5b655c06da6d570f0333"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "a1b678d"
+hash = "9dce00232a0e0e2502565c7aa2b0ed4e"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "a1b678d"
+hash = "bcbf72738d4b7fb9a03cac84465b9ba4"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:hide-preview"
+rev = "a1b678d"
+hash = "53f826884e2c7e521cecc492a7f31d7e"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:jump-to-char"
+rev = "a1b678d"
+hash = "a670c03eb3760812e044a24f94cedc55"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "a1b678d"
+hash = "812fd49667ab6823250f0411f8cf793a"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mime-ext"
+rev = "a1b678d"
+hash = "1f9fc0e55ff859a32e793833403ee7bd"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:no-status"
+rev = "a1b678d"
+hash = "513a23ac28e1eaa626f3a1bb6c8130d0"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-filter"
+rev = "a1b678d"
+hash = "f0c4b41b5d19a3144958383333eff6e7"
+
+[[plugin.deps]]
+use = "boydaihungst/restore"
+rev = "a7a6e5e"
+hash = "4d6e6cc76c8ce08b5f6f344aa9413034"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "a1b678d"
+hash = "dd97eede8e20e59cd2604e8006e470e2"
+
+[[plugin.deps]]
+use = "Reledia/miller"
+rev = "40e0265"
+hash = "2d6d77583162aaf0a599e7a3091b5878"
+
+[[plugin.deps]]
+use = "dedukun/relative-motions"
+rev = "8103065"
+hash = "9f13f0740fa3a0c18e47ec6fb62ddfaa"
+
+[[plugin.deps]]
+use = "macydnah/office"
+rev = "bcd9e9e"
+hash = "51ad32b80bc4cd496c55cd82fbfd238a"
+
+[[plugin.deps]]
+use = "AnirudhG07/rich-preview"
+rev = "2559e5f"
+hash = "c9a3d0731e7d7340e2c6d6126b1f3aa3"
+
+[[plugin.deps]]
+use = "hankertrix/augment-command"
+rev = "e676d3c"
+hash = "50edde70fad24f7b0e9922729312dbd7"
 
 [flavor]
 deps = []

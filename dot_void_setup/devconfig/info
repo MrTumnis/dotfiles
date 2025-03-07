@@ -1,0 +1,17 @@
+#GNOME shortcut name
+NAME="devconfig"
+
+# Used for descriptions and window class
+FULL_NAME="DeviceConfig"
+
+# The executable inside windows
+WIN_EXECUTABLE="C:\Program Files (x86)\Campbellsci\DevConfig\devconfig.exe"
+
+# GNOME categories
+CATEGORIES="WinApps;Campbellsci"
+
+# GNOME mimetypes
+MIME_TYPES=""
+
+# System Icon
+ICON="winapps/apps/devconfig/icon.svg"

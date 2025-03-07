@@ -1,0 +1,52 @@
+# font_family Iosevka Term
+font_family IosevkaTermNerdFont 
+# font_family Lilex Nerd Font
+text_composition_strategy legacy
+modify_font cell_width 85%
+bold_font auto
+italic_font auto
+bold_italic_font auto
+# font_family JetBrainsMono Nerd Font #CaskaydiaCoveNerdFont
+font_size 16
+# cursor #FF3061 
+cursor #e06666 
+cursor_text_color #F416FF
+background #000000
+foreground #ffffff
+hide_window_decorations yes 
+cursor_shape beam
+cursor_beam_thickness 4
+cursor_blink_interval 0.3
+cursor_stop_blinking_after 0
+mouse_hide_wait 1
+url_color #ff7f31
+url_style curly
+remember_window_size  no
+initial_window_width  900
+initial_window_height 560
+window_padding_width 2 
+window_border_width 2 
+#window_margin_width 20
+resize_debounce_time 0.1
+resize_in_steps no
+background_image_layout tiled
+background_image_linear yes
+selection_background #FFFFFF
+selection_foreground #000000
+shell_integration disabled
+copy_on_select yes
+allow_remote_control yes
+enable_audio_bell no
+confirm_os_window_close 0
+# include ~/.cache/wal/colors-kitty.conf
+#SHORTCUTS
+dynamic_background_opacity yes
+background_blur 10 
+background_tint 1 
+background_opacity 0.8
+map ctrl+shift+kp_subtract change_font_size all -2.0
+map ctrl+shift+kp_add change_font_size all +2.0
+map super+u           set_background_opacity 1
+map super+shift+u     set_background_opacity default
+map super+shift+i     set_background_opacity 0.9
+map ctrl+shift+enter new_window

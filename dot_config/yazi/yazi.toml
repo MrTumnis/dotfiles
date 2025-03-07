@@ -3,19 +3,28 @@ show_hidden = false
 sort_by="natural"
 sort_reverse=false
 linemode="mtime"
-
+image_delay=5
+image_quality=80
+	
 max_width=10
 max_height=10
 
+[preview]
+wrap='yes'
+image_delay=10
+image_quality=70
+
+
+
 [opener]
 edit = [
-	{ run = 'vim "$@"', block = true },
+	{ run = 'nvim "$@"', block = true },
 ]
 play = [
 	{ run = 'mpv "$@"', orphan = true, for = "unix" },
 ]
 view = [
-	{ run = 'kitten icat "$@"', block = true },
+	{ run = 'kitty +kitten icat "$@"', block = true },
 ]
 view2 = [
 	{ run = 'gimp "$@"', block = true, orphan = true, for = "linux" },
@@ -37,10 +46,10 @@ prepend_rules = [
 	{ name = "*.yaml", use = "edit" },
 	{ name = "README.md", use = "edit" },
 
-	#handle pictures
-	{ name = "*.png", use = "view" },
-	{ name = "*.jpeg", use = "view" },
-	{ name = "*.jpg", use = "view" },
+	##handle pictures
+	#{ name = "*.png", use = "view" },
+	#{ name = "*.jpeg", use = "view" },
+	#{ name = "*.jpg", use = "view" },
 
 	#handle office extensions
 	{ name = "*.xlsx", use = "open" },
@@ -56,16 +65,41 @@ prepend_rules = [
 	# Multiple openers for a single rule
 	{ name = "*.html", use = [ "open", "edit" ] },
 	{ name = "*.png", use = [ "view", "view2" ] },
+	{ name = "*.jpeg", use = [ "view", "view2" ] },
+	{ name = "*.jpg", use = [ "view", "view2" ] },
+	{ name = "*.tiff", use = [ "view", "view2" ] },
 ]
 append_rules = [
 	{ name = "*", use = "my-fallback" },
 ]
 
 [plugin]
+prepend_preloaders = [
+    # Office Documents
+    { mime = "application/openxmlformats-officedocument.*", run = "office" },
+    { mime = "application/oasis.opendocument.*", run = "office" },
+    { mime = "application/ms-*", run = "office" },
+    { mime = "application/msword", run = "office" },
+    { name = "*.docx", run = "office" },
+]
+
 prepend_previewers = [
-    { mime = "text/csv", run = "miller"},
-    { mime = "{image,audio,video}/*", run = "mediainfo"},
-    { mime = "application/subrip", run = "mediainfo"},
+    # Office Documents
+    { mime = "application/openxmlformats-officedocument.*", run = "office" },
+    { mime = "application/oasis.opendocument.*", run = "office" },
+    { mime = "application/ms-*", run = "office" },
+    { mime = "application/msword", run = "office" },
+    { mime = "application/pdf", run = "office"},
+    { mime = "{audio,video}/*", run = "mediainfo"},
+    { mime = "image/*", run = "magick"},
+    # { mime = "application/subrip", run = "mediainfo"},
+    { name = "*.docx", run = "office" },
+    { name = "*.csv", run = "rich-preview"}, # for csv files
+    { name = "*.md", run = "rich-preview" }, # for markdown (.md) files
+    { name = "*.rst", run = "rich-preview"}, # for restructured text (.rst) files
+    { name = "*.ipynb", run = "rich-preview"}, # for jupyter notebooks (.ipynb)
+    { name = "*.json", run = "rich-preview"}, # for json (.json) files
+#    { name = "*.lang_type", run = "rich-preview"} # for particular language files eg. .py, .go., .lua, etc.
 ]
 
 [[plugin.prepend_fetchers]]

@@ -1,0 +1,17 @@
+#GNOME shortcut name
+NAME="Loggernet"
+
+# Used for descriptions and window class
+FULL_NAME="LoggerNet"
+
+# The executable inside windows
+WIN_EXECUTABLE="C:\Program Files (x86)\Campbellsci\LoggerNet\ToolBar.exe"
+
+# GNOME categories
+CATEGORIES="WinApps;Campbellsci"
+
+# GNOME mimetypes
+MIME_TYPES=""
+
+# System Icon
+ICON="icon.svg"

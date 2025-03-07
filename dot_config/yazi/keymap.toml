@@ -13,23 +13,48 @@ on  = "<C-n>"
 run = '''
 	shell 'dragon -x -i -T "$1"' --confirm
 '''
+[[manager.prepend_keymap]]
+on = "u"
+run = "plugin restore"
+desc = "Restore last deleted files/folders" 
+    
+[[manager.prepend_keymap]]
+on  = "M"
+run = "plugin mount"
 
 [[manager.prepend_keymap]]
 on   = "T"
-run  = "plugin --sync max-preview"
+run  = "plugin toggle-pane min-preview"
 desc = "Maximize or restore preview"
 
 [[manager.prepend_keymap]]
-on   = "p"
-run  = "plugin --sync smart-paste"
-desc = "Paste into the hovered directory or CWD"
+on   = "T"
+run  = "plugin toggle-pane max-preview"
+desc = "Maximize or restore preview"
 
 [[manger.prepend_keymap]]
 on   = "f"
 run  = "plugin jump-to-char"
 desc = "Jump to char"
 
-#[[manager.prepend_keymap]]
-#on   = "F"
-#run  = "plugin smart-filter"
-#desc = "Smart filter"
+[[manager.prepend_keymap]]
+on   = "F"
+run  = "plugin smart-filter"
+desc = "Smart filter"
+
+[[manager.prepend_keymap]]
+on = ['g','p']
+run = "cd ~/pCloudDrive/Shared/Projects"
+
+[[manager.prepend_keymap]]
+on = ['g','d']
+run = "cd ~/Downloads"
+
+[[manager.prepend_keymap]]
+on = ['g','h']
+run = "cd ~/"
+
+[[manager.prepend_keymap]]
+on = [ "<C-p>" ]
+run = "shell --confirm 's-img'"
+desc = "rofi - show all images in the current directory" 
