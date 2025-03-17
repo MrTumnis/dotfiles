@@ -80,7 +80,8 @@ prepend_preloaders = [
     { mime = "application/oasis.opendocument.*", run = "office" },
     { mime = "application/ms-*", run = "office" },
     { mime = "application/msword", run = "office" },
-    { name = "*.docx", run = "office" },
+    { mime = "application/rtf", run = "office" },
+    { name = "*.docx", run = "open" },
 ]
 
 prepend_previewers = [
