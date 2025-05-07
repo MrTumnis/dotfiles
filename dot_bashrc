@@ -24,13 +24,29 @@
 [[ $- != *i* ]] && return
 
 # dont put duplicate lines or lines starting with a space in history
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignoreboth	
 
-alias ls='lsd'
+man() {
+    if [[ -z "$1" ]]; then
+        return 1
+    fi
+
+    cmd="$1"  # Get the first argument (e.g., 'ls' if you type 'man ls')
+
+    echo -n "Would you like to use tldr instead? y/n: "
+    read answer
+    if [[ "$answer" =~ ^[Yy][Ee]?[Ss]?$ ]]; then
+        command tldr "$cmd"
+    else
+        command man "$cmd"
+    fi
+}
+
 
 #xbps alias
 alias xinstall='sudo xbps-install -Svy'
 alias xupdate='sudo xbps-install -Suv'
+alias xdebug='sudo xbps-install -d'
 alias xremove='sudo xbps-remove -Rov'
 alias xreconfigure='sudo xbps-reconfigure'
 alias xcreate='sudo xbps-create'
@@ -40,21 +56,21 @@ alias xpkglist='xbps-query -l | awk "{ print $2 }" | xargs -n1 xbps-uhelper getp
 #navigation
 alias ..='cd ..'
 alias ....='cd ../..'
+alias ls='lsd'
 alias ll='lsd -l'
 alias la='lsd -a'
 alias lsa='lsd -la'
 alias cp='cp -v'
 alias mv='mv -iv'
+alias rm='rip'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 alias cl='clear'
-#alias yazi='yy'
 
 
 #quick access 
 alias ff='fastfetch'
-alias ki='kitten icat'
 alias nt='nsxiv -trf'
 alias ns='nsxiv -f'
 alias vim='nvim'
@@ -65,14 +81,11 @@ alias chd='chezmoi cd'
 alias po="loginctl poweroff"
 alias ro="loginctl reboot"
 
-
+#kitty 
 alias ssh='kitty +kitten ssh'
+alias rg="rg --hyperlink-format=kitty"
+alias ki='kitten icat'
 
-#export BROWSER="Brave-browser"
-#export TERMINAL="kitty"
-#export LOCATION="Loveland, Colorado"
-#export EDITOR="nvim"
-#export FILE_MANAGER="yazi"
 #if [ "${TERM}" == xterm-256color ]; then
 #\cat ~/.local/sysfetch/logo2
 #  printf "\e[1;37m|--------------------| \e[1;36mSys Info\e[1;37m |---------------------|\n"
@@ -84,21 +97,21 @@ alias ssh='kitty +kitten ssh'
 #  kitty +kitten icat --align left "${HOME}"/.local/share/wallpaper/tesseract.png
 #fi
 
-function parse_git_dirty {
-  STATUS="$(git status 2> /dev/null)"
-  if [[ $? -ne 0 ]]; then printf ""; return; else printf " ["; fi
-  if echo "${STATUS}" | grep -c "renamed:"         &> /dev/null; then printf " >"; else printf ""; fi
-  if echo "${STATUS}" | grep -c "branch is ahead:" &> /dev/null; then printf " !"; else printf ""; fi
-  if echo "${STATUS}" | grep -c "new file::"       &> /dev/null; then printf " +"; else printf ""; fi
-  if echo "${STATUS}" | grep -c "Untracked files:" &> /dev/null; then printf " ?"; else printf ""; fi
-  if echo "${STATUS}" | grep -c "modified:"        &> /dev/null; then printf " *"; else printf ""; fi
-  if echo "${STATUS}" | grep -c "deleted:"         &> /dev/null; then printf " -"; else printf ""; fi
-  printf " ]"
-}
+# function parse_git_dirty {
+#   STATUS="$(git status 2> /dev/null)"
+#   if [[ $? -ne 0 ]]; then printf ""; return; else printf " ["; fi
+#   if echo "${STATUS}" | grep -c "renamed:"         &> /dev/null; then printf " >"; else printf ""; fi
+#   if echo "${STATUS}" | grep -c "branch is ahead:" &> /dev/null; then printf " !"; else printf ""; fi
+#   if echo "${STATUS}" | grep -c "new file::"       &> /dev/null; then printf " +"; else printf ""; fi
+#   if echo "${STATUS}" | grep -c "Untracked files:" &> /dev/null; then printf " ?"; else printf ""; fi
+#   if echo "${STATUS}" | grep -c "modified:"        &> /dev/null; then printf " *"; else printf ""; fi
+#   if echo "${STATUS}" | grep -c "deleted:"         &> /dev/null; then printf " -"; else printf ""; fi
+#   printf " ]"
+# }
 
-parse_git_branch() {
-  git rev-parse --abbrev-ref HEAD 2> /dev/null
-}
+# parse_git_branch() {
+#   git rev-parse --abbrev-ref HEAD 2> /dev/null
+# }
 
 prompt_comment() {
     DIR="$HOME/.local/share/promptcomments/"
@@ -106,10 +119,10 @@ prompt_comment() {
     cat "$MESSAGE"
 }
 
-#PS1="\e[00;36m\]┌─[ \e[00;37m\]\T \d \e[00;36m\]]──\e[00;31m\]>\e[00;37m\] \u\e[00;31m\]@\e[00;37m\]\h\n\e[00;36m\]|\n\e[00;36m\]└────\e[00;31m\]> \e[00;37m\]\w \e[00;31m\]\$ \e[01;37m\]"
+# PS1="\e[00;36m\]┌─ \e[00;37m\]\T \d \e[00;36m\]\e[00;31m\]\e[00;37m\] \e[00;31m\]\e[00;37m\]\n\e[00;36m\]\e[00;36m\]└────\e[00;31m\]> \e[00;37m\]\w \e[00;31m\]\$ \e[01;37m\]"
 # PS1="\[\033[\e{ \[\e[01;34m\]\w \[\e[01;37m\]}\[\e[01;33m\]\[󱍢 \]\[\e[01;37m\]"
 #PS1="\[\e[1;36m\]\$(parse_git_branch)\[\033[31m\]\$(parse_git_dirty)\[\033[00m\]\n\w\[\e[1;31m\] \[\e[1;34m\]\[\e[1;37m\] "
-PS1="\[\e[1;31m\]\$(parse_git_branch)\[\033[34m\]\$(parse_git_dirty)\n\[\033[1;33m\]  󱍢  \[\e[1;37m\] \w \[\e[1;36m\]\[\e[0;37m\] "
+PS1="\[\e[1;31m\]\$()\[\033[34m\]\$()\n\[\033[1;33m\]  󱍢  \[\e[1;37m\] \w \[\e[1;36m\]\[\e[0;37m\] "
 # PS1="\[\e[1;36m\]\$(parse_git_branch)\[\033[31m\]\$(parse_git_dirty)\n\[\033[0;33m\]  \[\e[1;37m\] \w \[\e[1;36m\] \[\e[1;37m\] "
 
 #PS2="\[\e[01;37m\]{ \[\e[01;34m\]\w \[\e[01;37m\]} \[\e[01;35m\]\[\$ \]\[\e[01;37m\]"
@@ -120,16 +133,13 @@ function yy() {
 	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
 		builtin cd -- "$cwd"
 	fi
-	rm -f -- "$tmp"
+	rm -- "$tmp"
 }
-
-export PANDAS_ENGINE=pyarrow
 
 
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-eval "$(atuin init bash)"
-#eval "$(starship init bash)"
+
 ### PATH
 if [ -d "$HOME/.scripts" ] ;
   then PATH="$HOME/.scripts:$PATH"
@@ -143,12 +153,27 @@ fi
 if [ -d "$HOME/.config/rofi/scripts" ] ;
   then PATH="$HOME/.config/rofi/scripts:$PATH"
 fi	  
-if [ -d "$HOME/myenv/bin" ] ;
-  then PATH="$HOME/myenv/bin:$PATH"
+if [ -d "$HOME/.repos/distrobox" ] ;
+  then PATH="$HOME/.repos/distrobox:$PATH"
 fi	  
-if [ -d "$HOME/.local/bin" ] ;
-  then PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/go/bin" ] ;
+  then PATH="$HOME/go/bin:$PATH"
 fi	  
+if [ -d "$HOME/.cargo/bin" ] ;
+  then PATH="$HOME/.cargo/bin:$PATH"
+fi	  
+if [ -d "$HOME/dev/ZIG/zig-linux" ] ;
+  then PATH="$HOME/dev/ZIG/zig-linux:$PATH"
+fi	  
+if [ -d "$HOME/dev/ZIG/" ] ;
+  then PATH="$HOME/dev/ZIG/:$PATH"
+fi	  
+if [ -d "$HOME/nodejs/bin/" ] ;
+  then PATH="$HOME/nodejs/bin/:$PATH"
+fi	  
+if [ -d "$HOME/dev/esp/esp-idf/tools/" ] ;
+  then PATH="$HOME//dev/esp/esp-idf/tools/:$PATH"
+fi	
 #if [ "$TERM" == "xterm" ]; then
 #    # No it isn't, it's gnome-terminal
 #    export TERM=xterm-256color
@@ -157,7 +182,9 @@ if test -n "$KITTY_INSTALLATION_DIR"; then
     export KITTY_SHELL_INTEGRATION="enabled"
     source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"
 fi
-. "$HOME/.cargo/env"
+if [ -f ~/.keychain/${HOSTNAME}-sh ]; then
+    source ~/.keychain/${HOSTNAME}-sh
+fi
 # pnpm
 export PNPM_HOME="/home/thomas/.local/share/pnpm"
 case ":$PATH:" in
@@ -165,5 +192,11 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-. "$HOME/.atuin/bin/env"
+#
+export CLIPBOARD_TOOL="clipse"
+export PYTHONSTARTUP="$(python -m jedi repl)"
+export PANDAS_ENGINE=pyarrow
+source ~/.local/share/blesh/ble.sh
+eval "$(atuin init bash)"
+eval "$(zoxide init bash)"
+eval "$(uv generate-shell-completion bash)"
