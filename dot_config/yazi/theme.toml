@@ -3,7 +3,7 @@
 # : Manager {{{
 
 [manager]
-cwd = { fg = "#878580" }
+cwd = { fg = "#5f8787" }
 
 # Hovered
 hovered         = { fg = "#CECDC3", bg = "#1C1B1A" } #1C1B1A
@@ -20,12 +20,12 @@ marker_cut      = { fg = "#AF3029", bg = "#AF3029" }
 
 # Tab
 tab_active   = { fg = "#878580", bg = "#205EA6" }
-tab_inactive = { fg = "#205EA6", bg = "#343331" }
+tab_inactive = { fg = "#fffEA6", bg = "#343331" }
 tab_width    = 2
 
 # Border
 border_symbol = "│"
-border_style  = { fg = "#403E3C" }
+border_style  = { fg = "#5f8787" }
 
 # Highlighting
 syntect_theme = "~/.config/yazi/Catppuccin-macchiato.tmTheme"
@@ -122,7 +122,7 @@ footer  = { fg = "#575653", bg = "#403E3C"}
 
 rules = [
 	# Images
-	{ mime = "image/*", fg = "#10713C" },
+	{ mime = "image/*", fg = "#10713C" }, 
 
 	# Videos
 	{ mime = "video/*", fg = "#AD8301" },
@@ -138,16 +138,16 @@ rules = [
 	{ mime = "application/x-rar",           fg = "#A02F6F" },
 
 	# Fallback
-	{ name = "*", fg = "#878580" },
-	{ name = "*/", fg = "#4C889F" }
+	{ name = "*", fg = "#8e9484" },
+	{ name = "*/", fg = "#6699cc" }
 ]
 
-# : }}}
+# : }}} 
 [icon]
 prepend_conds = [
-	{ if = "hidden & dir",  text = "󰷏 " },	# Hidden directories
-	{ if = "dir",           text = "📁" },  # Directories
-	{ if = "!(dir | link)", text = "📄" },  # Normal files (not directories or symlinks)
+	{ if = "hidden & dir",  text = "󰷏 ", fg = "#e5bb00"},	# Hidden directories
+	{ if = "dir",           text = "󰝰 ", fg = "#e5bb00"}, #Directories 📁
+	{ if = "!(dir | link)", text = " " },  # Normal files (not directories or symlinks)
 ]
 files = [
     { name = ".babelrc", text = "", fg = "#40a02b" },
@@ -418,8 +418,8 @@ exts = [
     { name = "d.ts", text = "", fg = "#dc8a78" },
     { name = "dart", text = "", fg = "#1e66f5" },
     { name = "db", text = "", fg = "#5c5f77" },
-    { name = "dconf", text = "", fg = "#4c4f69" },
-    { name = "desktop", text = "", fg = "#4c4f69" },
+    { name = "dconf", text = " ", fg = "#4c4f69" },
+    { name = "desktop", text = " ", fg = "#4c4f69" },
     { name = "diff", text = "", fg = "#5c5f77" },
     { name = "dll", text = "", fg = "#dc8a78" },
     { name = "doc", text = "󰈬", fg = "#1e66f5" },
@@ -433,9 +433,9 @@ exts = [
     { name = "dwg", text = "󰻫", fg = "#179299" },
     { name = "dxf", text = "󰻫", fg = "#179299" },
     { name = "ebook", text = "", fg = "#dc8a78" },
-    { name = "ebuild", text = "", fg = "#4c4f69" },
+    { name = "ebuild", text = " ", fg = "#4c4f69" },
     { name = "edn", text = "", fg = "#179299" },
-    { name = "eex", text = "", fg = "#4c4f69" },
+    { name = "eex", text = " ", fg = "#4c4f69" },
     { name = "ejs", text = "", fg = "#40a02b" },
     { name = "el", text = "", fg = "#4c4f69" },
     { name = "elc", text = "", fg = "#4c4f69" },
@@ -449,8 +449,8 @@ exts = [
     { name = "erb", text = "", fg = "#d20f39" },
     { name = "erl", text = "", fg = "#ea76cb" },
     { name = "ex", text = "", fg = "#4c4f69" },
-    { name = "exe", text = "", fg = "#d20f39" },
-    { name = "exs", text = "", fg = "#4c4f69" },
+    { name = "exe", text = " ", fg = "#d20f39" },
+    { name = "exs", text = " ", fg = "#4c4f69" },
     { name = "f#", text = "", fg = "#179299" },
     { name = "f3d", text = "󰻫", fg = "#179299" },
     { name = "f90", text = "󱈚", fg = "#4c4f69" },
@@ -470,11 +470,11 @@ exts = [
     { name = "flac", text = "", fg = "#1e66f5" },
     { name = "flc", text = "", fg = "#4c4f69" },
     { name = "flf", text = "", fg = "#4c4f69" },
-    { name = "fnl", text = "", fg = "#4c4f69" },
-    { name = "fodg", text = "", fg = "#5c5f77" },
-    { name = "fodp", text = "", fg = "#dc8a78" },
-    { name = "fods", text = "", fg = "#40a02b" },
-    { name = "fodt", text = "", fg = "#179299" },
+    { name = "fnl", text = " ", fg = "#4c4f69" },
+    { name = "fodg", text = " ", fg = "#5c5f77" },
+    { name = "fodp", text = " ", fg = "#dc8a78" },
+    { name = "fods", text = " ", fg = "#40a02b" },
+    { name = "fodt", text = " ", fg = "#179299" },
     { name = "fs", text = "", fg = "#179299" },
     { name = "fsi", text = "", fg = "#179299" },
     { name = "fsscript", text = "", fg = "#179299" },

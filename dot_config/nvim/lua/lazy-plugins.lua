@@ -53,6 +53,7 @@ require('lazy').setup({
   -- { 'davidhalter/jedi-vim', enable = vim.g.auto_completions_enabled, vim.g.auto_initialization },
   'mg979/vim-visual-multi',
   'jezda1337/nvim-html-css',
+  'nvim-lua/plenary.nvim',
   'leafOfTree/vim-svelte-plugin',
   --
   -- NOTE: Plugins can also be added by using a table,
@@ -99,6 +100,8 @@ require('lazy').setup({
   require 'kickstart/plugins/flash',
 
   require 'kickstart/plugins/nvim-ts-autotag',
+
+  require 'kickstart/plugins/obsidian',
 
   -- require 'kickstart/plugins/*',
 

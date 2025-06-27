@@ -42,7 +42,7 @@ man() {
     fi
 }
 
-
+command task list
 #xbps alias
 alias xinstall='sudo xbps-install -Svy'
 alias xupdate='sudo xbps-install -Suv'
@@ -86,6 +86,13 @@ alias ssh='kitty +kitten ssh'
 alias rg="rg --hyperlink-format=kitty"
 alias ki='kitten icat'
 
+
+alias of='AppRun'
+
+#Taskwarrior
+alias ta='task add'
+alias tl='task list'
+
 #if [ "${TERM}" == xterm-256color ]; then
 #\cat ~/.local/sysfetch/logo2
 #  printf "\e[1;37m|--------------------| \e[1;36mSys Info\e[1;37m |---------------------|\n"
@@ -97,21 +104,21 @@ alias ki='kitten icat'
 #  kitty +kitten icat --align left "${HOME}"/.local/share/wallpaper/tesseract.png
 #fi
 
-# function parse_git_dirty {
-#   STATUS="$(git status 2> /dev/null)"
-#   if [[ $? -ne 0 ]]; then printf ""; return; else printf " ["; fi
-#   if echo "${STATUS}" | grep -c "renamed:"         &> /dev/null; then printf " >"; else printf ""; fi
-#   if echo "${STATUS}" | grep -c "branch is ahead:" &> /dev/null; then printf " !"; else printf ""; fi
-#   if echo "${STATUS}" | grep -c "new file::"       &> /dev/null; then printf " +"; else printf ""; fi
-#   if echo "${STATUS}" | grep -c "Untracked files:" &> /dev/null; then printf " ?"; else printf ""; fi
-#   if echo "${STATUS}" | grep -c "modified:"        &> /dev/null; then printf " *"; else printf ""; fi
-#   if echo "${STATUS}" | grep -c "deleted:"         &> /dev/null; then printf " -"; else printf ""; fi
-#   printf " ]"
-# }
+function parse_git_dirty {
+  STATUS="$(git status 2> /dev/null)"
+  if [[ $? -ne 0 ]]; then printf ""; return; else printf " ["; fi
+  if echo "${STATUS}" | grep -c "renamed:"         &> /dev/null; then printf " >"; else printf ""; fi
+  if echo "${STATUS}" | grep -c "branch is ahead:" &> /dev/null; then printf " !"; else printf ""; fi
+  if echo "${STATUS}" | grep -c "new file::"       &> /dev/null; then printf " +"; else printf ""; fi
+  if echo "${STATUS}" | grep -c "Untracked files:" &> /dev/null; then printf " ?"; else printf ""; fi
+  if echo "${STATUS}" | grep -c "modified:"        &> /dev/null; then printf " *"; else printf ""; fi
+  if echo "${STATUS}" | grep -c "deleted:"         &> /dev/null; then printf " -"; else printf ""; fi
+  printf " ]"
+}
 
-# parse_git_branch() {
-#   git rev-parse --abbrev-ref HEAD 2> /dev/null
-# }
+parse_git_branch() {
+  git rev-parse --abbrev-ref HEAD 2> /dev/null
+}
 
 prompt_comment() {
     DIR="$HOME/.local/share/promptcomments/"
@@ -122,10 +129,11 @@ prompt_comment() {
 # PS1="\e[00;36m\]┌─ \e[00;37m\]\T \d \e[00;36m\]\e[00;31m\]\e[00;37m\] \e[00;31m\]\e[00;37m\]\n\e[00;36m\]\e[00;36m\]└────\e[00;31m\]> \e[00;37m\]\w \e[00;31m\]\$ \e[01;37m\]"
 # PS1="\[\033[\e{ \[\e[01;34m\]\w \[\e[01;37m\]}\[\e[01;33m\]\[󱍢 \]\[\e[01;37m\]"
 #PS1="\[\e[1;36m\]\$(parse_git_branch)\[\033[31m\]\$(parse_git_dirty)\[\033[00m\]\n\w\[\e[1;31m\] \[\e[1;34m\]\[\e[1;37m\] "
-PS1="\[\e[1;31m\]\$()\[\033[34m\]\$()\n\[\033[1;33m\]  󱍢  \[\e[1;37m\] \w \[\e[1;36m\]\[\e[0;37m\] "
-# PS1="\[\e[1;36m\]\$(parse_git_branch)\[\033[31m\]\$(parse_git_dirty)\n\[\033[0;33m\]  \[\e[1;37m\] \w \[\e[1;36m\] \[\e[1;37m\] "
+# PS1="\[\e[1;31m\]\$()\[\033[34m\]\$()\n\[\033[1;33m\]  󱍢  \[\e[1;37m\] \w \[\e[1;36m\]\[\e[0;37m\] "
+PS1="\[\e[1;36m\]\$(parse_git_branch)\[\033[31m\]\$(parse_git_dirty)\n\[\033[0;33m\]  \[\e[1;37m\] \w \[\e[1;36m\] \[\e[1;37m\] "
 
 #PS2="\[\e[01;37m\]{ \[\e[01;34m\]\w \[\e[01;37m\]} \[\e[01;35m\]\[\$ \]\[\e[01;37m\]"
+
 
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
@@ -141,43 +149,26 @@ function yy() {
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 
 ### PATH
-if [ -d "$HOME/.scripts" ] ;
-  then PATH="$HOME/.scripts:$PATH"
-fi
-if [ -d "$HOME/.programs" ] ;
-  then PATH="$HOME/.programs:$PATH"
-fi	  
-if [ -d "$HOME/.local/bin" ] ;
-  then PATH="$HOME/.local/bin:$PATH"
-fi	  
-if [ -d "$HOME/.config/rofi/scripts" ] ;
-  then PATH="$HOME/.config/rofi/scripts:$PATH"
-fi	  
-if [ -d "$HOME/.repos/distrobox" ] ;
-  then PATH="$HOME/.repos/distrobox:$PATH"
-fi	  
-if [ -d "$HOME/go/bin" ] ;
-  then PATH="$HOME/go/bin:$PATH"
-fi	  
-if [ -d "$HOME/.cargo/bin" ] ;
-  then PATH="$HOME/.cargo/bin:$PATH"
-fi	  
-if [ -d "$HOME/dev/ZIG/zig-linux" ] ;
-  then PATH="$HOME/dev/ZIG/zig-linux:$PATH"
-fi	  
-if [ -d "$HOME/dev/ZIG/" ] ;
-  then PATH="$HOME/dev/ZIG/:$PATH"
-fi	  
-if [ -d "$HOME/nodejs/bin/" ] ;
-  then PATH="$HOME/nodejs/bin/:$PATH"
-fi	  
-if [ -d "$HOME/dev/esp/esp-idf/tools/" ] ;
-  then PATH="$HOME//dev/esp/esp-idf/tools/:$PATH"
-fi	
-#if [ "$TERM" == "xterm" ]; then
-#    # No it isn't, it's gnome-terminal
-#    export TERM=xterm-256color
-#fi
+custom_paths=(
+  "$HOME/.scripts"
+  "$HOME/.programs"
+  "$HOME/.local/bin"
+  "$HOME/.config/rofi/scripts"
+  "$HOME/.repos/distrobox"
+  "$HOME/go/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/dev/ZIG/zig-linux"
+  "$HOME/dev/ZIG"
+  "$HOME/onlyoffice/AppRun"
+  "$HOME/nodejs/bin"
+  "$HOME/dev/esp/esp-idf/tools"
+  "$HOME/.duckdb/cli/latest"
+)
+
+for dir in "${custom_paths[@]}"; do
+  [ -d "$dir" ] && PATH="$dir:$PATH"
+done
+
 if test -n "$KITTY_INSTALLATION_DIR"; then
     export KITTY_SHELL_INTEGRATION="enabled"
     source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"
@@ -193,6 +184,8 @@ case ":$PATH:" in
 esac
 # pnpm end
 #
+#
+LIBVIRT_DEFAULT_URI="qemu:///system"
 export CLIPBOARD_TOOL="clipse"
 export PYTHONSTARTUP="$(python -m jedi repl)"
 export PANDAS_ENGINE=pyarrow

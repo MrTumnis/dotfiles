@@ -2,7 +2,7 @@
 show_hidden = false
 sort_by="natural"
 sort_reverse=false
-linemode="mtime"
+linemode="size_and_mtime"
 image_delay=5
 image_quality=80
 	
@@ -13,18 +13,25 @@ max_height=10
 wrap='yes'
 image_delay=10
 image_quality=70
+max_width=1500
+min_width=800
 
+[input]
+cursor_blink=true
 
 
 [opener]
 edit = [
-	{ run = 'nvim "$@"', block = true },
+	{ run = 'nvim "$@"', block = true, orphan = true },
 ]
 play = [
 	{ run = 'mpv "$@"', orphan = true, for = "unix" },
 ]
+viewkit = [
+	{ run = 'kitty +kitten icat "$@"', block = true, orphan = true, for = "linux" },
+]
 view = [
-	{ run = 'kitty +kitten icat "$@"', block = true },
+	{ run = 'feh --auto-zoom "$@"', block = true, orphan = true, for = "linux" },
 ]
 view2 = [
 	{ run = 'gimp "$@"', block = true, orphan = true, for = "linux" },
@@ -32,11 +39,14 @@ view2 = [
 open = [
 	{ run = 'libreoffice "$@"', orphan = true, block = true, for = "linux" },
 ]
+browser = [
+	{ run = 'brave-browser-stable "$@"', orphan = true, block = true, for = "linux" },
+]
 openpdf = [
-	{ run = 'qpdfview "$@"', orphan = true, for = "linux" },
+	{ run = 'qpdfview "$@"', orphan = true, block = true, for = "linux" },
 ]
 openvirt= [
-	{ run = 'virt-viewer "$@"', orphan = true, for = "linux" },
+	{ run = 'virt-viewer "$@"', orphan = true, block = true ,for = "linux" },
 ]
 
 [open]
@@ -53,17 +63,22 @@ prepend_rules = [
 
 	#handle office extensions
 	{ name = "*.xlsx", use = "open" },
+	{ name = "*.xltx", use = "open" },
 	{ name = "*.xls", use = "open" },
 	{ name = "*.csv", use = "open" },
 	{ name = "*.pptx", use = "open" },
 	{ name = "*.docx", use = "open" },
 	{ name = "*.pdf", use = "open" },
 	{ name = "*.odt", use = "open" },
+	{ name = "*.ods", use = "open" },
 	{ name = "*.dat", use = "edit" },
+
+	#Campbell Programs
+	{ name = "*.CR*", use = "edit" },
 
 	{ name = "*.vv", use = "openvirt" },
 	# Multiple openers for a single rule
-	{ name = "*.html", use = [ "open", "edit" ] },
+	{ name = "*.html", use = [ "browser", "edit" ] },
 	{ name = "*.png", use = [ "view", "view2" ] },
 	{ name = "*.jpeg", use = [ "view", "view2" ] },
 	{ name = "*.jpg", use = [ "view", "view2" ] },

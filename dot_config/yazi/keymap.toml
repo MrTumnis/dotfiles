@@ -23,7 +23,7 @@ on  = "M"
 run = "plugin mount"
 
 [[manager.prepend_keymap]]
-on   = "T"
+on   = "t"
 run  = "plugin toggle-pane min-preview"
 desc = "Maximize or restore preview"
 
