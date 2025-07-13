@@ -63,16 +63,15 @@ alias lsa='lsd -la'
 alias cp='cp -v'
 alias mv='mv -iv'
 alias rm='rip'
+alias diff='riff'
 alias grep='grep --color=auto'
-alias diff='diff --color=auto'
+# alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 alias cl='clear'
 
 
 #quick access 
 alias ff='fastfetch'
-alias nt='nsxiv -trf'
-alias ns='nsxiv -f'
 alias vim='nvim'
 alias cha='chezmoi add'
 alias chd='chezmoi cd'
@@ -120,11 +119,11 @@ parse_git_branch() {
   git rev-parse --abbrev-ref HEAD 2> /dev/null
 }
 
-prompt_comment() {
-    DIR="$HOME/.local/share/promptcomments/"
-    MESSAGE="$(find "$DIR"/*.txt | shuf -n1)"
-    cat "$MESSAGE"
-}
+# prompt_comment() {
+#     DIR="$HOME/.local/share/promptcomments/"
+#     MESSAGE="$(find "$DIR"/*.txt | shuf -n1)"
+#     cat "$MESSAGE"
+# }
 
 # PS1="\e[00;36m\]┌─ \e[00;37m\]\T \d \e[00;36m\]\e[00;31m\]\e[00;37m\] \e[00;31m\]\e[00;37m\]\n\e[00;36m\]\e[00;36m\]└────\e[00;31m\]> \e[00;37m\]\w \e[00;31m\]\$ \e[01;37m\]"
 # PS1="\[\033[\e{ \[\e[01;34m\]\w \[\e[01;37m\]}\[\e[01;33m\]\[󱍢 \]\[\e[01;37m\]"
@@ -193,3 +192,4 @@ source ~/.local/share/blesh/ble.sh
 eval "$(atuin init bash)"
 eval "$(zoxide init bash)"
 eval "$(uv generate-shell-completion bash)"
+eval $(keychain --eval --agents ssh id_rsa)

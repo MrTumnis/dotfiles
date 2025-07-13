@@ -1,0 +1,84 @@
+[theme]
+theme = "solarized-dark"
+
+[icons]
+icons = "material-nf"
+
+[[block]]
+block = "custom"
+command = "cat /etc/hostname"
+interval = "once"
+
+# [settings]
+# update_interval = 5
+# Optional: enable click events
+# click_events = true
+
+[[block]]
+block = "custom"
+command = "sed 's/  //' <(curl 'https://wttr.in/@ip?format=1&u' -s)"
+interval = 600
+
+# [[block]]
+# block = "disk_space"
+# path = "/"
+# info_type = "available"
+# alert_unit = "%"
+# alert = 20
+# format = " {available}"
+
+# [[block]]
+# block = "volume"
+# driver = "pulseaudio"
+# device = "default"
+# format = "{volume} "
+# format_muted = ""
+
+[[block]]
+block = "battery"
+format = " $icon $percentage "
+
+# [[block]]
+# block = "battery"
+# format = "$icon $percentage"
+# interval = 10
+# empty_threshold = 11
+# not_charging_format = ""
+# charging_format = ""
+# discharging_format = ""
+# full_format = ""
+
+# [[block]]
+# block = "net"
+# device = "^wlo0$"
+# format = " $icon {$signal_strength $ssid $frequency|Wired connection} via $device "
+
+[[block]]
+block = "net"
+device = "wlp3s0"
+format = "{$signal_strength}  {$ssid} {$ip}"
+
+[[block]]
+block = "net"
+device = "enp2s0"
+format = "{$ip} ({$speed})"
+
+# [[block]]
+# block = "cpu"
+# interval = 1
+# format = " {$utilization}"
+
+# [[block]]
+# block = "temperature"
+# chip = "*-isa-*"
+# format = " {$max}°C"
+
+# [[block]]
+# block = "load"
+# format = " {1m}"
+
+[[block]]
+block = "time"
+interval = 5
+format = " $timestamp.datetime(f:'%a %d %R') "
+

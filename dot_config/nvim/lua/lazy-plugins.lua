@@ -47,7 +47,7 @@ require('lazy').setup({
   'ziglang/zig.vim',
   'norcalli/nvim-colorizer.lua',
   -- 'chrisbra/Colorizer',
-  'metalelf0/base16-black-metal-scheme',
+  -- 'metalelf0/base16-black-metal-scheme',
   -- 'ervandew/supertab',
   -- 'lotabout/skim', "{ 'dir': '~/.skim', 'do': './install' }"
   -- { 'davidhalter/jedi-vim', enable = vim.g.auto_completions_enabled, vim.g.auto_initialization },
@@ -55,6 +55,33 @@ require('lazy').setup({
   'jezda1337/nvim-html-css',
   'nvim-lua/plenary.nvim',
   'leafOfTree/vim-svelte-plugin',
+  {
+    'webhooked/kanso.nvim',
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    'uloco/bluloco.nvim',
+    lazy = false,
+    priority = 1000,
+    dependencies = { 'rktjmp/lush.nvim' },
+    config = function()
+      vim.opt.termguicolors = true
+      vim.cmd 'colorscheme bluloco'
+      -- your optional config goes here, see below.
+    end,
+  },
+  -- {
+  --   'ribru17/bamboo.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require('bamboo').setup {
+  --       -- optional configuration here
+  --     }
+  --     require('bamboo').load()
+  --   end,
+  -- },
   --
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -77,6 +104,8 @@ require('lazy').setup({
 
   require 'kickstart/plugins/gitsigns',
 
+  require 'kickstart/plugins/neoclip',
+
   require 'kickstart/plugins/which-key',
 
   require 'kickstart/plugins/telescope',
@@ -87,7 +116,7 @@ require('lazy').setup({
 
   require 'kickstart/plugins/blink-cmp',
 
-  require 'kickstart/plugins/tokyonight',
+  -- require 'kickstart/plugins/tokyonight',
 
   require 'kickstart/plugins/todo-comments',
 

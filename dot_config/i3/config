@@ -1,0 +1,230 @@
+# i3 Config based on your Hyprland setup
+
+#####################
+### APPLICATIONS  ###
+#####################
+
+set $terminal kitty
+set $browser brave-browser-stable
+set $browseralt qutebrowser
+set $fileManager yazi
+set $fileManager2 pcmanfm
+set $menu ~/.config/i3/luancher.sh
+set $launchvm rdpwin -d
+set $anydesk anydesk
+set $journal kitty tjournal
+set $dmenu uv run dmenu_extended_run
+
+
+# set $is_x11 exec --no-startup-id bash -c '[ "$XDG_SESSION_TYPE" = "x11" ] && setxkbmap -option caps:swapescape'
+
+input * {
+    xkb_options "caps:swapescape"
+}
+#####################
+### AUTOSTART     ###
+#####################
+# exec --no-startup-id bash -c '[ "$XDG_SESSION_TYPE" = "x11" ] && feh --bg-scale ~/.local/share/wallpaper/tesseract-scape.jpg || swaybg -m fill -i ~/.local/share/wallpaper/tesseract-scape.jpg'
+exec --no-startup-id swaybg -m fill -i ~/.local/share/wallpaper/tesseract-scape.jpg
+exec --no-startup-id dex --autostart --environment sway --search-paths ~/.config/autostart 
+exec --no-startup-id $terminal
+exec --no-startup-id $browser
+exec --no-startup-id clipse --listen
+
+####################
+### LOOK & FEEL  ###
+####################
+
+# Font
+font pango:Iosevka Nerd Font Mono 14
+# font pango: Hermit 14
+
+# Gaps (requires i3-gaps)
+# gaps inner 2
+# gaps outer 2
+
+# Window border
+# for_window [class=".*"] border pixel 1
+
+
+
+##################
+### WORKSPACES ###
+##################
+default_border pixel 1
+default_floating_border pixel 1
+
+
+# Assign workspaces to outputs
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
+workspace 5 output eDP-1
+workspace 6 output HDMI-1
+workspace 7 output HDMI-1
+workspace 8 output HDMI-1
+workspace 9 output HDMI-1
+
+##################
+### KEYBINDINGS ###
+##################
+
+set $mod Mod4
+set $shift Shift
+
+# Program shortcuts
+bindsym $mod+Return exec $terminal
+bindsym $mod+b exec $browser
+bindsym $mod+Mod1+b exec $browseralt
+bindsym $mod+y exec $terminal -e $fileManager
+bindsym $mod+t exec $fileManager2
+bindsym $mod+e floating toggle
+bindsym $mod+f fullscreen toggle
+bindsym $mod+w exec $launchvm
+bindsym $mod+a exec $anydesk
+bindsym $mod+d exec $dmenu
+bindsym Mod1+j exec $journal 
+bindsym $mod+V exec kitty --class clipse -e clipse
+
+bindsym $mod+Control+r restart
+bindsym Mod1+q kill 
+
+# Screenshots (you’ll need to use `flameshot`, `scrot`, or `grim` for i3)
+bindsym $mod+Print exec grimshot save area
+bindsym Mod1+Print exec grimshot copy area
+# bindsym Shift+Print exec flameshot -m window
+# bindsym Mod1+Print exec flameshot  -m output
+# bindsym $mod+Print exec flameshot  
+
+# Focus movement
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Workspace navigation
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+
+# Move focused window to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+
+# Toggle scratchpad (requires setup)
+bindsym $mod+s move scratchpad
+bindsym $mod+Shift+s scratchpad show
+
+# Mouse resize/move
+floating_modifier $mod
+bindsym $mod+button1 move
+bindsym $mod+button3 resize
+
+bindsym $mod+Shift+q exec i3-msg exit
+
+# Audio controls
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+
+# bindsym XF86AudioRaiseVolume exec bash -c '[ "$XDG_SESSION_TYPE" = "x11" ] && amixer -D pulse sset Master 5%+ || wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+'
+# bindsym XF86AudioLowerVolume exec bash -c '[ "$XDG_SESSION_TYPE" = "x11" ] && amixer -D pulse sset Master 5%- || wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
+
+# bindsym XF86AudioMute exec bash -c '[ "$XDG_SESSION_TYPE" = "x11" ] && amixer set Master toggle || wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
+# bindsym XF86AudioMicMute exec bash -c '[ "$XDG_SESSION_TYPE" = "x11" ] && amixer set Capture toggle || wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'
+# Brightness controls
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+
+##################
+### INPUT ###
+##################
+
+
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+  font pango:Iosevka Nerd Font 13  
+  status_command i3status
+  colors {
+    separator #6A7786
+    background #10374A
+    statusline #fffff0
+    focused_workspace #6A7786 #fff2C0 #1d1f21
+    active_workspace #073642 #C5D2C0 #ffffff
+    inactive_workspace #002b36 #005577 #000000
+    urgent_workspace #77216f #ffffff #ffffff
+  }
+}
+client.focused #3B4538 #586e75 #afffff
+client.focused_inactive #C5D2C0 #93a1a1 #002b36
+client.unfocused #002b36 #073642 #afffff
+client.urgent #dc322f #fdf6e3 #dc322f
+
+for_window [app_id="clipse"] floating enable, move position center, resize set 80ppt 80ppt
+# Floating window rules
+for_window [class="pcmanfm"] floating enable
+for_window [class="pcmanfm"] resize set 750 600
+# for_window [title="^yazi$"] floating enable
+# for_window [title="^yazi$"] resize set 1000 800
+for_window [title="^yazi$"] border none 
+for_window [class="^Anydesk$"] floating enable
+for_window [class="^Anydesk$"] resize set 800 600
+for_window [class="gimp"] floating enable
+for_window [class="gimp"] resize set 1200 800
+
+# Example wine windows
+for_window [title="^LoggerNet$"] floating enable
+for_window [title="^LoggerNet$"] resize set 200 300
+for_window [class="toolbar.exe"] floating enable
+for_window [class="toolbar.exe"] resize set 200 300
+for_window [class="devconfig.exe"] floating enable
+for_window [class="devconfig.exe"] resize set 600 700
+
+
+assign [class="^Brave-browser$"] 4
+assign [app_id="brave-browser$"] 4
+for_window [app_id="brave-browser"] border none 
+
+
