@@ -15,9 +15,8 @@ require('lazy').setup({
   'junegunn/fzf.vim',
   'preservim/nerdtree',
   'rust-lang/rust.vim',
-  'elkowar/yuck.vim',
   'tpope/vim-commentary',
-  'jeetsukumaran/vim-pythonsense',
+  -- 'jeetsukumaran/vim-pythonsense',
   'jiangmiao/auto-pairs',
   'Vimjas/vim-python-pep8-indent',
   'neomake/neomake',
@@ -55,22 +54,22 @@ require('lazy').setup({
   'jezda1337/nvim-html-css',
   'nvim-lua/plenary.nvim',
   'leafOfTree/vim-svelte-plugin',
-  {
-    'webhooked/kanso.nvim',
-    lazy = false,
-    priority = 1000,
-  },
-  {
-    'uloco/bluloco.nvim',
-    lazy = false,
-    priority = 1000,
-    dependencies = { 'rktjmp/lush.nvim' },
-    config = function()
-      vim.opt.termguicolors = true
-      vim.cmd 'colorscheme bluloco'
-      -- your optional config goes here, see below.
-    end,
-  },
+  -- {
+  --   'webhooked/kanso.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  -- },
+  -- {
+  --   'uloco/bluloco.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   dependencies = { 'rktjmp/lush.nvim' },
+  --   config = function()
+  --     vim.opt.termguicolors = true
+  --     vim.cmd 'colorscheme bluloco'
+  --     -- your optional config goes here, see below.
+  --   end,
+  -- },
   -- {
   --   'ribru17/bamboo.nvim',
   --   lazy = false,
@@ -104,6 +103,10 @@ require('lazy').setup({
 
   require 'kickstart/plugins/gitsigns',
 
+  require 'kickstart/plugins/markdown',
+
+  -- require 'kickstart/plugins/solarized',
+
   require 'kickstart/plugins/neoclip',
 
   require 'kickstart/plugins/which-key',
@@ -116,7 +119,7 @@ require('lazy').setup({
 
   require 'kickstart/plugins/blink-cmp',
 
-  -- require 'kickstart/plugins/tokyonight',
+  require 'kickstart/plugins/tokyonight',
 
   require 'kickstart/plugins/todo-comments',
 
@@ -130,7 +133,7 @@ require('lazy').setup({
 
   require 'kickstart/plugins/nvim-ts-autotag',
 
-  require 'kickstart/plugins/obsidian',
+  -- require 'kickstart/plugins/obsidian',
 
   -- require 'kickstart/plugins/*',
 

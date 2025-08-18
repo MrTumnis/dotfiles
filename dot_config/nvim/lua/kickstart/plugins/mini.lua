@@ -16,7 +16,20 @@ return {
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+      require('mini.move').setup()
+      -- mappings = {
+      --   -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+      --   left = '<M-h>',
+      --   right = '<M-l>',
+      --   down = '<M-j>',
+      --   up = '<M-k>',
 
+      --   -- Move current line in Normal mode
+      --   line_left = '<M-h>',
+      --   line_right = '<M-l>',
+      --   line_down = '<M-j>',
+      --   line_up = '<M-k>',
+      --
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
