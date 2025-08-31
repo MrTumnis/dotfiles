@@ -15,6 +15,12 @@
 --   end,
 -- })
 --
+vim.api.nvim_create_autocmd('BufWritePost', {
+  pattern = '*.py',
+  callback = function()
+    vim.cmd '!ruff check %'
+  end,
+})
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.

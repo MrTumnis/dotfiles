@@ -18,7 +18,7 @@ require('lazy').setup({
   'tpope/vim-commentary',
   -- 'jeetsukumaran/vim-pythonsense',
   'jiangmiao/auto-pairs',
-  'Vimjas/vim-python-pep8-indent',
+  -- 'Vimjas/vim-python-pep8-indent',
   'neomake/neomake',
   --  'numirias/semshi',
   --  'williamboman/mason-lspconfig.nvim',
@@ -119,7 +119,7 @@ require('lazy').setup({
 
   require 'kickstart/plugins/blink-cmp',
 
-  require 'kickstart/plugins/tokyonight',
+  -- require 'kickstart/plugins/tokyonight',
 
   require 'kickstart/plugins/todo-comments',
 
@@ -132,6 +132,8 @@ require('lazy').setup({
   require 'kickstart/plugins/flash',
 
   require 'kickstart/plugins/nvim-ts-autotag',
+
+  require 'kickstart/plugins/monet',
 
   -- require 'kickstart/plugins/obsidian',
 
