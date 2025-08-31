@@ -2,7 +2,7 @@
 dotfiles
 This repo contains the configuration to setup my machines. This is using Chezmoi, the dotfile manager to setup the install.
 
-This automated setup is currently only configured for Void machines.
+This automated setup is currently only configured for Void machines (not guaranteed to work).
 
 How to run
 export GITHUB_USERNAME=mrtumnis
