@@ -1,4 +1,4 @@
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "<C-s>"
 run  = 'shell "$SHELL" --block --confirm'
 desc = "Open shell here"
@@ -8,53 +8,75 @@ on   = "<Esc>"
 run  = "close"
 desc = "Cancel input"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on  = "<C-n>"
 run = '''
 	shell 'dragon -x -i -T "$1"' --confirm
 '''
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "u"
 run = "plugin restore"
 desc = "Restore last deleted files/folders" 
     
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on  = "M"
 run = "plugin mount"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "t"
 run  = "plugin toggle-pane min-preview"
 desc = "Maximize or restore preview"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "T"
 run  = "plugin toggle-pane max-preview"
 desc = "Maximize or restore preview"
 
-[[manger.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "f"
 run  = "plugin jump-to-char"
 desc = "Jump to char"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "F"
 run  = "plugin smart-filter"
 desc = "Smart filter"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ['g','p']
 run = "cd ~/pCloudDrive/Shared/Projects"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
+on = ['g','c']
+run = "cd ~/dev/python"
+
+[[mgr.prepend_keymap]]
 on = ['g','d']
 run = "cd ~/Downloads"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ['g','h']
 run = "cd ~/"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "<C-p>" ]
 run = "shell --confirm 's-img'"
 desc = "rofi - show all images in the current directory" 
+
+[[manager.prepend_keymap]]
+on = ["i"]
+run = "plugin duckdb -open"
+desc = "open with duckdb"
+
+[[manager.prepend_keymap]]
+on = ["i", "u"]
+run = "plugin duckdb -ui"
+desc = "open with duckdb ui"
+
+[[mgr.prepend_keymap]]
+on  = "K"
+run = "plugin parent-arrow -1"
+
+[[mgr.prepend_keymap]]
+on  = "J"
+run = "plugin parent-arrow 1"

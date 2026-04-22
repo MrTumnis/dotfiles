@@ -33,7 +33,7 @@ function M:doc2pdf(job)
 	  1. It prints errors to stdout (always, doesn't matter if it succeeded or it failed)
 	  2. Always writes the converted files to the filesystem (so no Mario|Bros|Piping|Magic|To>stdout) --]]
 	local libreoffice = Command("libreoffice")
-		:args({
+		:arg({
 			"--headless",
 			"--convert-to",
 			"pdf:draw_pdf_Export:{" ..

@@ -2,7 +2,7 @@ local M = {}
 
 function M:peek(job)
 	local child = Command("rich")
-		:args({
+		:arg({
 			"-j",
 			"--left",
 			"--line-numbers",
@@ -46,8 +46,6 @@ function M:peek(job)
 	end
 end
 
-function M:seek(job)
-	require("code"):seek(job)
-end
+function M:seek(job) require("code"):seek(job) end
 
 return M

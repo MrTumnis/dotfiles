@@ -1,82 +1,72 @@
 [[plugin.deps]]
 use = "Reledia/glow"
-rev = "c76bf4f"
-hash = "a6b78bf9af5390e3a85a6951fbb7b93"
+rev = "bd3eaa5"
+hash = "92b5c58159a51c567f82b618cee2b78"
 
 [[plugin.deps]]
 use = "GianniBYoung/rsync"
-rev = "3f431aa"
-hash = "1854a5a30d23e84bc8df24700f27957b"
+rev = "14d2828"
+hash = "7394430ba473dce1023721622438bf3d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "a1b678d"
-hash = "2f1053f89d1a301a648ab181d0948e38"
+rev = "88990a6"
+hash = "8da0b15a97b5dfd13941d1ecc617ac7c"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:diff"
-rev = "a1b678d"
-hash = "7a08e303167d5b655c06da6d570f0333"
+rev = "88990a6"
+hash = "2f08b8249b57737e7257298a3b2a2edc"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "a1b678d"
-hash = "9dce00232a0e0e2502565c7aa2b0ed4e"
+rev = "88990a6"
+hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "a1b678d"
-hash = "bcbf72738d4b7fb9a03cac84465b9ba4"
+rev = "88990a6"
+hash = "270915fa8282a19908449530ff66f7e2"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:hide-preview"
-rev = "a1b678d"
+rev = "88990a6"
 hash = "53f826884e2c7e521cecc492a7f31d7e"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "a1b678d"
-hash = "a670c03eb3760812e044a24f94cedc55"
+rev = "88990a6"
+hash = "ce67445ebb1bf3d97b8e44f50904b2c5"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "a1b678d"
-hash = "812fd49667ab6823250f0411f8cf793a"
-
-[[plugin.deps]]
-use = "yazi-rs/plugins:mime-ext"
-rev = "a1b678d"
-hash = "1f9fc0e55ff859a32e793833403ee7bd"
+rev = "88990a6"
+hash = "8a7c58225816a163a6e8730c0adafbc8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:no-status"
-rev = "a1b678d"
-hash = "513a23ac28e1eaa626f3a1bb6c8130d0"
+rev = "88990a6"
+hash = "3e023d31f29201efdac2a6ae35fedb78"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "a1b678d"
-hash = "f0c4b41b5d19a3144958383333eff6e7"
+rev = "88990a6"
+hash = "407d19bc4fb46eff5fa8ff8337644847"
 
 [[plugin.deps]]
 use = "boydaihungst/restore"
-rev = "a7a6e5e"
-hash = "4d6e6cc76c8ce08b5f6f344aa9413034"
+rev = "4eda0bf"
+hash = "778941e7f1ebbacd60f4e254bb3c51de"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "a1b678d"
-hash = "dd97eede8e20e59cd2604e8006e470e2"
-
-[[plugin.deps]]
-use = "Reledia/miller"
-rev = "40e0265"
-hash = "2d6d77583162aaf0a599e7a3091b5878"
+rev = "88990a6"
+hash = "9ad20d763df07ce40fd09de549d914b0"
 
 [[plugin.deps]]
 use = "dedukun/relative-motions"
-rev = "8103065"
-hash = "9f13f0740fa3a0c18e47ec6fb62ddfaa"
+rev = "a603d9e"
+hash = "e02a788e5b8ae0fb47fd0193dda589cc"
 
 [[plugin.deps]]
 use = "macydnah/office"
@@ -92,6 +82,16 @@ hash = "c9a3d0731e7d7340e2c6d6126b1f3aa3"
 use = "hankertrix/augment-command"
 rev = "e676d3c"
 hash = "50edde70fad24f7b0e9922729312dbd7"
+
+[[plugin.deps]]
+use = "wylie102/duckdb"
+rev = "3f8c863"
+hash = "87b9233a74325e95011670ed20bbd0d4"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "594b8a2"
+hash = "c9e628fc0312d198db22ae2fa74883b"
 
 [flavor]
 deps = []

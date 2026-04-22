@@ -1,11 +1,11 @@
-[manager]
+[mgr]
 show_hidden = false
 sort_by="natural"
 sort_reverse=false
 linemode="size_and_mtime"
 image_delay=5
 image_quality=80
-	
+ratio = [1, 3, 3]
 max_width=10
 max_height=10
 
@@ -21,57 +21,85 @@ cursor_blink=true
 
 
 [opener]
-edit = [
-	{ run = 'nvim "$@"', block = true, orphan = true },
-]
+
 play = [
 	{ run = 'mpv "$@"', orphan = true, for = "unix" },
 ]
+play2 = [
+	{ run = 'vlc "$@"', orphan = true, for = "unix" },
+]
 viewkit = [
-	{ run = 'kitty +kitten icat "$@"', block = true, orphan = true, for = "linux" },
+	{ run = 'kitty +kitten icat "$@"', block = false, orphan = true, for = "linux" },
 ]
 view = [
-	{ run = 'feh --auto-zoom "$@"', block = true, orphan = true, for = "linux" },
+	{ run = 'feh --auto-zoom "$@"', block = false, orphan = true, for = "linux" },
 ]
 view2 = [
-	{ run = 'gimp "$@"', block = true, orphan = true, for = "linux" },
+	{ run = 'shotwell -f "$@"', block = true, orphan = true, for = "linux" },
 ]
+# open = [
+# 	{ run = '''sh -c '/home/thomas/.programs/OnlyOffice "$(readlink -f "$1")"' -- "$@"''', orphan = true, block = false, for = "linux" },
+# ]
 open = [
-	{ run = 'libreoffice "$@"', orphan = true, block = true, for = "linux" },
+	{ run = 'libreoffice "$@"', orphan = false, for = "linux" },
+]
+opendb = [
+	{ run = '''sh -c 'cd "$(dirname "$1")" && exec duckdb "$1"' -- "$@"''', orphan = false, block = false, for = "linux" },
 ]
 browser = [
-	{ run = 'brave-browser-stable "$@"', orphan = true, block = true, for = "linux" },
+	{ run = 'brave-bin "$@"', orphan = true, block = false, for = "linux" },
 ]
 openpdf = [
-	{ run = 'qpdfview "$@"', orphan = true, block = true, for = "linux" },
+	{ run = 'okular "$@"', orphan = true, block = false, for = "linux" },
 ]
 openvirt= [
-	{ run = 'virt-viewer "$@"', orphan = true, block = true ,for = "linux" },
+	{ run = 'virt-viewer "$@"', orphan = true, block = false,for = "linux" },
 ]
+openjn = [
+	{ run = 'euporie "$@"', orphan = true, block = true ,for = "linux" },
+]
+edit = [
+	{ run = 'NVIM_APPNAME=nvim-12 nvim "$@"', block = true, orphan = true },
+]
+#Terminal CSV editor
+# opencsv = [
+# 	{ run = 'xan view "$@"', orphan = true, block = true ,for = "linux" },
+# ]
 
 [open]
 prepend_rules = [
+	{ name = "*.csv", use = "open" },
 	{ name = "*.json", use = "edit" },
+	{ name = "*.dat", use = "edit" },
+	{ name = "*.db", use = "opendb" },
 	{ name = "*.conf", use = "edit" },
 	{ name = "*.yaml", use = "edit" },
 	{ name = "README.md", use = "edit" },
+	{ name = "*.MOV", use = "play2" },
+	{ name = "*.exe", use = "edit" },
+	{ name = "*.mp4", use = "play" },
+
 
 	##handle pictures
-	#{ name = "*.png", use = "view" },
-	#{ name = "*.jpeg", use = "view" },
-	#{ name = "*.jpg", use = "view" },
+	{ name = "*.png", use = "view" },
+	# { name = "*.jpeg", use = "view" },
+	# { name = "*.jpg", use = "view" },
 
 	#handle office extensions
+	{ name = "*.txt", use = "open" },
 	{ name = "*.xlsx", use = "open" },
+	{ name = "*.xlsm", use = "open" },
 	{ name = "*.xltx", use = "open" },
 	{ name = "*.xls", use = "open" },
-	{ name = "*.csv", use = "open" },
+	# { name = "*.csv", use = "opencsv" },
 	{ name = "*.pptx", use = "open" },
 	{ name = "*.docx", use = "open" },
-	{ name = "*.pdf", use = "open" },
+	{ name = "*.doc", use = "open" },
+	{ name = "*.pdf", use = "openpdf" },
 	{ name = "*.odt", use = "open" },
 	{ name = "*.ods", use = "open" },
-	{ name = "*.dat", use = "edit" },
+	# { name = "*.dat", use = "edit" },
+	{ name = "*.ipynb", use = "openjn" },
 
 	#Campbell Programs
 	{ name = "*.CR*", use = "edit" },
@@ -79,24 +107,32 @@ prepend_rules = [
 	{ name = "*.vv", use = "openvirt" },
 	# Multiple openers for a single rule
 	{ name = "*.html", use = [ "browser", "edit" ] },
-	{ name = "*.png", use = [ "view", "view2" ] },
+	# { name = "*.png", use = [ "view2", "view2" ] },
 	{ name = "*.jpeg", use = [ "view", "view2" ] },
 	{ name = "*.jpg", use = [ "view", "view2" ] },
 	{ name = "*.tiff", use = [ "view", "view2" ] },
 ]
-append_rules = [
-	{ name = "*", use = "my-fallback" },
-]
+# append_rules = [
+# 	{ name = "*", use = "open" },
+# ]
 
 [plugin]
 prepend_preloaders = [
     # Office Documents
-    { mime = "application/openxmlformats-officedocument.*", run = "office" },
-    { mime = "application/oasis.opendocument.*", run = "office" },
-    { mime = "application/ms-*", run = "office" },
-    { mime = "application/msword", run = "office" },
-    { mime = "application/rtf", run = "office" },
+    { mime = "application/openxmlformats-officedocument.*", run = "open" },
+    { mime = "application/oasis.opendocument.*", run = "open" },
+    { mime = "application/ms-*", run = "open" },
+    { mime = "application/msword", run = "open" },
+    { mime = "application/rtf", run = "open" },
+    { mime = "application/pdf", run = "pdf"},
+    { mime = "text/csv", run = "open"},
+    # { name = "*.csv", run = "duckdb"},
     { name = "*.docx", run = "open" },
+    { name = "*.tsv", run = "duckdb", multi = false },  
+    { name = "*.json", run = "duckdb", multi = false },  
+    { name = "*.parquet", run = "duckdb", multi = false },
+    { name = "*.txt", run = "duckdb", multi = false },  
+    { name = "*.xlsx", run = "duckdb", multi = false },
 ]
 
 prepend_previewers = [
@@ -105,16 +141,25 @@ prepend_previewers = [
     { mime = "application/oasis.opendocument.*", run = "office" },
     { mime = "application/ms-*", run = "office" },
     { mime = "application/msword", run = "office" },
-    { mime = "application/pdf", run = "office"},
+    { mime = "application/pdf", run = "pdf"},
+    { mime = "text/csv", run = "duckdb"},
     { mime = "{audio,video}/*", run = "mediainfo"},
     { mime = "image/*", run = "magick"},
     # { mime = "application/subrip", run = "mediainfo"},
-    { name = "*.docx", run = "office" },
-    { name = "*.csv", run = "rich-preview"}, # for csv files
-    { name = "*.md", run = "rich-preview" }, # for markdown (.md) files
+    { name = "*.docx", run = "open" },
+    # { name = "*.csv", run = "rich-preview"}, # for csv files
+    { name = "*.md", run = "glow" }, # for markdown (.md) files
     { name = "*.rst", run = "rich-preview"}, # for restructured text (.rst) files
     { name = "*.ipynb", run = "rich-preview"}, # for jupyter notebooks (.ipynb)
-    { name = "*.json", run = "rich-preview"}, # for json (.json) files
+    # { name = "*.json", run = "rich-preview"}, # for json (.json) files
+    # { name = "*.csv", run = "duckdb" },  
+    { name = "*.tsv", run = "duckdb" },  
+    { name = "*.json", run = "duckdb" },  
+    { name = "*.parquet", run = "duckdb" },  
+    { name = "*.txt", run = "duckdb" },  
+    { name = "*.xlsx", run = "duckdb" },  
+    { name = "*.db", run = "duckdb" },
+    { name = "*.duckdb", run = "duckdb" }, 
 #    { name = "*.lang_type", run = "rich-preview"} # for particular language files eg. .py, .go., .lua, etc.
 ]
 

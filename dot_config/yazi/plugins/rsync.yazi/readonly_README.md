@@ -14,7 +14,7 @@ Thanks to [chrissabug](https://x.com/chrissabug) for creating lovely art!
 ## Installation
 
 ```sh
-ya pack -a GianniBYoung/rsync
+ya pkg add GianniBYoung/rsync
 ```
 
 ## Usage
@@ -24,8 +24,8 @@ Add the binds to your `~/.config/yazi/keymap.toml`
 **WARNING:** Make sure the chosen binding isn't already in use!!
 
 ```toml
-[[manager.prepend_keymap]]
-on   = "R"
+[[mgr.prepend_keymap]]
+on   = [ "R" ]
 run  = "plugin rsync"
 desc = "Copy files using rsync"
 ```
@@ -33,9 +33,9 @@ desc = "Copy files using rsync"
 ### Specify Default Remote Server
 
 ```toml
-[[manager.prepend_keymap]]
-on   = "R"
-run  = "plugin rsync --args='user@server.com'"
+[[mgr.prepend_keymap]]
+on   = [ "R" ]
+run  = "plugin rsync 'user@server.com'"
 desc = "Copy files using rsync to default location"
 ```
 

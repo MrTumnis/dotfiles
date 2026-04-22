@@ -2,7 +2,7 @@
 
 # : Manager {{{
 
-[manager]
+[mgr]
 cwd = { fg = "#5f8787" }
 
 # Hovered
@@ -145,7 +145,7 @@ rules = [
 # : }}} 
 [icon]
 prepend_conds = [
-	{ if = "hidden & dir",  text = "󰷏 ", fg = "#e5bb00"},	# Hidden directories
+	{ if = "hidden & dir",  text = "󰷏 ", fg = "#e5bb90"},	# Hidden directories
 	{ if = "dir",           text = "󰝰 ", fg = "#e5bb00"}, #Directories 📁
 	{ if = "!(dir | link)", text = " " },  # Normal files (not directories or symlinks)
 ]
@@ -798,3 +798,7 @@ exts = [
     { name = "zst", text = "", fg = "#df8e1d" },
     { name = "🔥", text = "", fg = "#d20f39" },
 ]
+
+[flavor]
+dark  = "noctalia"
+light = "noctalia"

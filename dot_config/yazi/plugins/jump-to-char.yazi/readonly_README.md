@@ -7,7 +7,7 @@ https://github.com/yazi-rs/plugins/assets/17523360/aac9341c-b416-4e0c-aaba-889d4
 ## Installation
 
 ```sh
-ya pack -a yazi-rs/plugins:jump-to-char
+ya pkg add yazi-rs/plugins:jump-to-char
 ```
 
 ## Usage
@@ -15,13 +15,13 @@ ya pack -a yazi-rs/plugins:jump-to-char
 Add this to your `~/.config/yazi/keymap.toml`:
 
 ```toml
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "f"
 run  = "plugin jump-to-char"
 desc = "Jump to char"
 ```
 
-Make sure the <kbd>f</kbd> key is not used elsewhere.
+Note that, the keybindings above are just examples, please tune them up as needed to ensure they don't conflict with your other commands/plugins.
 
 ## License
 
