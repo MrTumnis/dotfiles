@@ -1,0 +1,41 @@
+#!/usr/bin/env zunit
+
+@setup {
+  load "${PWD}/tests/_support/annex_test_assertions"
+}
+
+@test 'zinit-annex-bin-gem-node' {
+  is_annex "bin-gem-node"
+}
+@test 'zinit-annex-binary-symlink' {
+  is_annex "binary-symlink"
+}
+@test 'zinit-annex-man' {
+  is_annex "man"
+}
+@test 'zinit-annex-meta-plugins' {
+  is_annex "meta-plugins"
+}
+@test 'zinit-annex-patch-dl' {
+  is_annex "patch-dl"
+}
+@test 'zinit-annex-pull' {
+  is_annex 'pull'
+}
+@test 'zinit-annex-readurl' {
+  is_annex 'readurl'
+}
+@test 'zinit-annex-rust' {
+  is_annex 'rust'
+}
+@test 'zinit-annex-submods' {
+  is_annex 'submods'
+}
+@test 'zinit-annex-test' {
+  is_annex 'test'
+}
+@test 'zinit-annex-unscope' {
+  is_annex 'unscope'
+}
+
+# vim:ft=zsh:sw=2:sts=2:et:foldmarker={,}:foldmethod=marker
