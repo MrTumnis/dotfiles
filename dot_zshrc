@@ -76,7 +76,6 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
 alias ls='ls --color'
-alias vim='nvim'
 alias c='clear'
 
 # Shell integrations
@@ -85,3 +84,4 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(atuin init zsh)"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
+eval "$(ty generate-shell-completion zsh)"
