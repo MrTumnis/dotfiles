@@ -1,5 +1,0 @@
-*.pkg.tar.zst
-dmscripts/
-src/
-pkg/
-man/*.gz
